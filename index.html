@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DROBOTEX 2026 — Borneo's Robotics & Drone Expo</title>
+<meta name="description" content="DROBOTEX 2026 — Two days. Nine arenas. RM25,000 prize pool. 26–27 September 2026, Dewan BKIH, Kuching, Sarawak.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        ink:   '#04070d',
+        panel: '#0a1120',
+        line:  '#16223a',
+        blue:  '#2f7ff0',
+        cyan:  '#38e8ff',
+        red:   '#ff2e4d',
+        fog:   '#8fa3c8',
+        mist:  '#e8eefc'
+      },
+      fontFamily: {
+        display: ['Orbitron', 'sans-serif'],
+        body: ['"Space Grotesk"', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace']
+      }
+    }
+  }
+}
+</script>
+
+<script src="vendor/three.min.js"></script>
+
+<style>
+  html { background:#04070d; color-scheme:dark; overflow-x:clip; }
+  body { background:#04070d; overflow-x:clip; }
+  ::selection { background:#ff2e4d; color:#fff; }
+
+  ::-webkit-scrollbar { width:10px; }
+  ::-webkit-scrollbar-track { background:#04070d; }
+  ::-webkit-scrollbar-thumb { background:#16223a; border:2px solid #04070d; }
+  ::-webkit-scrollbar-thumb:hover { background:#2f7ff0; }
+
+  /* ---------- typography helpers ---------- */
+  .txt-outline {
+    color:transparent;
+    -webkit-text-stroke:1.5px rgba(232,238,252,.55);
+  }
+  .txt-outline-cyan {
+    color:transparent;
+    -webkit-text-stroke:1.5px rgba(56,232,255,.6);
+  }
+  @media (max-width:768px){
+    .txt-outline, .txt-outline-cyan { -webkit-text-stroke-width:1px; }
+  }
+
+  /* ---------- film grain + scanlines ---------- */
+  .grain::after {
+    content:''; position:fixed; inset:-50%; z-index:80; pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity:.05; animation:grain 8s steps(10) infinite;
+  }
+  @keyframes grain {
+    0%,100%{transform:translate(0,0)} 10%{transform:translate(-5%,-8%)} 20%{transform:translate(-12%,3%)}
+    30%{transform:translate(6%,-10%)} 40%{transform:translate(-4%,12%)} 50%{transform:translate(-10%,4%)}
+    60%{transform:translate(12%,0)} 70%{transform:translate(0,10%)} 80%{transform:translate(3%,12%)} 90%{transform:translate(-8%,8%)}
+  }
+  .scanlines::before {
+    content:''; position:fixed; inset:0; z-index:81; pointer-events:none;
+    background:repeating-linear-gradient(0deg, rgba(4,7,13,.22) 0 1px, transparent 1px 4px);
+    opacity:.35;
+  }
+
+  /* ---------- HUD corner brackets ---------- */
+  .hud { position:relative; }
+  .hud::before, .hud::after,
+  .hud > .hud-i::before, .hud > .hud-i::after {
+    content:''; position:absolute; width:18px; height:18px; z-index:2;
+    border-color:#38e8ff; border-style:solid; opacity:.8;
+  }
+  .hud::before        { top:-1px; left:-1px;  border-width:2px 0 0 2px; }
+  .hud::after         { top:-1px; right:-1px; border-width:2px 2px 0 0; }
+  .hud > .hud-i::before { bottom:-1px; left:-1px;  border-width:0 0 2px 2px; }
+  .hud > .hud-i::after  { bottom:-1px; right:-1px; border-width:0 2px 2px 0; }
+
+  /* ---------- marquee ---------- */
+  @keyframes marq { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+  .marq-track { display:flex; width:max-content; animation:marq 28s linear infinite; }
+  .marq-rev   { animation-direction:reverse; }
+  .marq-slow  { animation-duration:44s; }
+
+  /* ---------- custom cursor ---------- */
+  #cursor-dot, #cursor-ring { position:fixed; top:0; left:0; z-index:90; pointer-events:none; border-radius:9999px; }
+  #cursor-dot  { width:6px; height:6px; background:#ff2e4d; }
+  #cursor-ring { width:36px; height:36px; border:1px solid rgba(56,232,255,.7); transition:width .25s, height .25s, border-color .25s; }
+  #cursor-ring.hovering { width:64px; height:64px; border-color:#ff2e4d; }
+  @media (pointer:coarse){ #cursor-dot,#cursor-ring{display:none} }
+
+  /* ---------- preloader ---------- */
+  #preloader { position:fixed; inset:0; z-index:100; background:#04070d; display:flex; align-items:center; justify-content:center; transition:transform .9s cubic-bezier(.77,0,.18,1); }
+  #preloader.exit { transform:translateY(-100%); }
+  #preloader .bar { height:2px; background:#16223a; overflow:hidden; }
+  #preloader .bar > div { height:100%; width:0%; background:linear-gradient(90deg,#2f7ff0,#38e8ff); }
+
+  /* ---------- horizontal competition panels ---------- */
+  .comp-card {
+    transition:background .4s, color .4s;
+    background-image:
+      linear-gradient(rgba(56,232,255,.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(56,232,255,.055) 1px, transparent 1px);
+    background-size:44px 44px;
+    background-position:center;
+  }
+  .comp-card:hover {
+    background-color:#e8eefc;
+    background-image:
+      linear-gradient(rgba(4,7,13,.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(4,7,13,.08) 1px, transparent 1px);
+  }
+  .comp-card:hover .cc-title { color:#04070d; }
+  .comp-card:hover .cc-meta  { color:#33415e; }
+  .comp-card:hover .cc-num   { -webkit-text-stroke-color:rgba(4,7,13,.4); }
+  .comp-card:hover .cc-tag   { border-color:#ff2e4d; color:#ff2e4d; }
+  .comp-card:hover .cc-arrow { transform:translate(6px,-6px); color:#ff2e4d; }
+  .cc-arrow { transition:transform .35s, color .35s; }
+  .cc-num { color:transparent; -webkit-text-stroke:1px rgba(232,238,252,.25); transition:.4s; }
+
+  /* ---------- exhibition rows ---------- */
+  .zone-row .zone-desc { max-height:0; opacity:0; overflow:hidden; transition:max-height .5s cubic-bezier(.22,1,.36,1), opacity .4s; }
+  .zone-row:hover .zone-desc, .zone-row.open .zone-desc { max-height:120px; opacity:1; }
+  .zone-row { transition:background .35s, padding-left .35s; }
+  .zone-row:hover { background:rgba(47,127,240,.06); padding-left:1.25rem; }
+  .zone-row:hover .zone-name { color:#38e8ff; }
+  .zone-name { transition:color .3s; }
+
+  /* ---------- WebGL fallback backdrop ---------- */
+  #hero.webgl-fallback {
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(47,127,240,.18), transparent 60%),
+      radial-gradient(ellipse 40% 35% at 30% 70%, rgba(56,232,255,.10), transparent 60%),
+      radial-gradient(ellipse 30% 25% at 80% 80%, rgba(255,46,77,.08), transparent 60%);
+  }
+
+  /* ---------- misc anims ---------- */
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.15} }
+  .blink { animation:blink 1.4s steps(2) infinite; }
+  @keyframes floaty { 0%,100%{transform:translateY(0) rotate(-2deg)} 50%{transform:translateY(-22px) rotate(2deg)} }
+  .floaty { animation:floaty 6s ease-in-out infinite; }
+  @keyframes spin-slow { to{transform:rotate(360deg)} }
+
+  .link-u { position:relative; }
+  .link-u::after { content:''; position:absolute; left:0; bottom:-3px; height:1px; width:100%; background:#38e8ff; transform:scaleX(0); transform-origin:right; transition:transform .35s cubic-bezier(.22,1,.36,1); }
+  .link-u:hover::after { transform:scaleX(1); transform-origin:left; }
+
+  .btn-glitch { position:relative; overflow:hidden; }
+  .btn-glitch::before { content:''; position:absolute; inset:0; background:#38e8ff; transform:translateX(-101%); transition:transform .4s cubic-bezier(.22,1,.36,1); }
+  .btn-glitch:hover::before { transform:translateX(0); }
+  .btn-glitch:hover span { color:#04070d; }
+  .btn-glitch span { position:relative; z-index:1; transition:color .3s; }
+
+  /* word reveal default state (JS animates in) */
+  .w { display:inline-block; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marq-track, .floaty, .blink, .grain::after { animation:none !important; }
+  }
+</style>
+</head>
+
+<body class="grain scanlines bg-ink text-mist font-body antialiased selection:bg-red">
+
+<!-- ==================== PRELOADER ==================== -->
+<div id="preloader">
+  <div class="w-[min(480px,86vw)] font-mono text-xs text-fog">
+    <div id="boot-lines" class="h-32 overflow-hidden leading-6"></div>
+    <div class="flex justify-between mt-4 mb-2 text-[10px] tracking-[0.3em] text-cyan">
+      <span>DROBOTEX.OS</span><span id="boot-pct">0%</span>
+    </div>
+    <div class="bar"><div id="boot-bar"></div></div>
+  </div>
+</div>
+
+<!-- cursor -->
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<!-- scroll progress -->
+<div id="scroll-progress" class="fixed top-0 left-0 h-[2px] bg-gradient-to-r from-blue via-cyan to-red z-[70] w-0"></div>
+
+<!-- ==================== NAV ==================== -->
+<header id="nav" class="fixed top-0 inset-x-0 z-[60] transition-all duration-500">
+  <div class="flex items-center justify-between px-5 md:px-10 h-16 md:h-20">
+    <a href="#top" class="font-display font-800 tracking-[0.2em] text-sm md:text-base font-bold" data-hover>
+      DROBOTEX<span class="text-red">//</span><span class="text-cyan">26</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 font-mono text-[11px] tracking-[0.25em] text-fog">
+      <a href="#about"        class="link-u hover:text-mist" data-hover>BRIEF</a>
+      <a href="#competitions" class="link-u hover:text-mist" data-hover>ARENAS</a>
+      <a href="#workshops"    class="link-u hover:text-mist" data-hover>WORKSHOPS</a>
+      <a href="#exhibition"   class="link-u hover:text-mist" data-hover>EXPO</a>
+      <a href="#register" class="btn-glitch border border-cyan px-5 py-2 text-cyan" data-hover><span>REGISTER ↗</span></a>
+    </nav>
+    <button id="nav-toggle" class="md:hidden font-mono text-[11px] tracking-[0.3em] text-cyan" data-hover>MENU</button>
+  </div>
+</header>
+
+<!-- mobile menu -->
+<div id="mobile-menu" class="fixed inset-0 z-[59] bg-ink hidden flex-col justify-center px-8">
+  <nav class="flex flex-col gap-6 font-display text-4xl font-bold">
+    <a href="#about"        class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">BRIEF</a>
+    <a href="#competitions" class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">ARENAS</a>
+    <a href="#workshops"    class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">WORKSHOPS</a>
+    <a href="#exhibition"   class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">EXPO</a>
+    <a href="#register"     class="mob-link text-red">REGISTER ↗</a>
+  </nav>
+  <p class="mob-link mt-12 font-mono text-[10px] tracking-[0.3em] text-fog">26—27.09.2026 · DEWAN BKIH · KUCHING</p>
+</div>
+
+<main id="top">
+
+<!-- ==================== HERO ==================== -->
+<section id="hero" class="relative h-[100svh] min-h-[640px] overflow-hidden">
+  <canvas id="webgl" class="absolute inset-0 w-full h-full"></canvas>
+  <div class="absolute inset-0 bg-gradient-to-b from-ink/40 via-transparent to-ink pointer-events-none"></div>
+
+  <!-- HUD frame -->
+  <div class="pointer-events-none absolute inset-4 md:inset-x-8 md:bottom-8 md:top-28 border border-line/60 z-10">
+    <span class="absolute -top-px -left-px w-5 h-5 border-t-2 border-l-2 border-cyan"></span>
+    <span class="absolute -top-px -right-px w-5 h-5 border-t-2 border-r-2 border-cyan"></span>
+    <span class="absolute -bottom-px -left-px w-5 h-5 border-b-2 border-l-2 border-cyan"></span>
+    <span class="absolute -bottom-px -right-px w-5 h-5 border-b-2 border-r-2 border-cyan"></span>
+
+    <div class="hidden md:block absolute top-5 left-5 font-mono text-[10px] tracking-[0.3em] text-fog">
+      TEGAS PRESENTS<br><span class="text-cyan">BORNEO ROBOTICS EXPO</span>
+    </div>
+    <div class="hidden md:block absolute top-5 right-5 font-mono text-[10px] tracking-[0.3em] text-fog text-right">
+      SYS.STATUS <span class="text-cyan blink">● LIVE</span><br>
+      <span id="hero-coords">1.5535° N / 110.3593° E</span>
+    </div>
+    <div class="hidden md:block absolute bottom-5 left-5 font-mono text-[10px] tracking-[0.3em] text-fog">
+      CAT.A — SCHOOLS<br>CAT.B — OPEN / TERTIARY
+    </div>
+    <div class="hidden md:flex absolute bottom-5 right-5 font-mono text-[10px] tracking-[0.3em] text-fog items-center gap-3">
+      SCROLL TO ENGAGE <span class="inline-block w-10 h-px bg-cyan"></span> ↓
+    </div>
+  </div>
+
+  <!-- hero content -->
+  <div class="relative z-20 h-full flex flex-col justify-center px-6 md:px-16 lg:px-24">
+    <div id="hero-fade">
+      <p id="hero-kicker" class="font-mono text-[10px] md:text-xs tracking-[0.5em] text-cyan mb-4 md:mb-6 opacity-0">
+        26 — 27 SEPTEMBER 2026 · DEWAN BKIH, KUCHING
+      </p>
+      <h1 class="font-display font-black leading-[0.88] select-none">
+        <span id="hero-l1" class="block text-[clamp(3rem,12.5vw,11rem)] opacity-0">DROBOTEX</span>
+        <span id="hero-l2" class="block text-[clamp(3rem,12.5vw,11rem)] txt-outline opacity-0">2026<span class="text-red" style="-webkit-text-stroke:0">.</span></span>
+      </h1>
+      <div id="hero-sub" class="mt-6 md:mt-10 flex flex-wrap items-center gap-4 md:gap-6 opacity-0">
+        <span class="border border-red/70 text-red font-mono text-[10px] md:text-xs tracking-[0.25em] px-4 py-2">RM 25,000 PRIZE POOL</span>
+        <span class="border border-line text-fog font-mono text-[10px] md:text-xs tracking-[0.25em] px-4 py-2">9 ARENAS · 6 WORKSHOPS · 8 EXPO ZONES</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- mascot -->
+  <img id="mascot" src="assets/mascot.png" alt="DROBOTEX mascot"
+       class="floaty pointer-events-none absolute z-10 right-[4%] bottom-[10%] w-[38vw] max-w-[300px] md:w-[24vw] md:max-w-[380px] opacity-0 drop-shadow-[0_0_40px_rgba(56,232,255,0.25)]">
+</section>
+
+<!-- ==================== TICKER ==================== -->
+<div class="relative border-y border-line bg-panel/60 py-3 overflow-hidden -rotate-1 origin-center scale-[1.02]">
+  <div class="marq-track font-mono text-[11px] md:text-xs tracking-[0.35em] text-fog">
+    <div class="flex shrink-0">
+      <span class="px-6">TINYWHOOP DRONE RACE</span><span class="text-red px-2">✦</span>
+      <span class="px-6">BORNEO BATTLEBOTS</span><span class="text-cyan px-2">✦</span>
+      <span class="px-6">DRONE SOCCER</span><span class="text-red px-2">✦</span>
+      <span class="px-6">ROBOSOCCER</span><span class="text-cyan px-2">✦</span>
+      <span class="px-6">RERO:MICRO</span><span class="text-red px-2">✦</span>
+      <span class="px-6">SCRATCHATHON</span><span class="text-cyan px-2">✦</span>
+      <span class="px-6">INNOVATION CHALLENGE</span><span class="text-red px-2">✦</span>
+      <span class="px-6">XYLO ROBOT</span><span class="text-cyan px-2">✦</span>
+    </div>
+    <div class="flex shrink-0" aria-hidden="true">
+      <span class="px-6">TINYWHOOP DRONE RACE</span><span class="text-red px-2">✦</span>
+      <span class="px-6">BORNEO BATTLEBOTS</span><span class="text-cyan px-2">✦</span>
+      <span class="px-6">DRONE SOCCER</span><span class="text-red px-2">✦</span>
+      <span class="px-6">ROBOSOCCER</span><span class="text-cyan px-2">✦</span>
+      <span class="px-6">RERO:MICRO</span><span class="text-red px-2">✦</span>
+      <span class="px-6">SCRATCHATHON</span><span class="text-cyan px-2">✦</span>
+      <span class="px-6">INNOVATION CHALLENGE</span><span class="text-red px-2">✦</span>
+      <span class="px-6">XYLO ROBOT</span><span class="text-cyan px-2">✦</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== STATS ==================== -->
+<section class="border-b border-line">
+  <div class="grid grid-cols-2 md:grid-cols-5 divide-x divide-y md:divide-y-0 divide-line">
+    <div class="stat p-6 md:p-10">
+      <p class="font-display font-800 text-3xl md:text-5xl font-bold text-cyan"><span class="text-lg md:text-2xl align-top">RM</span><span data-count="25000">0</span></p>
+      <p class="font-mono text-[9px] md:text-[10px] tracking-[0.3em] text-fog mt-3">PRIZE POOL · CAT A & B</p>
+    </div>
+    <div class="stat p-6 md:p-10">
+      <p class="font-display font-800 text-3xl md:text-5xl font-bold"><span data-count="9">0</span></p>
+      <p class="font-mono text-[9px] md:text-[10px] tracking-[0.3em] text-fog mt-3">COMPETITION ARENAS</p>
+    </div>
+    <div class="stat p-6 md:p-10">
+      <p class="font-display font-800 text-3xl md:text-5xl font-bold"><span data-count="6">0</span></p>
+      <p class="font-mono text-[9px] md:text-[10px] tracking-[0.3em] text-fog mt-3">HANDS-ON WORKSHOPS</p>
+    </div>
+    <div class="stat p-6 md:p-10">
+      <p class="font-display font-800 text-3xl md:text-5xl font-bold"><span data-count="8">0</span></p>
+      <p class="font-mono text-[9px] md:text-[10px] tracking-[0.3em] text-fog mt-3">EXHIBITION ZONES</p>
+    </div>
+    <div class="stat p-6 md:p-10 col-span-2 md:col-span-1">
+      <p class="font-display font-800 text-3xl md:text-5xl font-bold text-red"><span data-count="20">0</span>+</p>
+      <p class="font-mono text-[9px] md:text-[10px] tracking-[0.3em] text-fog mt-3">PARTNER INSTITUTIONS</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABOUT ==================== -->
+<section id="about" class="relative px-6 md:px-16 lg:px-24 py-24 md:py-40">
+  <div class="flex items-baseline gap-6 mb-12 md:mb-20 reveal">
+    <span class="font-mono text-xs text-red tracking-[0.3em]">01</span>
+    <h2 class="font-mono text-xs tracking-[0.5em] text-fog">MISSION BRIEF</h2>
+    <span class="flex-1 h-px bg-line"></span>
+  </div>
+
+  <div class="grid lg:grid-cols-12 gap-10 lg:gap-16">
+    <div class="lg:col-span-8">
+      <p id="about-statement" class="font-display font-700 font-bold text-[clamp(1.5rem,4vw,3.2rem)] leading-[1.15]">
+        Two days where Sarawak's brightest minds pit drones, robots and code against each other — on the floor, in the air, and in the arena.
+      </p>
+      <p class="reveal mt-8 md:mt-10 max-w-xl text-fog leading-relaxed">
+        DROBOTEX 2026 is TEGAS's flagship robotics and drone exposition — a convergence of competition,
+        exhibition and education. Nine competition arenas run across two categories: <span class="text-mist">Category A</span> for
+        schools and <span class="text-mist">Category B</span> for open and tertiary teams, backed by universities, TVET
+        institutions and industry builders from across Borneo.
+      </p>
+    </div>
+
+    <div class="lg:col-span-4 reveal">
+      <div class="hud border border-line bg-panel/60 p-6 md:p-8 font-mono text-xs leading-7 text-fog">
+        <span class="hud-i"></span>
+        <p class="text-cyan tracking-[0.3em] mb-4">// EVENT.SPEC</p>
+        <p><span class="text-mist">DATE</span> — 26–27 SEPT 2026</p>
+        <p><span class="text-mist">VENUE</span> — DEWAN BKIH</p>
+        <p><span class="text-mist">HOST</span> — TEGAS · SARAWAK</p>
+        <p><span class="text-mist">PRIZE</span> — RM 25,000</p>
+        <p><span class="text-mist">ENTRY</span> — CAT.A SCHOOLS</p>
+        <p class="pl-14">CAT.B OPEN/TERTIARY</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- objectives -->
+  <div class="mt-24 md:mt-32 grid md:grid-cols-2 gap-px bg-line border border-line">
+    <div class="reveal bg-ink p-8 md:p-12">
+      <p class="font-display text-5xl md:text-6xl font-black txt-outline-cyan">A</p>
+      <h3 class="font-display font-bold text-lg md:text-xl mt-4">IGNITE STEM CULTURE</h3>
+      <p class="text-fog mt-3 leading-relaxed text-sm">Put robotics, drones and AI in the hands of students — not behind glass. Every zone is built to be touched, flown and programmed.</p>
+    </div>
+    <div class="reveal bg-ink p-8 md:p-12">
+      <p class="font-display text-5xl md:text-6xl font-black txt-outline-cyan">B</p>
+      <h3 class="font-display font-bold text-lg md:text-xl mt-4">BUILD THE PIPELINE</h3>
+      <p class="text-fog mt-3 leading-relaxed text-sm">Connect schools, universities and TVET institutions into one competitive ladder — from Scratchathon rookies to Battlebot veterans.</p>
+    </div>
+    <div class="reveal bg-ink p-8 md:p-12">
+      <p class="font-display text-5xl md:text-6xl font-black txt-outline-cyan">C</p>
+      <h3 class="font-display font-bold text-lg md:text-xl mt-4">BRIDGE INDUSTRY</h3>
+      <p class="text-fog mt-3 leading-relaxed text-sm">Cytron, Droneskaki, MyRobotZ, TCIL and more run arenas and workshops — turning two days of competition into careers and collaborations.</p>
+    </div>
+    <div class="reveal bg-ink p-8 md:p-12">
+      <p class="font-display text-5xl md:text-6xl font-black txt-outline-cyan">D</p>
+      <h3 class="font-display font-bold text-lg md:text-xl mt-4">PUT SARAWAK ON THE MAP</h3>
+      <p class="text-fog mt-3 leading-relaxed text-sm">Position Kuching as Borneo's robotics capital — a regional stage where local talent competes at national standard.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== COMPETITIONS (horizontal scroll) ==================== -->
+<section id="competitions" class="relative overflow-hidden">
+  <div class="h-[100svh] flex flex-col justify-center">
+    <div class="px-6 md:px-16 lg:px-24 mb-8 md:mb-12 flex items-baseline gap-6">
+      <span class="font-mono text-xs text-red tracking-[0.3em]">02</span>
+      <h2 class="font-mono text-xs tracking-[0.5em] text-fog">THE NINE ARENAS</h2>
+      <span class="flex-1 h-px bg-line"></span>
+      <span class="hidden md:block font-mono text-[10px] tracking-[0.3em] text-fog">SCROLL →</span>
+    </div>
+
+    <div id="comp-viewport" class="overflow-hidden">
+      <div id="comp-track" class="flex gap-4 md:gap-6 px-6 md:px-16 lg:px-24 w-max items-stretch">
+
+        <!-- card template x9 -->
+        <article class="comp-card relative shrink-0 w-[78vw] sm:w-[380px] md:w-[440px] border border-line bg-panel/50 p-7 md:p-10 flex flex-col justify-between min-h-[52svh] md:min-h-[56svh]" data-hover>
+          <div>
+            <div class="flex justify-between items-start">
+              <span class="cc-num font-display font-black text-6xl md:text-7xl">01</span>
+              <span class="cc-tag border border-cyan/50 text-cyan font-mono text-[9px] tracking-[0.25em] px-3 py-1">AERIAL RACE</span>
+            </div>
+            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-8 md:mt-12 leading-tight">TINYWHOOP<br>DRONE RACE</h3>
+          </div>
+          <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog mt-10">
+            <span>ORG — CATCITY DRONE RACING</span><span class="cc-arrow text-cyan text-lg">↗</span>
+          </div>
+        </article>
+
+        <article class="comp-card relative shrink-0 w-[78vw] sm:w-[380px] md:w-[440px] border border-line bg-panel/50 p-7 md:p-10 flex flex-col justify-between min-h-[52svh] md:min-h-[56svh]" data-hover>
+          <div>
+            <div class="flex justify-between items-start">
+              <span class="cc-num font-display font-black text-6xl md:text-7xl">02</span>
+              <span class="cc-tag border border-cyan/50 text-cyan font-mono text-[9px] tracking-[0.25em] px-3 py-1">AERIAL · EDU</span>
+            </div>
+            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-8 md:mt-12 leading-tight">EDUCATIONAL<br>DRONE CHALLENGE</h3>
+          </div>
+          <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog mt-10">
+            <span>ORG — DRONESKAKI SARAWAK</span><span class="cc-arrow text-cyan text-lg">↗</span>
+          </div>
+        </article>
+
+        <article class="comp-card relative shrink-0 w-[78vw] sm:w-[380px] md:w-[440px] border border-line bg-panel/50 p-7 md:p-10 flex flex-col justify-between min-h-[52svh] md:min-h-[56svh]" data-hover>
+          <div>
+            <div class="flex justify-between items-start">
+              <span class="cc-num font-display font-black text-6xl md:text-7xl">03</span>
+              <span class="cc-tag border border-cyan/50 text-cyan font-mono text-[9px] tracking-[0.25em] px-3 py-1">AERIAL SPORT</span>
+            </div>
+            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-8 md:mt-12 leading-tight">DRONE SOCCER<br>CHALLENGE</h3>
+          </div>
+          <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog mt-10">
+            <span>ORG — VAV × AIRASIA DRONE</span><span class="cc-arrow text-cyan text-lg">↗</span>
+          </div>
+        </article>
+
+        <article class="comp-card relative shrink-0 w-[78vw] sm:w-[380px] md:w-[440px] border border-line bg-panel/50 p-7 md:p-10 flex flex-col justify-between min-h-[52svh] md:min-h-[56svh]" data-hover>
+          <div>
+            <div class="flex justify-between items-start">
+              <span class="cc-num font-display font-black text-6xl md:text-7xl">04</span>
+              <span class="cc-tag border border-cyan/50 text-cyan font-mono text-[9px] tracking-[0.25em] px-3 py-1">GROUND SPORT</span>
+            </div>
+            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-8 md:mt-12 leading-tight">ROBOSOCCER<br>COMPETITION</h3>
+          </div>
+          <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog mt-10">
+            <span>ORG — WORLD ROBOTICS CENTRE</span><span class="cc-arrow text-cyan text-lg">↗</span>
+          </div>
+        </article>
+
+        <article class="comp-card relative shrink-0 w-[78vw] sm:w-[380px] md:w-[440px] border border-red/40 bg-panel/50 p-7 md:p-10 flex flex-col justify-between min-h-[52svh] md:min-h-[56svh]" data-hover>
+          <div>
+            <div class="flex justify-between items-start">
+              <span class="cc-num font-display font-black text-6xl md:text-7xl">05</span>
+              <span class="cc-tag border border-red text-red font-mono text-[9px] tracking-[0.25em] px-3 py-1">COMBAT</span>
+            </div>
+            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-8 md:mt-12 leading-tight text-red">BORNEO<br>BATTLEBOTS</h3>
+          </div>
+          <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog mt-10">
+            <span>ORG — MYROBOTZ ENTERPRISE</span><span class="cc-arrow text-red text-lg">↗</span>
+          </div>
+        </article>
+
+        <article class="comp-card relative shrink-0 w-[78vw] sm:w-[380px] md:w-[440px] border border-line bg-panel/50 p-7 md:p-10 flex flex-col justify-between min-h-[52svh] md:min-h-[56svh]" data-hover>
+          <div>
+            <div class="flex justify-between items-start">
+              <span class="cc-num font-display font-black text-6xl md:text-7xl">06</span>
+              <span class="cc-tag border border-cyan/50 text-cyan font-mono text-[9px] tracking-[0.25em] px-3 py-1">AUTONOMOUS</span>
+            </div>
+            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-8 md:mt-12 leading-tight">RERO:MICRO<br>ROBOT COMP</h3>
+          </div>
+          <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog mt-10">
+            <span>ORG — CYTRON TECHNOLOGIES</span><span class="cc-arrow text-cyan text-lg">↗</span>
+          </div>
+        </article>
+
+        <article class="comp-card relative shrink-0 w-[78vw] sm:w-[380px] md:w-[440px] border border-line bg-panel/50 p-7 md:p-10 flex flex-col justify-between min-h-[52svh] md:min-h-[56svh]" data-hover>
+          <div>
+            <div class="flex justify-between items-start">
+              <span class="cc-num font-display font-black text-6xl md:text-7xl">07</span>
+              <span class="cc-tag border border-cyan/50 text-cyan font-mono text-[9px] tracking-[0.25em] px-3 py-1">INNOVATION</span>
+            </div>
+            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-8 md:mt-12 leading-tight">DROBOTEX<br>INNOVATION CHALLENGE</h3>
+          </div>
+          <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog mt-10">
+            <span>ORG — TCIL</span><span class="cc-arrow text-cyan text-lg">↗</span>
+          </div>
+        </article>
+
+        <article class="comp-card relative shrink-0 w-[78vw] sm:w-[380px] md:w-[440px] border border-line bg-panel/50 p-7 md:p-10 flex flex-col justify-between min-h-[52svh] md:min-h-[56svh]" data-hover>
+          <div>
+            <div class="flex justify-between items-start">
+              <span class="cc-num font-display font-black text-6xl md:text-7xl">08</span>
+              <span class="cc-tag border border-cyan/50 text-cyan font-mono text-[9px] tracking-[0.25em] px-3 py-1">CODING</span>
+            </div>
+            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-8 md:mt-12 leading-tight">SCRATCHATHON</h3>
+          </div>
+          <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog mt-10">
+            <span>ORG — STEMGROUND</span><span class="cc-arrow text-cyan text-lg">↗</span>
+          </div>
+        </article>
+
+        <article class="comp-card relative shrink-0 w-[78vw] sm:w-[380px] md:w-[440px] border border-line bg-panel/50 p-7 md:p-10 flex flex-col justify-between min-h-[52svh] md:min-h-[56svh]" data-hover>
+          <div>
+            <div class="flex justify-between items-start">
+              <span class="cc-num font-display font-black text-6xl md:text-7xl">09</span>
+              <span class="cc-tag border border-cyan/50 text-cyan font-mono text-[9px] tracking-[0.25em] px-3 py-1">MUSIC TECH</span>
+            </div>
+            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-8 md:mt-12 leading-tight">XYLO ROBOT<br>COMPETITION</h3>
+          </div>
+          <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog mt-10">
+            <span>ORG — STEMGROUND</span><span class="cc-arrow text-cyan text-lg">↗</span>
+          </div>
+        </article>
+
+        <!-- end cap -->
+        <div class="shrink-0 w-[60vw] md:w-[420px] flex items-center">
+          <a href="#register" class="group" data-hover>
+            <p class="font-display font-black text-4xl md:text-6xl leading-[1.02] txt-outline group-hover:text-mist transition-colors duration-500" style="-webkit-text-stroke-color:rgba(56,232,255,.6)">
+              ENTER<br>THE<br>ARENA <span class="text-red" style="-webkit-text-stroke:0">↗</span>
+            </p>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WORKSHOPS ==================== -->
+<section id="workshops" class="relative px-6 md:px-16 lg:px-24 py-24 md:py-40 border-t border-line">
+  <div class="flex items-baseline gap-6 mb-12 md:mb-20 reveal">
+    <span class="font-mono text-xs text-red tracking-[0.3em]">03</span>
+    <h2 class="font-mono text-xs tracking-[0.5em] text-fog">WORKSHOP TRACKS</h2>
+    <span class="flex-1 h-px bg-line"></span>
+    <span class="font-mono text-[10px] tracking-[0.3em] text-fog">6 SESSIONS / 2 DAYS</span>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-10 md:gap-16">
+    <!-- DAY 1 -->
+    <div class="reveal">
+      <div class="flex items-baseline gap-4 mb-8">
+        <h3 class="font-display font-black text-4xl md:text-5xl">DAY<span class="text-cyan">_01</span></h3>
+        <span class="font-mono text-[10px] tracking-[0.3em] text-fog">26.09.2026</span>
+      </div>
+      <div class="border-l border-line pl-6 md:pl-8 space-y-10 relative">
+        <div class="relative">
+          <span class="absolute -left-[27px] md:-left-[35px] top-1 w-2.5 h-2.5 bg-cyan rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.3em] text-cyan">SLOT 1 · AM</p>
+          <h4 class="font-display font-bold text-xl md:text-2xl mt-2">DRONE ASSEMBLY</h4>
+          <p class="text-fog text-sm mt-2 leading-relaxed">Airframes, motors and flight controllers — build it, then fly it.</p>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-fog mt-2">LEAD — DRONESKAKI · HARDWARE</p>
+        </div>
+        <div class="relative">
+          <span class="absolute -left-[27px] md:-left-[35px] top-1 w-2.5 h-2.5 bg-blue rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.3em] text-cyan">SLOT 2 · EARLY PM</p>
+          <h4 class="font-display font-bold text-xl md:text-2xl mt-2">INTRO TO RACING</h4>
+          <p class="text-fog text-sm mt-2 leading-relaxed">FPV simulator drills, safety protocols and gate maneuvering.</p>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-fog mt-2">LEAD — DRONESKAKI · PILOTING & FPV</p>
+        </div>
+        <div class="relative">
+          <span class="absolute -left-[27px] md:-left-[35px] top-1 w-2.5 h-2.5 bg-red rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.3em] text-cyan">SLOT 3 · LATE PM</p>
+          <h4 class="font-display font-bold text-xl md:text-2xl mt-2">3D PRINT DESIGN</h4>
+          <p class="text-fog text-sm mt-2 leading-relaxed">CAD modeling and fabricating custom robotics components.</p>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-fog mt-2">LEAD — CYTRON / CHUMBAKA · FAB & PROTO</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="reveal">
+      <div class="flex items-baseline gap-4 mb-8">
+        <h3 class="font-display font-black text-4xl md:text-5xl">DAY<span class="text-red">_02</span></h3>
+        <span class="font-mono text-[10px] tracking-[0.3em] text-fog">27.09.2026</span>
+      </div>
+      <div class="border-l border-line pl-6 md:pl-8 space-y-10 relative">
+        <div class="relative">
+          <span class="absolute -left-[27px] md:-left-[35px] top-1 w-2.5 h-2.5 bg-cyan rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.3em] text-cyan">SLOT 1 · AM</p>
+          <h4 class="font-display font-bold text-xl md:text-2xl mt-2">ROBOTIC PYTHON</h4>
+          <p class="text-fog text-sm mt-2 leading-relaxed">Motor control, sensors and logic programming in Python.</p>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-fog mt-2">LEAD — CYTRON / CHUMBAKA · EMBEDDED</p>
+        </div>
+        <div class="relative">
+          <span class="absolute -left-[27px] md:-left-[35px] top-1 w-2.5 h-2.5 bg-blue rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.3em] text-cyan">SLOT 2 · EARLY PM</p>
+          <h4 class="font-display font-bold text-xl md:text-2xl mt-2">AI FOR ROBOTICS</h4>
+          <p class="text-fog text-sm mt-2 leading-relaxed">Vision sensors, object recognition and ML integration basics.</p>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-fog mt-2">LEAD — UNIVERSITY / SSCIEX · MACHINE VISION</p>
+        </div>
+        <div class="relative">
+          <span class="absolute -left-[27px] md:-left-[35px] top-1 w-2.5 h-2.5 bg-red rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.3em] text-cyan">SLOT 3 · LATE PM</p>
+          <h4 class="font-display font-bold text-xl md:text-2xl mt-2">DRONE MEDIA</h4>
+          <p class="text-fog text-sm mt-2 leading-relaxed">Camera settings, cinematic maneuvers and legal compliance.</p>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-fog mt-2">LEAD — DRONESKAKI / MEDIA · AERIAL FILMING</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== EXHIBITION ==================== -->
+<section id="exhibition" class="relative py-24 md:py-40 border-t border-line">
+  <div class="px-6 md:px-16 lg:px-24 flex items-baseline gap-6 mb-4 reveal">
+    <span class="font-mono text-xs text-red tracking-[0.3em]">04</span>
+    <h2 class="font-mono text-xs tracking-[0.5em] text-fog">EXPO FLOOR</h2>
+    <span class="flex-1 h-px bg-line"></span>
+    <span class="font-mono text-[10px] tracking-[0.3em] text-fog">8 ZONES</span>
+  </div>
+
+  <h3 class="reveal px-6 md:px-16 lg:px-24 font-display font-black text-[clamp(2.2rem,7vw,5.5rem)] leading-[0.95] mb-12 md:mb-16">
+    WALK THE <span class="txt-outline-cyan">FLOOR</span>
+  </h3>
+
+  <div class="border-t border-line">
+    <div class="zone-row reveal border-b border-line px-6 md:px-16 lg:px-24 py-6 md:py-8 cursor-pointer" data-hover>
+      <div class="flex items-baseline gap-4 md:gap-10">
+        <span class="font-mono text-xs text-fog w-8">01</span>
+        <h4 class="zone-name font-display font-bold text-xl md:text-4xl flex-1">DRONE FLIGHT & SIMULATOR</h4>
+        <span class="hidden md:block font-mono text-[10px] tracking-[0.25em] text-fog">DRONESKAKI</span>
+      </div>
+      <div class="zone-desc pl-12 md:pl-[7.5rem] text-fog text-sm leading-relaxed pt-3">
+        FPV simulator training stations, caged obstacle-course navigation and AR drone piloting experiences.
+      </div>
+    </div>
+    <div class="zone-row reveal border-b border-line px-6 md:px-16 lg:px-24 py-6 md:py-8 cursor-pointer" data-hover>
+      <div class="flex items-baseline gap-4 md:gap-10">
+        <span class="font-mono text-xs text-fog w-8">02</span>
+        <h4 class="zone-name font-display font-bold text-xl md:text-4xl flex-1">AERO & DIY DRONE MAKER</h4>
+        <span class="hidden md:block font-mono text-[10px] tracking-[0.25em] text-fog">DRONESKAKI × STEMGROUND</span>
+      </div>
+      <div class="zone-desc pl-12 md:pl-[7.5rem] text-fog text-sm leading-relaxed pt-3">
+        Micro drone assembly demos, fixed-wing aerodynamics and rapid prototyping.
+      </div>
+    </div>
+    <div class="zone-row reveal border-b border-line px-6 md:px-16 lg:px-24 py-6 md:py-8 cursor-pointer" data-hover>
+      <div class="flex items-baseline gap-4 md:gap-10">
+        <span class="font-mono text-xs text-fog w-8">03</span>
+        <h4 class="zone-name font-display font-bold text-xl md:text-4xl flex-1">ROBOTICS & CODING HUB</h4>
+        <span class="hidden md:block font-mono text-[10px] tracking-[0.25em] text-fog">CYTRON × CHUMBAKA</span>
+      </div>
+      <div class="zone-desc pl-12 md:pl-[7.5rem] text-fog text-sm leading-relaxed pt-3">
+        Python and block-based programming, robotic-arm pick-and-place, sensor and actuator hardware kits.
+      </div>
+    </div>
+    <div class="zone-row reveal border-b border-line px-6 md:px-16 lg:px-24 py-6 md:py-8 cursor-pointer" data-hover>
+      <div class="flex items-baseline gap-4 md:gap-10">
+        <span class="font-mono text-xs text-fog w-8">04</span>
+        <h4 class="zone-name font-display font-bold text-xl md:text-4xl flex-1">STEM INNOVATION FLOOR</h4>
+        <span class="hidden md:block font-mono text-[10px] tracking-[0.25em] text-fog">STEMGROUND × LIGHTHOUSE</span>
+      </div>
+      <div class="zone-desc pl-12 md:pl-[7.5rem] text-fog text-sm leading-relaxed pt-3">
+        Hands-on electronics stations and pop-up maker mini-games for all ages.
+      </div>
+    </div>
+    <div class="zone-row reveal border-b border-line px-6 md:px-16 lg:px-24 py-6 md:py-8 cursor-pointer" data-hover>
+      <div class="flex items-baseline gap-4 md:gap-10">
+        <span class="font-mono text-xs text-fog w-8">05</span>
+        <h4 class="zone-name font-display font-bold text-xl md:text-4xl flex-1">INDUSTRIAL & SCIENCE TECH</h4>
+        <span class="hidden md:block font-mono text-[10px] tracking-[0.25em] text-fog">SSCIEX</span>
+      </div>
+      <div class="zone-desc pl-12 md:pl-[7.5rem] text-fog text-sm leading-relaxed pt-3">
+        Commercial automation, sensor demos and advanced science innovation displays.
+      </div>
+    </div>
+    <div class="zone-row reveal border-b border-line px-6 md:px-16 lg:px-24 py-6 md:py-8 cursor-pointer" data-hover>
+      <div class="flex items-baseline gap-4 md:gap-10">
+        <span class="font-mono text-xs text-fog w-8">06</span>
+        <h4 class="zone-name font-display font-bold text-xl md:text-4xl flex-1">UNIVERSITY R&D</h4>
+        <span class="hidden md:block font-mono text-[10px] tracking-[0.25em] text-fog">UNIMAS · UiTM · CURTIN · UTS</span>
+      </div>
+      <div class="zone-desc pl-12 md:pl-[7.5rem] text-fog text-sm leading-relaxed pt-3">
+        AI, IoT and autonomous prototypes — faculty and student research straight from the lab.
+      </div>
+    </div>
+    <div class="zone-row reveal border-b border-line px-6 md:px-16 lg:px-24 py-6 md:py-8 cursor-pointer" data-hover>
+      <div class="flex items-baseline gap-4 md:gap-10">
+        <span class="font-mono text-xs text-fog w-8">07</span>
+        <h4 class="zone-name font-display font-bold text-xl md:text-4xl flex-1 text-cyan">TEGAS INTERACTIVE BOOTH</h4>
+        <span class="hidden md:block font-mono text-[10px] tracking-[0.25em] text-fog">TEGAS · TCIL</span>
+      </div>
+      <div class="zone-desc pl-12 md:pl-[7.5rem] text-fog text-sm leading-relaxed pt-3">
+        Robot Petting Zoo with Unitree Go2 and Loona, Dobot Magician demos, and the TEGAS STEM initiative showcase.
+      </div>
+    </div>
+    <div class="zone-row reveal border-b border-line px-6 md:px-16 lg:px-24 py-6 md:py-8 cursor-pointer" data-hover>
+      <div class="flex items-baseline gap-4 md:gap-10">
+        <span class="font-mono text-xs text-fog w-8">08</span>
+        <h4 class="zone-name font-display font-bold text-xl md:text-4xl flex-1">STEM LITERACY</h4>
+        <span class="hidden md:block font-mono text-[10px] tracking-[0.25em] text-fog">PUSTAKA SARAWAK</span>
+      </div>
+      <div class="zone-desc pl-12 md:pl-[7.5rem] text-fog text-sm leading-relaxed pt-3">
+        Digital inclusion resources, maker-themed reading and literacy games.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PARTNERS MARQUEE ==================== -->
+<section class="border-y border-line py-10 md:py-14 overflow-hidden">
+  <p class="px-6 md:px-16 lg:px-24 font-mono text-[10px] tracking-[0.5em] text-fog mb-8 reveal">// BACKED BY BORNEO'S BUILDERS</p>
+  <div class="marq-track marq-slow items-baseline">
+    <div class="flex shrink-0 items-baseline">
+      <span class="px-8 font-display font-bold text-2xl md:text-4xl txt-outline whitespace-nowrap">UNIMAS</span>
+      <span class="px-8 font-display font-bold text-2xl md:text-4xl text-mist whitespace-nowrap">UiTM SAMARAHAN</span>
+      <span class="px-8 font-display font-bold text-2xl md:text-4xl txt-outline whitespace-nowrap">CURTIN MALAYSIA</span>
+      <span class="px-8 font-display font-bold text-2xl md:text-4xl text-mist whitespace-nowrap">UTS</span>
+      <span class="px-8 font-display font-bold text-2xl md:text-4xl txt-outline whitespace-nowrap">SWINBURNE</span>
+      <span class="px-8 font-display font-bold text-2xl md:text-4xl text-mist whitespace-nowrap">SARAWAK SKILLS</span>
+      <span class="px-8 font-display font-bold text-2xl md:text-4xl txt-outline whitespace-nowrap">CENTEXS</span>
+      <span class="px-8 font-display font-bold text-2xl md:text-4xl text-mist whitespace-nowrap">POLITEKNIK</span>
+      <span class="px-8 font-display font-bold text-2xl md:text-4xl txt-outline whitespace-nowrap">KMS</span>
+      <span class="px-8 font-display font-bold text-2xl md:text-4xl text-mist whitespace-nowrap">JPNS</span>
+      <span class="px-8 font-display font-bold text-2xl md:text-4xl txt-outline whitespace-nowrap">PUSTAKA</span>
+    </div>
+    <div class="flex shrink-0 items-baseline" aria-hidden="true">
+      <span class="px-8 font-display font-bold text-2xl md:text-4xl txt-outline whitespace-nowrap">UNIMAS</span>
+      <span class="px-8 font-display font-bold text-2xl md:text-4xl text-mist whitespace-nowrap">UiTM SAMARAHAN</span>
+      <span class="px-8 font-display font-bold text-2xl md:text-4xl txt-outline whitespace-nowrap">CURTIN MALAYSIA</span>
+      <span class="px-8 font-display font-bold text-2xl md:text-4xl text-mist whitespace-nowrap">UTS</span>
+      <span class="px-8 font-display font-bold text-2xl md:text-4xl txt-outline whitespace-nowrap">SWINBURNE</span>
+      <span class="px-8 font-display font-bold text-2xl md:text-4xl text-mist whitespace-nowrap">SARAWAK SKILLS</span>
+      <span class="px-8 font-display font-bold text-2xl md:text-4xl txt-outline whitespace-nowrap">CENTEXS</span>
+      <span class="px-8 font-display font-bold text-2xl md:text-4xl text-mist whitespace-nowrap">POLITEKNIK</span>
+      <span class="px-8 font-display font-bold text-2xl md:text-4xl txt-outline whitespace-nowrap">KMS</span>
+      <span class="px-8 font-display font-bold text-2xl md:text-4xl text-mist whitespace-nowrap">JPNS</span>
+      <span class="px-8 font-display font-bold text-2xl md:text-4xl txt-outline whitespace-nowrap">PUSTAKA</span>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== REGISTER ==================== -->
+<section id="register" class="relative px-6 md:px-16 lg:px-24 py-24 md:py-40 overflow-hidden">
+  <div class="flex items-baseline gap-6 mb-12 md:mb-16 reveal">
+    <span class="font-mono text-xs text-red tracking-[0.3em]">05</span>
+    <h2 class="font-mono text-xs tracking-[0.5em] text-fog">DEPLOYMENT</h2>
+    <span class="flex-1 h-px bg-line"></span>
+  </div>
+
+  <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+    <div class="lg:col-span-7 reveal">
+      <h3 class="font-display font-black text-[clamp(2.6rem,8vw,6.5rem)] leading-[0.9]">
+        SECURE<br>YOUR <span class="text-red">SLOT</span><span class="text-cyan blink">_</span>
+      </h3>
+      <p class="mt-8 max-w-md text-fog leading-relaxed">
+        Registration opens soon. Drop your details and the secretariat will ping you the moment
+        team slots for Category A and Category B go live.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4 font-mono text-[10px] tracking-[0.25em]">
+        <span class="border border-line px-4 py-2 text-fog">FREE ENTRY FOR VISITORS</span>
+        <span class="border border-line px-4 py-2 text-fog">TEAM SLOTS LIMITED</span>
+      </div>
+    </div>
+
+    <form id="reg-form" class="lg:col-span-5 hud border border-line bg-panel/60 p-7 md:p-10 reveal">
+      <span class="hud-i"></span>
+      <p class="font-mono text-[10px] tracking-[0.3em] text-cyan mb-8">// REGISTRATION.FORM</p>
+      <label class="block mb-6">
+        <span class="font-mono text-[10px] tracking-[0.25em] text-fog">CALLSIGN / NAME</span>
+        <input required type="text" name="name" placeholder="e.g. Team Vortex"
+               class="mt-2 w-full bg-transparent border-b border-line focus:border-cyan outline-none py-3 font-body text-mist placeholder:text-fog/40 transition-colors">
+      </label>
+      <label class="block mb-6">
+        <span class="font-mono text-[10px] tracking-[0.25em] text-fog">EMAIL</span>
+        <input required type="email" name="email" placeholder="you@team.my"
+               class="mt-2 w-full bg-transparent border-b border-line focus:border-cyan outline-none py-3 font-body text-mist placeholder:text-fog/40 transition-colors">
+      </label>
+      <label class="block mb-8">
+        <span class="font-mono text-[10px] tracking-[0.25em] text-fog">CATEGORY</span>
+        <select name="category" class="mt-2 w-full bg-ink border-b border-line focus:border-cyan outline-none py-3 font-body text-mist transition-colors">
+          <option>CAT.A — SCHOOL TEAM</option>
+          <option>CAT.B — OPEN / TERTIARY TEAM</option>
+          <option>EXHIBITOR / PARTNER</option>
+          <option>VISITOR PASS</option>
+        </select>
+      </label>
+      <button type="submit" class="btn-glitch w-full border border-cyan py-4 font-mono text-xs tracking-[0.35em] text-cyan" data-hover>
+        <span>TRANSMIT →</span>
+      </button>
+      <p id="form-msg" class="hidden mt-5 font-mono text-[10px] tracking-[0.2em] text-cyan">▸ SIGNAL RECEIVED. STAND BY FOR DEPLOYMENT ORDERS.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="border-t border-line px-6 md:px-16 lg:px-24 pt-16 pb-10">
+  <div class="grid md:grid-cols-12 gap-10">
+    <div class="md:col-span-5">
+      <p class="font-display font-black text-3xl">DROBOTEX<span class="text-red">//</span><span class="text-cyan">26</span></p>
+      <p class="font-mono text-[10px] tracking-[0.3em] text-fog mt-4 leading-6">
+        26—27 SEPTEMBER 2026<br>DEWAN BKIH · KUCHING · SARAWAK<br>HOSTED BY TEGAS
+      </p>
+    </div>
+    <div class="md:col-span-3 font-mono text-[10px] tracking-[0.25em] text-fog space-y-3">
+      <p class="text-cyan">// NAV</p>
+      <p><a href="#about" class="link-u" data-hover>MISSION BRIEF</a></p>
+      <p><a href="#competitions" class="link-u" data-hover>THE NINE ARENAS</a></p>
+      <p><a href="#workshops" class="link-u" data-hover>WORKSHOPS</a></p>
+      <p><a href="#exhibition" class="link-u" data-hover>EXPO FLOOR</a></p>
+    </div>
+    <div class="md:col-span-4 font-mono text-[10px] tracking-[0.25em] text-fog space-y-3">
+      <p class="text-cyan">// CONTACT</p>
+      <p>SECRETARIAT — TEGAS DIGITAL VILLAGE</p>
+      <p>PROGRAM MANAGER — NAIM TALIP</p>
+      <p class="pt-4"><a href="#register" class="link-u text-mist" data-hover>REGISTER YOUR TEAM ↗</a></p>
+    </div>
+  </div>
+  <div class="mt-14 pt-6 border-t border-line flex flex-wrap justify-between gap-4 font-mono text-[9px] tracking-[0.3em] text-fog/60">
+    <span>© 2026 DROBOTEX · TEGAS · SARAWAK GOVERNMENT INITIATIVE</span>
+    <span>DESIGNED FOR THE MACHINES THAT WILL JUDGE US</span>
+  </div>
+</footer>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/main.js" defer></script>
+<script src="js/hero3d.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DROBOTEX 2026 — Drone &amp; Robotics Explore</title>
+<meta name="description" content="DROBOTEX 2026: Drone &amp; Robotics Explore. 29–30 August 2026 at Ang Cheng Ho Multipurpose Hall, Batu Kawa, Kuching. Competitions, exhibitions &amp; workshops by TEGAS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- background layers -->
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-glow bg-glow--a" aria-hidden="true"></div>
+<div class="bg-glow bg-glow--b" aria-hidden="true"></div>
+<div class="scanline" aria-hidden="true"></div>
+
+<!-- HUD corners -->
+<div class="hud-corner hud-corner--tl" aria-hidden="true"></div>
+<div class="hud-corner hud-corner--tr" aria-hidden="true"></div>
+<div class="hud-corner hud-corner--bl" aria-hidden="true"></div>
+<div class="hud-corner hud-corner--br" aria-hidden="true"></div>
+
+<!-- NAV -->
+<header class="site-header">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark">
+        <img src="assets/mascot.png" alt="" class="brand-mark__img">
+      </span>
+      <span class="brand-text">
+        <span class="brand-text__main">DROB<span class="dot-o">O</span>TEX</span>
+        <span class="brand-text__sub">DRONE &amp; ROBOTICS EXPLORE</span>
+      </span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#objectives">Objectives</a>
+      <a href="#program">Program</a>
+      <a href="#competitions">Competitions</a>
+      <a href="#audience">Who's It For</a>
+      <a href="#organizers">Organizers</a>
+      <a href="#register" class="nav-cta">Register <span class="arrow">→</span></a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-ticker" aria-hidden="true">
+    <div class="nav-ticker__track">
+      <span>29–30 AUG 2026 // ANG CHENG HO MULTIPURPOSE HALL, BATU KAWA, KUCHING &nbsp;&bull;&nbsp; SYSTEM STATUS: REGISTRATION OPEN &nbsp;&bull;&nbsp; ORGANIZED BY TEGAS &nbsp;&bull;&nbsp; 29–30 AUG 2026 // ANG CHENG HO MULTIPURPOSE HALL, BATU KAWA, KUCHING &nbsp;&bull;&nbsp; SYSTEM STATUS: REGISTRATION OPEN &nbsp;&bull;&nbsp; ORGANIZED BY TEGAS &nbsp;&bull;</span>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> TEGAS PRESENTS &middot; SARAWAK GOVERNMENT INITIATIVE</p>
+        <h1 class="hero-title">
+          <span class="line">EXPLORE THE</span>
+          <span class="line hero-title--accent">FUTURE OF</span>
+          <span class="line hero-title--outline">DRONES &amp; ROBOTICS</span>
+        </h1>
+        <p class="hero-tagline">Theme: <em>“Exploring Future Technologies with Drones and Robotics.”</em> Two days of competitions, exhibitions and workshops built to ignite young innovators across Sarawak.</p>
+
+        <div class="hero-stats">
+          <div class="stat-chip">
+            <span class="stat-chip__label">DATE</span>
+            <span class="stat-chip__value">29–30 AUG 2026</span>
+          </div>
+          <div class="stat-chip">
+            <span class="stat-chip__label">TIME</span>
+            <span class="stat-chip__value">9:00 AM – 5:00 PM</span>
+          </div>
+          <div class="stat-chip">
+            <span class="stat-chip__label">VENUE</span>
+            <span class="stat-chip__value">Ang Cheng Ho Hall, Batu Kawa, Kuching</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#register" class="btn btn--primary">Reserve Your Slot <span class="btn-arrow">›</span></a>
+          <a href="#program" class="btn btn--ghost">View Program</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-ring hero-ring--1"></div>
+        <div class="hero-ring hero-ring--2"></div>
+        <div class="hero-ring hero-ring--3"></div>
+        <div class="hero-crosshair"></div>
+        <img src="assets/mascot.png" alt="DROBOTEX drone-robot mascot" class="hero-mascot">
+        <div class="hero-tag hero-tag--1">DRONE.SYS <span>ONLINE</span></div>
+        <div class="hero-tag hero-tag--2">ROBOTICS.CORE <span>ACTIVE</span></div>
+        <div class="hero-tag hero-tag--3">PRIZE POOL <span>RM 10,000</span></div>
+      </div>
+    </div>
+    <div class="hero-marquee" aria-hidden="true">
+      <div class="hero-marquee__track">
+        <span>TINYWHOOP RACE</span><span>•</span><span>DRONE SOCCER</span><span>•</span><span>ROBOSOCCER</span><span>•</span><span>BORNEO BATTLEBOTS</span><span>•</span><span>AI FOR ROBOTICS</span><span>•</span><span>SCRATHATHON</span><span>•</span><span>AR DRONE PILOTING</span><span>•</span>
+        <span>TINYWHOOP RACE</span><span>•</span><span>DRONE SOCCER</span><span>•</span><span>ROBOSOCCER</span><span>•</span><span>BORNEO BATTLEBOTS</span><span>•</span><span>AI FOR ROBOTICS</span><span>•</span><span>SCRATHATHON</span><span>•</span><span>AR DRONE PILOTING</span><span>•</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="wrap section-grid section-grid--reverse">
+      <div class="section-media">
+        <div class="frame-card">
+          <div class="frame-card__tag">FEED_01.JPG</div>
+          <img src="assets/mascot.png" alt="DROBOTEX mascot" class="frame-card__img frame-card__img--mascot">
+        </div>
+        <div class="mini-card mini-card--float">
+          <div class="mini-card__title">Organized By</div>
+          <div class="mini-card__body">Sarawak Government via Tabung Ekonomi Gagasan Anak Sarawak (TEGAS)</div>
+        </div>
+      </div>
+      <div class="section-copy">
+        <p class="kicker">// 01 — ABOUT THE PROGRAM</p>
+        <h2 class="section-title">A two-day mission control for young innovators</h2>
+        <p class="section-text">
+          <strong>Drone and Robotics Explore (DROBOTEX) 2026</strong> is a two-day event combining competitions, exhibitions, and workshops on drones and robotics. Built for school students and youth, it's designed to ignite passion for innovation, technology, and engineering.
+        </p>
+        <p class="section-text">
+          Participants will engage in exciting competitions, hands-on activities, and workshops — showcasing the real-world potential of drones and robotics in future industries.
+        </p>
+        <div class="detail-list">
+          <div class="detail-list__item">
+            <span class="detail-list__icon">📅</span>
+            <div><strong>Date</strong><br>29th – 30th August 2026</div>
+          </div>
+          <div class="detail-list__item">
+            <span class="detail-list__icon">⏱</span>
+            <div><strong>Time</strong><br>9.00 am – 5.00 pm</div>
+          </div>
+          <div class="detail-list__item">
+            <span class="detail-list__icon">📍</span>
+            <div><strong>Venue</strong><br>Ang Cheng Ho Multipurpose Hall, Batu Kawa, Kuching</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBJECTIVES -->
+  <section class="section section--dark" id="objectives">
+    <div class="wrap">
+      <p class="kicker kicker--onDark">// 02 — MISSION PARAMETERS</p>
+      <h2 class="section-title section-title--onDark">Program Objectives</h2>
+      <div class="obj-grid">
+        <div class="obj-card">
+          <span class="obj-card__num">01</span>
+          <h3>Promote Interest</h3>
+          <p>Spark curiosity in drone and robotics technology among students and youth.</p>
+        </div>
+        <div class="obj-card">
+          <span class="obj-card__num">02</span>
+          <h3>Hands-On Learning</h3>
+          <p>Encourage practical skills through interactive workshops and exhibitions.</p>
+        </div>
+        <div class="obj-card">
+          <span class="obj-card__num">03</span>
+          <h3>A Launchpad</h3>
+          <p>Provide a platform for young innovators to showcase their skills and creativity.</p>
+        </div>
+        <div class="obj-card">
+          <span class="obj-card__num">04</span>
+          <h3>Career Pathways</h3>
+          <p>Highlight the career potential in drone, robotics, and aerospace technology.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAM OPERATIONS -->
+  <section class="section" id="program">
+    <div class="wrap">
+      <p class="kicker">// 03 — PROGRAM OPERATIONS</p>
+      <h2 class="section-title">Three modules. One arena.</h2>
+      <p class="section-text section-text--lead">Competitions, exhibitions and workshops run side-by-side across the two-day event.</p>
+
+      <div class="module-grid">
+        <article class="module-card">
+          <div class="module-card__head">
+            <span class="module-card__icon">🏁</span>
+            <h3>Competition</h3>
+          </div>
+          <ul class="module-list">
+            <li>Tinywhoop Drone Race</li>
+            <li>Educational Drone Challenge</li>
+            <li>Drone Soccer Challenge</li>
+            <li>Robosoccer Competition</li>
+            <li>Borneo Battlebots</li>
+            <li>Rero:micro Robot Competitions</li>
+          </ul>
+          <div class="module-card__badge">Prize Pool RM 10,000</div>
+        </article>
+
+        <article class="module-card">
+          <div class="module-card__head">
+            <span class="module-card__icon">🛰</span>
+            <h3>Exhibition</h3>
+          </div>
+          <p class="module-card__note">Interactive exhibits with hands-on activities:</p>
+          <ul class="module-list">
+            <li>Drone Simulator Training</li>
+            <li>RC Plane Building</li>
+            <li>DIY Drone Building</li>
+            <li>Robot Coding</li>
+            <li>Drone Obstacle Course</li>
+            <li>Augmented Reality (AR) Drone Piloting</li>
+            <li>Robotics Arms Programming Demonstrations</li>
+          </ul>
+        </article>
+
+        <article class="module-card">
+          <div class="module-card__head">
+            <span class="module-card__icon">🧠</span>
+            <h3>Workshop</h3>
+          </div>
+          <ul class="module-list module-list--two-col">
+            <li>Building Your First Drone</li>
+            <li>Introduction to Drone Racing</li>
+            <li>Basics of Robotic Coding Using Python</li>
+            <li>Creative Design with 3D Printing</li>
+            <li>Rocket Engineering for Beginners</li>
+            <li>AI for Robotics</li>
+            <li>Autonomous Drone Programming</li>
+            <li>DIY Robotics for Everyday Use</li>
+            <li>Drone Photography &amp; Videography</li>
+            <li>Understanding Sensor Technology in Drones and Robots</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="feature-strip">
+        <div class="feature-strip__item">
+          <h4>⚡ Innovation Challenge</h4>
+          <p>Students conceptualise futuristic drone and robot designs.</p>
+        </div>
+        <div class="feature-strip__item">
+          <h4>💻 Scrathathon</h4>
+          <p>A rapid-build coding sprint pushing young creators to prototype fast.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPETITIONS GALLERY -->
+  <section class="section section--muted" id="competitions">
+    <div class="wrap">
+      <p class="kicker">// 04 — THE ARENA</p>
+      <h2 class="section-title">Competitions on deck</h2>
+      <div class="comp-grid">
+        <div class="comp-card"><div class="comp-card__glyph">🚁</div><h3>TinyWhoop Drone Race</h3><p>High-speed micro drone racing through tight gates.</p></div>
+        <div class="comp-card"><div class="comp-card__glyph">🎮</div><h3>Educational Drone Challenge</h3><p>Skill-based missions testing precision piloting.</p></div>
+        <div class="comp-card"><div class="comp-card__glyph">⚽</div><h3>Drone Soccer Challenge</h3><p>Caged drones battle it out through goal rings.</p></div>
+        <div class="comp-card"><div class="comp-card__glyph">🤖</div><h3>RoboSoccer Competition</h3><p>Autonomous and RC robots compete on the pitch.</p></div>
+        <div class="comp-card"><div class="comp-card__glyph">🔥</div><h3>Borneo BattleBots</h3><p>Combat robotics — built to outlast the arena.</p></div>
+        <div class="comp-card"><div class="comp-card__glyph">🔬</div><h3>Rero:micro Robot Competition</h3><p>Compact bots, big engineering challenges.</p></div>
+        <div class="comp-card"><div class="comp-card__glyph">💡</div><h3>DROBOTEX Innovation Challenge</h3><p>Pitch and prototype the next-gen drone or robot.</p></div>
+        <div class="comp-card"><div class="comp-card__glyph">⌨️</div><h3>Scrathathon</h3><p>Fast-paced coding sprint for young builders.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TARGET AUDIENCE -->
+  <section class="section" id="audience">
+    <div class="wrap section-grid">
+      <div class="section-copy">
+        <p class="kicker">// 05 — WHO SHOULD DEPLOY</p>
+        <h2 class="section-title">Built for every kind of builder</h2>
+        <p class="section-text">Whether you're a curious student, an educator, or a lifelong STEM enthusiast — DROBOTEX has a mission for you.</p>
+        <div class="audience-list">
+          <div class="audience-item"><span class="audience-item__index">01</span><div><strong>School Students</strong><p>Primary and secondary students interested in STEM fields or involved in robotics/drone clubs.</p></div></div>
+          <div class="audience-item"><span class="audience-item__index">02</span><div><strong>Youth &amp; University Students</strong><p>Individuals aged 18–25 curious about drone and robotics technologies.</p></div></div>
+          <div class="audience-item"><span class="audience-item__index">03</span><div><strong>Educators</strong><p>Teachers seeking to integrate STEM activities into their curriculum.</p></div></div>
+          <div class="audience-item"><span class="audience-item__index">04</span><div><strong>STEM Enthusiasts</strong><p>Hobbyists and individuals passionate about drones, robotics, and related fields.</p></div></div>
+          <div class="audience-item"><span class="audience-item__index">05</span><div><strong>Parents &amp; Guardians</strong><p>Those interested in exploring STEM opportunities for their children.</p></div></div>
+          <div class="audience-item"><span class="audience-item__index">06</span><div><strong>Community Members</strong><p>Anyone eager to learn about emerging technologies in drones and robotics.</p></div></div>
+        </div>
+      </div>
+      <div class="section-media">
+        <div class="orbit-panel" aria-hidden="true">
+          <div class="orbit-panel__core">
+            <img src="assets/mascot.png" alt="">
+          </div>
+          <div class="orbit-panel__ring orbit-panel__ring--1"><span></span></div>
+          <div class="orbit-panel__ring orbit-panel__ring--2"><span></span></div>
+          <div class="orbit-panel__ring orbit-panel__ring--3"><span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORGANIZERS / PARTNERS -->
+  <section class="section section--dark" id="organizers">
+    <div class="wrap">
+      <p class="kicker kicker--onDark">// 06 — MISSION CONTROL</p>
+      <h2 class="section-title section-title--onDark">Powered by a coalition of institutions</h2>
+      <p class="section-text section-text--onDark section-text--lead">DROBOTEX 2026 is organized by the Sarawak Government through TEGAS, alongside education and technology partners across Sarawak.</p>
+      <div class="partner-marquee">
+        <div class="partner-marquee__track">
+          <span>Sarawak Education Department</span><span>Sarawak State Library</span><span>UNIMAS</span><span>UiTM Kota Samarahan</span><span>Swinburne University of Technology</span><span>Curtin University Malaysia, Sarawak</span><span>University of Technology Sarawak (UTS)</span><span>CENTEXS</span><span>Politeknik Kuching &amp; Mukah</span><span>Matriculation of Sarawak</span><span>Sarawak Skills</span>
+          <span>Sarawak Education Department</span><span>Sarawak State Library</span><span>UNIMAS</span><span>UiTM Kota Samarahan</span><span>Swinburne University of Technology</span><span>Curtin University Malaysia, Sarawak</span><span>University of Technology Sarawak (UTS)</span><span>CENTEXS</span><span>Politeknik Kuching &amp; Mukah</span><span>Matriculation of Sarawak</span><span>Sarawak Skills</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTER / CTA -->
+  <section class="section register" id="register">
+    <div class="wrap register-inner">
+      <div class="register-panel">
+        <p class="kicker">// 07 — INITIATE SEQUENCE</p>
+        <h2 class="section-title">Ready to launch into DROBOTEX 2026?</h2>
+        <p class="section-text">Secure your spot for two days of drone races, robot battles, workshops, and innovation challenges at Ang Cheng Ho Multipurpose Hall, Batu Kawa, Kuching.</p>
+
+        <form class="register-form" id="registerForm">
+          <div class="form-row">
+            <label>
+              <span>Full Name</span>
+              <input type="text" name="name" placeholder="Your name" required>
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" placeholder="you@example.com" required>
+            </label>
+          </div>
+          <div class="form-row">
+            <label>
+              <span>Phone</span>
+              <input type="tel" name="phone" placeholder="+60 1x-xxx xxxx">
+            </label>
+            <label>
+              <span>I'm interested in</span>
+              <select name="track">
+                <option value="">Select a track</option>
+                <option>Competitions</option>
+                <option>Exhibitions</option>
+                <option>Workshops</option>
+                <option>All of the above</option>
+              </select>
+            </label>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block">Submit Registration <span class="btn-arrow">›</span></button>
+          <p class="form-note" id="formNote">Registration for DROBOTEX 2026 opens soon — leave your details and we'll notify you first.</p>
+        </form>
+      </div>
+      <div class="register-side">
+        <div class="side-card">
+          <span class="side-card__label">EVENT DATE</span>
+          <span class="side-card__value">29–30 AUG 2026</span>
+        </div>
+        <div class="side-card">
+          <span class="side-card__label">TIME</span>
+          <span class="side-card__value">9:00 AM – 5:00 PM</span>
+        </div>
+        <div class="side-card">
+          <span class="side-card__label">VENUE</span>
+          <span class="side-card__value">Ang Cheng Ho Multipurpose Hall, Batu Kawa, Kuching</span>
+        </div>
+        <div class="side-card side-card--accent">
+          <span class="side-card__label">PRIZE POOL</span>
+          <span class="side-card__value">RM 10,000</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <img src="assets/mascot.png" alt="" class="footer-brand__img">
+      <div>
+        <div class="footer-brand__title">DROB<span class="dot-o">O</span>TEX 2026</div>
+        <div class="footer-brand__sub">Drone &amp; Robotics Explore</div>
+      </div>
+    </div>
+    <p class="footer-text">Organized by the Sarawak Government through Tabung Ekonomi Gagasan Anak Sarawak (TEGAS).</p>
+    <p class="footer-copy">© 2026 DROBOTEX — TEGAS Community Innovative Learning. All systems nominal.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
