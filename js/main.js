@@ -249,6 +249,17 @@ document.getElementById('reg-form').addEventListener('submit', e => {
   e.target.querySelectorAll('input,select,button').forEach(el => el.disabled = true);
 });
 
+/* ================= GALLERY CAROUSEL ================= */
+(function galleryCarousel() {
+  const track = document.getElementById('gallery-track');
+  if (!track) return;
+  const prev = document.getElementById('gallery-prev');
+  const next = document.getElementById('gallery-next');
+  const step = () => (track.querySelector('.gallery-slide')?.getBoundingClientRect().width || 320) + 20;
+  next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+  prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+})();
+
 /* refresh now that all triggers exist, and again once fonts/images settle */
 ScrollTrigger.refresh();
 window.addEventListener('load', () => ScrollTrigger.refresh());

@@ -167,6 +167,8 @@ tailwind.config = {
   /* word reveal default state (JS animates in) */
   .w { display:inline-block; }
 
+  #gallery-track::-webkit-scrollbar { display:none; }
+
   @media (prefers-reduced-motion: reduce) {
     .marq-track, .floaty, .blink, .grain::after { animation:none !important; }
   }
@@ -204,6 +206,7 @@ tailwind.config = {
       <a href="#competitions" class="link-u hover:text-mist" data-hover>ARENAS</a>
       <a href="#workshops"    class="link-u hover:text-mist" data-hover>WORKSHOPS</a>
       <a href="#exhibition"   class="link-u hover:text-mist" data-hover>EXPO</a>
+      <a href="#gallery"      class="link-u hover:text-mist" data-hover>GALLERY</a>
       <a href="#register" class="btn-glitch border border-cyan px-5 py-2 text-cyan" data-hover><span>REGISTER ↗</span></a>
     </nav>
     <button id="nav-toggle" class="md:hidden font-mono text-[11px] tracking-[0.3em] text-cyan" data-hover>MENU</button>
@@ -217,6 +220,7 @@ tailwind.config = {
     <a href="#competitions" class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">ARENAS</a>
     <a href="#workshops"    class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">WORKSHOPS</a>
     <a href="#exhibition"   class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">EXPO</a>
+    <a href="#gallery"      class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">GALLERY</a>
     <a href="#register"     class="mob-link text-red">REGISTER ↗</a>
   </nav>
   <p class="mob-link mt-12 font-mono text-[10px] tracking-[0.3em] text-fog">26—27.09.2026 · DEWAN BKIH · KUCHING</p>
@@ -269,7 +273,7 @@ tailwind.config = {
   </div>
 
   <!-- mascot -->
-  <img id="mascot" src="assets/mascot.png" alt="DROBOTEX mascot"
+  <img id="mascot" src="image.png" alt="DROBOTEX mascot"
        class="floaty pointer-events-none absolute z-10 right-[4%] bottom-[10%] w-[38vw] max-w-[300px] md:w-[24vw] md:max-w-[380px] opacity-0 drop-shadow-[0_0_40px_rgba(56,232,255,0.25)]">
 </section>
 
@@ -327,6 +331,9 @@ tailwind.config = {
 
 <!-- ==================== ABOUT ==================== -->
 <section id="about" class="relative px-6 md:px-16 lg:px-24 py-24 md:py-40">
+  <img src="magnific_a-blue-and-light-blue-rob_w4ZBQjV7EI-Photoroom.png"
+       alt="DROBOTEX mascot companion"
+       class="pointer-events-none absolute z-10 top-12 right-4 md:top-20 md:right-16 w-32 md:w-56 lg:w-64 opacity-80">
   <div class="flex items-baseline gap-6 mb-12 md:mb-20 reveal">
     <span class="font-mono text-xs text-red tracking-[0.3em]">01</span>
     <h2 class="font-mono text-xs tracking-[0.5em] text-fog">MISSION BRIEF</h2>
@@ -701,6 +708,45 @@ tailwind.config = {
   </div>
 </section>
 
+<!-- ==================== GALLERY ==================== -->
+<section id="gallery" class="relative px-6 md:px-16 lg:px-24 py-24 md:py-40 border-t border-line overflow-hidden">
+  <div class="flex items-baseline gap-6 mb-12 md:mb-16 reveal">
+    <span class="font-mono text-xs text-red tracking-[0.3em]">05</span>
+    <h2 class="font-mono text-xs tracking-[0.5em] text-fog">FIELD ARCHIVE</h2>
+    <span class="flex-1 h-px bg-line"></span>
+    <span class="font-mono text-[10px] tracking-[0.3em] text-fog">PAST EVENTS</span>
+  </div>
+
+  <h3 class="reveal font-display font-black text-[clamp(2.2rem,7vw,5.5rem)] leading-[0.95] mb-12 md:mb-16">
+    MOMENTS FROM THE <span class="txt-outline-cyan">ARENA</span>
+  </h3>
+
+  <div class="reveal relative">
+    <div id="gallery-track" class="flex gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 -mx-6 px-6 md:mx-0 md:px-0" style="scrollbar-width:none;-ms-overflow-style:none;">
+      <figure class="gallery-slide shrink-0 snap-center w-[85vw] sm:w-[70vw] md:w-[46vw] lg:w-[34vw] border border-line bg-panel/40">
+        <img src="drobotex event images/Drobotex_03.jpg" alt="DROBOTEX event highlight" class="w-full h-[46vw] sm:h-[38vw] md:h-[26vw] lg:h-[20vw] object-cover" loading="lazy">
+      </figure>
+      <figure class="gallery-slide shrink-0 snap-center w-[85vw] sm:w-[70vw] md:w-[46vw] lg:w-[34vw] border border-line bg-panel/40">
+        <img src="drobotex event images/363831739_658828099615361_922905301228661392_n-1024x682.jpg" alt="DROBOTEX event highlight" class="w-full h-[46vw] sm:h-[38vw] md:h-[26vw] lg:h-[20vw] object-cover" loading="lazy">
+      </figure>
+      <figure class="gallery-slide shrink-0 snap-center w-[85vw] sm:w-[70vw] md:w-[46vw] lg:w-[34vw] border border-line bg-panel/40">
+        <img src="drobotex event images/363765499_658828259615345_6947087518828900127_n-1024x682.jpg" alt="DROBOTEX event highlight" class="w-full h-[46vw] sm:h-[38vw] md:h-[26vw] lg:h-[20vw] object-cover" loading="lazy">
+      </figure>
+      <figure class="gallery-slide shrink-0 snap-center w-[85vw] sm:w-[70vw] md:w-[46vw] lg:w-[34vw] border border-line bg-panel/40">
+        <img src="drobotex event images/363440840_658828226282015_6459360838514552376_n-1024x682.jpg" alt="DROBOTEX event highlight" class="w-full h-[46vw] sm:h-[38vw] md:h-[26vw] lg:h-[20vw] object-cover" loading="lazy">
+      </figure>
+      <figure class="gallery-slide shrink-0 snap-center w-[85vw] sm:w-[70vw] md:w-[46vw] lg:w-[34vw] border border-line bg-panel/40">
+        <img src="drobotex event images/363781571_658827862948718_327387588243820663_n-1024x682.jpg" alt="DROBOTEX event highlight" class="w-full h-[46vw] sm:h-[38vw] md:h-[26vw] lg:h-[20vw] object-cover" loading="lazy">
+      </figure>
+    </div>
+
+    <div class="flex justify-end gap-3 mt-6">
+      <button id="gallery-prev" type="button" class="border border-line hover:border-cyan text-fog hover:text-cyan w-11 h-11 flex items-center justify-center font-mono transition-colors" data-hover aria-label="Previous images">←</button>
+      <button id="gallery-next" type="button" class="border border-line hover:border-cyan text-fog hover:text-cyan w-11 h-11 flex items-center justify-center font-mono transition-colors" data-hover aria-label="Next images">→</button>
+    </div>
+  </div>
+</section>
+
 <!-- ==================== PARTNERS MARQUEE ==================== -->
 <section class="border-y border-line py-10 md:py-14 overflow-hidden">
   <p class="px-6 md:px-16 lg:px-24 font-mono text-[10px] tracking-[0.5em] text-fog mb-8 reveal">// BACKED BY BORNEO'S BUILDERS</p>
@@ -737,7 +783,7 @@ tailwind.config = {
 <!-- ==================== REGISTER ==================== -->
 <section id="register" class="relative px-6 md:px-16 lg:px-24 py-24 md:py-40 overflow-hidden">
   <div class="flex items-baseline gap-6 mb-12 md:mb-16 reveal">
-    <span class="font-mono text-xs text-red tracking-[0.3em]">05</span>
+    <span class="font-mono text-xs text-red tracking-[0.3em]">06</span>
     <h2 class="font-mono text-xs tracking-[0.5em] text-fog">DEPLOYMENT</h2>
     <span class="flex-1 h-px bg-line"></span>
   </div>
@@ -802,6 +848,7 @@ tailwind.config = {
       <p><a href="#competitions" class="link-u" data-hover>THE NINE ARENAS</a></p>
       <p><a href="#workshops" class="link-u" data-hover>WORKSHOPS</a></p>
       <p><a href="#exhibition" class="link-u" data-hover>EXPO FLOOR</a></p>
+      <p><a href="#gallery" class="link-u" data-hover>GALLERY</a></p>
     </div>
     <div class="md:col-span-4 font-mono text-[10px] tracking-[0.25em] text-fog space-y-3">
       <p class="text-cyan">// CONTACT</p>
