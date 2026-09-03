@@ -56,6 +56,20 @@ tailwind.config = {
     color:transparent;
     -webkit-text-stroke:1.5px rgba(56,232,255,.6);
   }
+  .wordmark {
+    display:inline-flex;
+    align-items:center;
+    white-space:nowrap;
+  }
+  .gear-o {
+    display:inline-block;
+    color:#38e8ff;
+    font-family:Arial, sans-serif;
+    font-size:1.18em;
+    line-height:.78;
+    margin:0 .02em;
+    transform:translateY(-.04em);
+  }
   @media (max-width:768px){
     .txt-outline, .txt-outline-cyan { -webkit-text-stroke-width:1px; }
   }
@@ -199,7 +213,7 @@ tailwind.config = {
 <header id="nav" class="fixed top-0 inset-x-0 z-[60] transition-all duration-500">
   <div class="flex items-center justify-between px-5 md:px-10 h-16 md:h-20">
     <a href="#top" class="font-display font-800 tracking-[0.2em] text-sm md:text-base font-bold" data-hover>
-      DROBOTEX<span class="text-red">//</span><span class="text-cyan">26</span>
+      <span class="wordmark" role="img" aria-label="Drobotex"><span aria-hidden="true">DROB</span><span class="gear-o" aria-hidden="true">⚙</span><span aria-hidden="true">TEX</span></span><span class="text-red">//</span><span class="text-cyan">26</span>
     </a>
     <nav class="hidden md:flex items-center gap-8 font-mono text-[11px] tracking-[0.25em] text-fog">
       <a href="#about"        class="link-u hover:text-mist" data-hover>BRIEF</a>
@@ -262,7 +276,7 @@ tailwind.config = {
         26 — 27 SEPTEMBER 2026 · DEWAN BKIH, KUCHING
       </p>
       <h1 class="font-display font-black leading-[0.88] select-none">
-        <span id="hero-l1" class="block text-[clamp(3rem,12.5vw,11rem)] opacity-0">DROBOTEX</span>
+        <span id="hero-l1" class="wordmark block text-[clamp(3rem,12.5vw,11rem)] opacity-0" role="img" aria-label="Drobotex"><span aria-hidden="true">DROB</span><span class="gear-o" aria-hidden="true">⚙</span><span aria-hidden="true">TEX</span></span>
         <span id="hero-l2" class="block text-[clamp(3rem,12.5vw,11rem)] txt-outline opacity-0">2026<span class="text-red" style="-webkit-text-stroke:0">.</span></span>
       </h1>
       <div id="hero-sub" class="mt-6 md:mt-10 flex flex-wrap items-center gap-4 md:gap-6 opacity-0">
@@ -490,7 +504,7 @@ tailwind.config = {
               <span class="cc-num font-display font-black text-6xl md:text-7xl">07</span>
               <span class="cc-tag border border-cyan/50 text-cyan font-mono text-[9px] tracking-[0.25em] px-3 py-1">INNOVATION</span>
             </div>
-            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-8 md:mt-12 leading-tight">DROBOTEX<br>INNOVATION CHALLENGE</h3>
+            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-8 md:mt-12 leading-tight"><span class="wordmark" role="img" aria-label="Drobotex"><span aria-hidden="true">DROB</span><span class="gear-o" aria-hidden="true">⚙</span><span aria-hidden="true">TEX</span></span><br>INNOVATION CHALLENGE</h3>
           </div>
           <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog mt-10">
             <span>ORG — TCIL</span><span class="cc-arrow text-cyan text-lg">↗</span>
@@ -837,7 +851,7 @@ tailwind.config = {
 <footer class="border-t border-line px-6 md:px-16 lg:px-24 pt-16 pb-10">
   <div class="grid md:grid-cols-12 gap-10">
     <div class="md:col-span-5">
-      <p class="font-display font-black text-3xl">DROBOTEX<span class="text-red">//</span><span class="text-cyan">26</span></p>
+      <p class="font-display font-black text-3xl"><span class="wordmark" role="img" aria-label="Drobotex"><span aria-hidden="true">DROB</span><span class="gear-o" aria-hidden="true">⚙</span><span aria-hidden="true">TEX</span></span><span class="text-red">//</span><span class="text-cyan">26</span></p>
       <p class="font-mono text-[10px] tracking-[0.3em] text-fog mt-4 leading-6">
         26—27 SEPTEMBER 2026<br>DEWAN BKIH · KUCHING · SARAWAK<br>HOSTED BY TEGAS
       </p>
