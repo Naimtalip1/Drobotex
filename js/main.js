@@ -239,16 +239,6 @@ document.querySelectorAll('.zone-row').forEach(row => {
   row.addEventListener('click', () => row.classList.toggle('open'));
 });
 
-/* ================= REGISTRATION FORM ================= */
-document.getElementById('reg-form').addEventListener('submit', e => {
-  e.preventDefault();
-  const msg = document.getElementById('form-msg');
-  msg.classList.remove('hidden');
-  gsap.fromTo(msg, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.5 });
-  e.target.querySelector('button span').textContent = '✓ TRANSMITTED';
-  e.target.querySelectorAll('input,select,button').forEach(el => el.disabled = true);
-});
-
 /* ================= GALLERY CAROUSEL ================= */
 (function galleryCarousel() {
   const track = document.getElementById('gallery-track');
