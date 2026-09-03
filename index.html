@@ -19,9 +19,9 @@ tailwind.config = {
         ink:   '#04070d',
         panel: '#0a1120',
         line:  '#16223a',
-        blue:  '#2f7ff0',
-        cyan:  '#38e8ff',
-        red:   '#ff2e4d',
+        blue:  '#d91f63',
+        cyan:  '#ffb800',
+        red:   '#d91f63',
         fog:   '#8fa3c8',
         mist:  '#e8eefc'
       },
@@ -40,12 +40,12 @@ tailwind.config = {
 <style>
   html { background:#04070d; color-scheme:dark; overflow-x:clip; }
   body { background:#04070d; overflow-x:clip; }
-  ::selection { background:#ff2e4d; color:#fff; }
+  ::selection { background:#d91f63; color:#fff; }
 
   ::-webkit-scrollbar { width:10px; }
   ::-webkit-scrollbar-track { background:#04070d; }
   ::-webkit-scrollbar-thumb { background:#16223a; border:2px solid #04070d; }
-  ::-webkit-scrollbar-thumb:hover { background:#2f7ff0; }
+  ::-webkit-scrollbar-thumb:hover { background:#d91f63; }
 
   /* ---------- typography helpers ---------- */
   .txt-outline {
@@ -54,7 +54,7 @@ tailwind.config = {
   }
   .txt-outline-cyan {
     color:transparent;
-    -webkit-text-stroke:1.5px rgba(56,232,255,.6);
+    -webkit-text-stroke:1.5px rgba(255,184,0,.6);
   }
   @media (max-width:768px){
     .txt-outline, .txt-outline-cyan { -webkit-text-stroke-width:1px; }
@@ -82,7 +82,7 @@ tailwind.config = {
   .hud::before, .hud::after,
   .hud > .hud-i::before, .hud > .hud-i::after {
     content:''; position:absolute; width:18px; height:18px; z-index:2;
-    border-color:#38e8ff; border-style:solid; opacity:.8;
+    border-color:#ffb800; border-style:solid; opacity:.8;
   }
   .hud::before        { top:-1px; left:-1px;  border-width:2px 0 0 2px; }
   .hud::after         { top:-1px; right:-1px; border-width:2px 2px 0 0; }
@@ -97,23 +97,23 @@ tailwind.config = {
 
   /* ---------- custom cursor ---------- */
   #cursor-dot, #cursor-ring { position:fixed; top:0; left:0; z-index:90; pointer-events:none; border-radius:9999px; }
-  #cursor-dot  { width:6px; height:6px; background:#ff2e4d; }
-  #cursor-ring { width:36px; height:36px; border:1px solid rgba(56,232,255,.7); transition:width .25s, height .25s, border-color .25s; }
-  #cursor-ring.hovering { width:64px; height:64px; border-color:#ff2e4d; }
+  #cursor-dot  { width:6px; height:6px; background:#d91f63; }
+  #cursor-ring { width:36px; height:36px; border:1px solid rgba(255,184,0,.7); transition:width .25s, height .25s, border-color .25s; }
+  #cursor-ring.hovering { width:64px; height:64px; border-color:#d91f63; }
   @media (pointer:coarse){ #cursor-dot,#cursor-ring{display:none} }
 
   /* ---------- preloader ---------- */
   #preloader { position:fixed; inset:0; z-index:100; background:#04070d; display:flex; align-items:center; justify-content:center; transition:transform .9s cubic-bezier(.77,0,.18,1); }
   #preloader.exit { transform:translateY(-100%); }
   #preloader .bar { height:2px; background:#16223a; overflow:hidden; }
-  #preloader .bar > div { height:100%; width:0%; background:linear-gradient(90deg,#2f7ff0,#38e8ff); }
+  #preloader .bar > div { height:100%; width:0%; background:linear-gradient(90deg,#d91f63,#ffb800); }
 
   /* ---------- horizontal competition panels ---------- */
   .comp-card {
     transition:background .4s, color .4s;
     background-image:
-      linear-gradient(rgba(56,232,255,.055) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(56,232,255,.055) 1px, transparent 1px);
+      linear-gradient(rgba(255,184,0,.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,184,0,.055) 1px, transparent 1px);
     background-size:44px 44px;
     background-position:center;
   }
@@ -126,8 +126,8 @@ tailwind.config = {
   .comp-card:hover .cc-title { color:#04070d; }
   .comp-card:hover .cc-meta  { color:#33415e; }
   .comp-card:hover .cc-num   { -webkit-text-stroke-color:rgba(4,7,13,.4); }
-  .comp-card:hover .cc-tag   { border-color:#ff2e4d; color:#ff2e4d; }
-  .comp-card:hover .cc-arrow { transform:translate(6px,-6px); color:#ff2e4d; }
+  .comp-card:hover .cc-tag   { border-color:#d91f63; color:#d91f63; }
+  .comp-card:hover .cc-arrow { transform:translate(6px,-6px); color:#d91f63; }
   .cc-arrow { transition:transform .35s, color .35s; }
   .cc-num { color:transparent; -webkit-text-stroke:1px rgba(232,238,252,.25); transition:.4s; }
 
@@ -135,16 +135,16 @@ tailwind.config = {
   .zone-row .zone-desc { max-height:0; opacity:0; overflow:hidden; transition:max-height .5s cubic-bezier(.22,1,.36,1), opacity .4s; }
   .zone-row:hover .zone-desc, .zone-row.open .zone-desc { max-height:120px; opacity:1; }
   .zone-row { transition:background .35s, padding-left .35s; }
-  .zone-row:hover { background:rgba(47,127,240,.06); padding-left:1.25rem; }
-  .zone-row:hover .zone-name { color:#38e8ff; }
+  .zone-row:hover { background:rgba(217,31,99,.06); padding-left:1.25rem; }
+  .zone-row:hover .zone-name { color:#ffb800; }
   .zone-name { transition:color .3s; }
 
   /* ---------- WebGL fallback backdrop ---------- */
   #hero.webgl-fallback {
     background:
-      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(47,127,240,.18), transparent 60%),
-      radial-gradient(ellipse 40% 35% at 30% 70%, rgba(56,232,255,.10), transparent 60%),
-      radial-gradient(ellipse 30% 25% at 80% 80%, rgba(255,46,77,.08), transparent 60%);
+      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(217,31,99,.18), transparent 60%),
+      radial-gradient(ellipse 40% 35% at 30% 70%, rgba(255,184,0,.10), transparent 60%),
+      radial-gradient(ellipse 30% 25% at 80% 80%, rgba(217,31,99,.08), transparent 60%);
   }
 
   /* ---------- misc anims ---------- */
@@ -155,14 +155,17 @@ tailwind.config = {
   @keyframes spin-slow { to{transform:rotate(360deg)} }
 
   .link-u { position:relative; }
-  .link-u::after { content:''; position:absolute; left:0; bottom:-3px; height:1px; width:100%; background:#38e8ff; transform:scaleX(0); transform-origin:right; transition:transform .35s cubic-bezier(.22,1,.36,1); }
+  .link-u::after { content:''; position:absolute; left:0; bottom:-3px; height:1px; width:100%; background:#ffb800; transform:scaleX(0); transform-origin:right; transition:transform .35s cubic-bezier(.22,1,.36,1); }
   .link-u:hover::after { transform:scaleX(1); transform-origin:left; }
 
   .btn-glitch { position:relative; overflow:hidden; }
-  .btn-glitch::before { content:''; position:absolute; inset:0; background:#38e8ff; transform:translateX(-101%); transition:transform .4s cubic-bezier(.22,1,.36,1); }
+  .btn-glitch::before { content:''; position:absolute; inset:0; background:#ffb800; transform:translateX(-101%); transition:transform .4s cubic-bezier(.22,1,.36,1); }
   .btn-glitch:hover::before { transform:translateX(0); }
   .btn-glitch:hover span { color:#04070d; }
   .btn-glitch span { position:relative; z-index:1; transition:color .3s; }
+
+  /* The supplied logo has transparent padding in its square canvas. */
+  #hero-l1 { height:clamp(100px,20vw,220px); object-fit:cover; object-position:center; }
 
   /* word reveal default state (JS animates in) */
   .w { display:inline-block; }
@@ -171,6 +174,18 @@ tailwind.config = {
 
   @media (prefers-reduced-motion: reduce) {
     .marq-track, .floaty, .blink, .grain::after { animation:none !important; }
+  }
+
+  /* ---------- laptop-height fix (13"/14" displays, ~768–1000px tall) ----------
+     Prevents the hero kicker / title from overlapping the HUD corner labels
+     when viewport height is short but width is still desktop-sized. */
+  @media (min-width:768px) and (max-height:1000px) {
+    #hero-brand img { height:6.5rem; }
+    #hero-content { justify-content:flex-start; padding-top:17.5rem; padding-bottom:2rem; }
+    #hero-kicker { margin-bottom:0.75rem; }
+    #hero-l1 { max-width:min(70vw,620px); }
+    #hero-l2 { font-size:clamp(2.2rem,9vw,6.5rem); }
+    #hero-sub { margin-top:1.25rem; }
   }
 </style>
 </head>
@@ -199,7 +214,7 @@ tailwind.config = {
 <header id="nav" class="fixed top-0 inset-x-0 z-[60] transition-all duration-500">
   <div class="flex items-center justify-between px-5 md:px-10 h-16 md:h-20">
     <a href="#top" class="font-display font-800 tracking-[0.2em] text-sm md:text-base font-bold flex items-center gap-2 shrink-0 mr-6 md:mr-10" data-hover>
-      <img src="drobotex logo and name-Photoroom.png" alt="Drobotex" class="h-7 md:h-9 w-auto object-contain"><span class="text-red">//</span><span class="text-cyan">26</span>
+      <img src="Main Logo-01.png" alt="Drobotex" class="h-7 md:h-9 w-[112px] md:w-[150px] object-cover object-center"><span class="text-red">//</span><span class="text-cyan">26</span>
     </a>
     <nav class="hidden md:flex items-center gap-8 font-mono text-[11px] tracking-[0.25em] text-fog">
       <a href="#about"        class="link-u hover:text-mist" data-hover>BRIEF</a>
@@ -242,17 +257,13 @@ tailwind.config = {
     <span class="absolute -bottom-px -left-px w-5 h-5 border-b-2 border-l-2 border-cyan"></span>
     <span class="absolute -bottom-px -right-px w-5 h-5 border-b-2 border-r-2 border-cyan"></span>
 
-    <div class="absolute top-5 left-5 flex items-center gap-3">
+    <div id="hero-brand" class="absolute top-5 left-5 flex items-center gap-3">
       <div class="flex items-center gap-3 px-3 py-2">
-        <img src="company%20logo/TEGAS%202.png" alt="TEGAS" class="h-20 md:h-28 w-auto object-contain">
+        <img src="company%20logo/TEGAS%202.png" alt="TEGAS" class="h-28 md:h-48 w-auto object-contain">
       </div>
       <div class="hidden sm:block font-mono text-[10px] tracking-[0.3em] text-fog">
         PRESENTED BY<br><span class="text-cyan">TEGAS</span>
       </div>
-    </div>
-    <div class="hidden md:block absolute top-5 right-5 font-mono text-[10px] tracking-[0.3em] text-fog text-right">
-      SYS.STATUS <span class="text-cyan blink">● LIVE</span><br>
-      <span id="hero-coords">1.5535° N / 110.3593° E</span>
     </div>
     <div class="hidden md:block absolute bottom-5 left-5 font-mono text-[10px] tracking-[0.3em] text-fog">
       CAT.A — SCHOOLS<br>CAT.B — OPEN / TERTIARY
@@ -263,13 +274,13 @@ tailwind.config = {
   </div>
 
   <!-- hero content -->
-  <div class="relative z-20 h-full flex flex-col justify-center px-6 md:px-16 lg:px-24">
+  <div id="hero-content" class="relative z-20 h-full flex flex-col justify-center px-6 md:px-16 lg:px-24">
     <div id="hero-fade">
       <p id="hero-kicker" class="font-mono text-[10px] md:text-xs tracking-[0.5em] text-cyan mb-4 md:mb-6 opacity-0">
         26 — 27 SEPTEMBER 2026 · ANG CHENG HO MULTIPURPOSE HALL, BATU KAWA
       </p>
       <h1 class="font-display font-black leading-[0.88] select-none">
-        <img id="hero-l1" src="drobotex logo and name-Photoroom.png" alt="Drobotex" class="block w-full max-w-[min(90vw,900px)] h-auto opacity-0">
+        <img id="hero-l1" src="Main Logo-01.png" alt="Drobotex" class="block w-full max-w-[min(90vw,900px)] opacity-0">
         <span id="hero-l2" class="block text-[clamp(3rem,12.5vw,11rem)] txt-outline opacity-0">2026<span class="text-red" style="-webkit-text-stroke:0">.</span></span>
       </h1>
       <div id="hero-sub" class="mt-6 md:mt-10 flex flex-wrap items-center gap-4 md:gap-6 opacity-0">
@@ -281,7 +292,7 @@ tailwind.config = {
 
   <!-- mascot -->
   <img id="mascot" src="image.png" alt="DROBOTEX mascot"
-       class="floaty pointer-events-none absolute z-10 right-[4%] bottom-[10%] w-[38vw] max-w-[300px] md:w-[24vw] md:max-w-[380px] opacity-0 drop-shadow-[0_0_40px_rgba(56,232,255,0.25)]">
+       class="floaty pointer-events-none absolute z-10 right-[4%] bottom-[10%] w-[38vw] max-w-[300px] md:w-[24vw] md:max-w-[380px] opacity-0 drop-shadow-[0_0_40px_rgba(255,184,0,0.25)]">
 </section>
 
 <!-- ==================== TICKER ==================== -->
@@ -534,7 +545,7 @@ tailwind.config = {
         <!-- end cap -->
         <div class="shrink-0 w-[60vw] md:w-[420px] flex items-center">
           <a href="#register" class="group" data-hover>
-            <p class="font-display font-black text-4xl md:text-6xl leading-[1.02] txt-outline group-hover:text-mist transition-colors duration-500" style="-webkit-text-stroke-color:rgba(56,232,255,.6)">
+            <p class="font-display font-black text-4xl md:text-6xl leading-[1.02] txt-outline group-hover:text-mist transition-colors duration-500" style="-webkit-text-stroke-color:rgba(255,184,0,.6)">
               ENTER<br>THE<br>ARENA <span class="text-red" style="-webkit-text-stroke:0">↗</span>
             </p>
           </a>
