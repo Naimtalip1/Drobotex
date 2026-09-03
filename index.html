@@ -207,6 +207,7 @@ tailwind.config = {
       <a href="#workshops"    class="link-u hover:text-mist" data-hover>WORKSHOPS</a>
       <a href="#exhibition"   class="link-u hover:text-mist" data-hover>EXPO</a>
       <a href="#gallery"      class="link-u hover:text-mist" data-hover>GALLERY</a>
+      <a href="#partners"     class="link-u hover:text-mist" data-hover>PARTNERS</a>
       <a href="#register" class="btn-glitch border border-cyan px-5 py-2 text-cyan" data-hover><span>REGISTER ↗</span></a>
     </nav>
     <button id="nav-toggle" class="md:hidden font-mono text-[11px] tracking-[0.3em] text-cyan" data-hover>MENU</button>
@@ -221,6 +222,7 @@ tailwind.config = {
     <a href="#workshops"    class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">WORKSHOPS</a>
     <a href="#exhibition"   class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">EXPO</a>
     <a href="#gallery"      class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">GALLERY</a>
+    <a href="#partners"     class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">PARTNERS</a>
     <a href="#register"     class="mob-link text-red">REGISTER ↗</a>
   </nav>
   <p class="mob-link mt-12 font-mono text-[10px] tracking-[0.3em] text-fog">26—27.09.2026 · DEWAN BKIH · KUCHING</p>
@@ -240,8 +242,14 @@ tailwind.config = {
     <span class="absolute -bottom-px -left-px w-5 h-5 border-b-2 border-l-2 border-cyan"></span>
     <span class="absolute -bottom-px -right-px w-5 h-5 border-b-2 border-r-2 border-cyan"></span>
 
-    <div class="hidden md:block absolute top-5 left-5 font-mono text-[10px] tracking-[0.3em] text-fog">
-      TEGAS PRESENTS<br><span class="text-cyan">BORNEO ROBOTICS EXPO</span>
+    <div class="absolute top-5 left-5 flex items-center gap-3">
+      <div class="flex items-center gap-3 px-3 py-2">
+        <img src="company%20logo/TEGAS%202.png" alt="TEGAS" class="h-20 md:h-28 w-auto object-contain">
+        <img src="company%20logo/state%201.png" alt="State of Sarawak" class="h-12 md:h-16 w-auto object-contain">
+      </div>
+      <div class="hidden sm:block font-mono text-[10px] tracking-[0.3em] text-fog">
+        PRESENTED BY<br><span class="text-cyan">TEGAS · SARAWAK</span>
+      </div>
     </div>
     <div class="hidden md:block absolute top-5 right-5 font-mono text-[10px] tracking-[0.3em] text-fog text-right">
       SYS.STATUS <span class="text-cyan blink">● LIVE</span><br>
@@ -780,10 +788,51 @@ tailwind.config = {
   </div>
 </section>
 
+<!-- ==================== PARTNERS ==================== -->
+<section id="partners" class="relative px-6 md:px-16 lg:px-24 py-24 md:py-40 border-t border-line">
+  <div class="flex items-baseline gap-6 mb-12 md:mb-16 reveal">
+    <span class="font-mono text-xs text-red tracking-[0.3em]">06</span>
+    <h2 class="font-mono text-xs tracking-[0.5em] text-fog">ALLIANCE GRID</h2>
+    <span class="flex-1 h-px bg-line"></span>
+    <span class="font-mono text-[10px] tracking-[0.3em] text-fog">INDUSTRY & TECHNICAL PARTNERS</span>
+  </div>
+
+  <h3 class="reveal font-display font-black text-[clamp(2.2rem,7vw,5.5rem)] leading-[0.95] mb-12 md:mb-16">
+    INDUSTRY &amp; TECHNICAL <span class="txt-outline-cyan">PARTNERS</span>
+  </h3>
+
+  <div class="reveal grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 md:gap-6">
+    <div class="hud flex items-center justify-center bg-panel p-6 md:p-8 aspect-square" data-hover>
+      <div class="hud-i"></div>
+      <img src="partners/dji-droneskaki-sarawak-white-bland-1feOiGXWOkFk4VYZ.png.avif" alt="DJI DroneSkaki Sarawak" class="max-w-full max-h-full object-contain">
+    </div>
+    <div class="hud flex items-center justify-center bg-mist p-6 md:p-8 aspect-square" data-hover>
+      <div class="hud-i"></div>
+      <img src="partners/cytron.jpeg" alt="Cytron Technologies" class="max-w-full max-h-full object-contain">
+    </div>
+    <div class="hud flex items-center justify-center bg-mist p-6 md:p-8 aspect-square" data-hover>
+      <div class="hud-i"></div>
+      <img src="partners/chumbaka.gif" alt="Chumbaka" class="max-w-full max-h-full object-contain">
+    </div>
+    <div class="hud flex items-center justify-center bg-mist p-6 md:p-8 aspect-square" data-hover>
+      <div class="hud-i"></div>
+      <img src="partners/stemground.jpeg" alt="Stemground" class="max-w-full max-h-full object-contain">
+    </div>
+    <div class="hud flex items-center justify-center bg-mist p-6 md:p-8 aspect-square" data-hover>
+      <div class="hud-i"></div>
+      <img src="partners/ssciex.png" alt="Sarawak Science Centre" class="max-w-full max-h-full object-contain">
+    </div>
+    <div class="hud flex items-center justify-center bg-mist p-6 md:p-8 aspect-square" data-hover>
+      <div class="hud-i"></div>
+      <img src="partners/lighthouse of hope.png" alt="Lighthouse of Hope (Sarawak)" class="max-w-full max-h-full object-contain">
+    </div>
+  </div>
+</section>
+
 <!-- ==================== REGISTER ==================== -->
 <section id="register" class="relative px-6 md:px-16 lg:px-24 py-24 md:py-40 overflow-hidden">
   <div class="flex items-baseline gap-6 mb-12 md:mb-16 reveal">
-    <span class="font-mono text-xs text-red tracking-[0.3em]">06</span>
+    <span class="font-mono text-xs text-red tracking-[0.3em]">07</span>
     <h2 class="font-mono text-xs tracking-[0.5em] text-fog">DEPLOYMENT</h2>
     <span class="flex-1 h-px bg-line"></span>
   </div>
@@ -803,33 +852,14 @@ tailwind.config = {
       </div>
     </div>
 
-    <form id="reg-form" class="lg:col-span-5 hud border border-line bg-panel/60 p-7 md:p-10 reveal">
+    <div class="lg:col-span-5 hud border border-line bg-panel/60 p-7 md:p-10 reveal">
       <span class="hud-i"></span>
-      <p class="font-mono text-[10px] tracking-[0.3em] text-cyan mb-8">// REGISTRATION.FORM</p>
-      <label class="block mb-6">
-        <span class="font-mono text-[10px] tracking-[0.25em] text-fog">CALLSIGN / NAME</span>
-        <input required type="text" name="name" placeholder="e.g. Team Vortex"
-               class="mt-2 w-full bg-transparent border-b border-line focus:border-cyan outline-none py-3 font-body text-mist placeholder:text-fog/40 transition-colors">
-      </label>
-      <label class="block mb-6">
-        <span class="font-mono text-[10px] tracking-[0.25em] text-fog">EMAIL</span>
-        <input required type="email" name="email" placeholder="you@team.my"
-               class="mt-2 w-full bg-transparent border-b border-line focus:border-cyan outline-none py-3 font-body text-mist placeholder:text-fog/40 transition-colors">
-      </label>
-      <label class="block mb-8">
-        <span class="font-mono text-[10px] tracking-[0.25em] text-fog">CATEGORY</span>
-        <select name="category" class="mt-2 w-full bg-ink border-b border-line focus:border-cyan outline-none py-3 font-body text-mist transition-colors">
-          <option>CAT.A — SCHOOL TEAM</option>
-          <option>CAT.B — OPEN / TERTIARY TEAM</option>
-          <option>EXHIBITOR / PARTNER</option>
-          <option>VISITOR PASS</option>
-        </select>
-      </label>
-      <button type="submit" class="btn-glitch w-full border border-cyan py-4 font-mono text-xs tracking-[0.35em] text-cyan" data-hover>
-        <span>TRANSMIT →</span>
-      </button>
-      <p id="form-msg" class="hidden mt-5 font-mono text-[10px] tracking-[0.2em] text-cyan">▸ SIGNAL RECEIVED. STAND BY FOR DEPLOYMENT ORDERS.</p>
-    </form>
+      <p class="font-mono text-[10px] tracking-[0.3em] text-cyan mb-8">// REGISTRATION.STATUS</p>
+      <div class="border border-cyan/60 p-6 md:p-8">
+        <p class="font-display font-black text-3xl md:text-4xl leading-none text-mist">REGISTRATION<br><span class="text-red">OPENING SOON</span></p>
+        <p class="mt-5 font-mono text-[10px] tracking-[0.2em] text-fog leading-6">TEAM SIGN-UPS WILL GO LIVE HERE. STAND BY FOR DEPLOYMENT ORDERS.</p>
+      </div>
+    </div>
   </div>
 </section>
 
