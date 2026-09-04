@@ -190,6 +190,7 @@ tailwind.config = {
     #hero-l1 { max-width:min(70vw,620px); }
     #hero-l2 { font-size:clamp(2.2rem,9vw,6.5rem); }
     #hero-sub { margin-top:1.25rem; }
+    #mascot { width:18vw; max-width:240px; bottom:8%; }
   }
 </style>
 </head>
@@ -579,24 +580,31 @@ tailwind.config = {
       <div class="border-l border-line pl-6 md:pl-8 space-y-10 relative">
         <div class="relative">
           <span class="absolute -left-[27px] md:-left-[35px] top-1 w-2.5 h-2.5 bg-cyan rotate-45"></span>
-          <p class="font-mono text-[10px] tracking-[0.3em] text-cyan">SLOT 1 · AM</p>
+          <p class="font-mono text-[10px] tracking-[0.3em] text-cyan">09:00 — 10:00</p>
           <h4 class="font-display font-bold text-xl md:text-2xl mt-2">DRONE ASSEMBLY</h4>
           <p class="text-fog text-sm mt-2 leading-relaxed">Airframes, motors and flight controllers — build it, then fly it.</p>
           <p class="font-mono text-[10px] tracking-[0.2em] text-fog mt-2">LEAD — DRONESKAKI · HARDWARE</p>
         </div>
         <div class="relative">
           <span class="absolute -left-[27px] md:-left-[35px] top-1 w-2.5 h-2.5 bg-blue rotate-45"></span>
-          <p class="font-mono text-[10px] tracking-[0.3em] text-cyan">SLOT 2 · EARLY PM</p>
+          <p class="font-mono text-[10px] tracking-[0.3em] text-cyan">10:30 — 12:00</p>
           <h4 class="font-display font-bold text-xl md:text-2xl mt-2">INTRO TO RACING</h4>
           <p class="text-fog text-sm mt-2 leading-relaxed">FPV simulator drills, safety protocols and gate maneuvering.</p>
           <p class="font-mono text-[10px] tracking-[0.2em] text-fog mt-2">LEAD — DRONESKAKI · PILOTING & FPV</p>
         </div>
         <div class="relative">
           <span class="absolute -left-[27px] md:-left-[35px] top-1 w-2.5 h-2.5 bg-red rotate-45"></span>
-          <p class="font-mono text-[10px] tracking-[0.3em] text-cyan">SLOT 3 · LATE PM</p>
+          <p class="font-mono text-[10px] tracking-[0.3em] text-cyan">13:00 — 14:30</p>
           <h4 class="font-display font-bold text-xl md:text-2xl mt-2">3D PRINT DESIGN</h4>
           <p class="text-fog text-sm mt-2 leading-relaxed">CAD modeling and fabricating custom robotics components.</p>
           <p class="font-mono text-[10px] tracking-[0.2em] text-fog mt-2">LEAD — CYTRON / CHUMBAKA · FAB & PROTO</p>
+        </div>
+        <div class="relative">
+          <span class="absolute -left-[27px] md:-left-[35px] top-1 w-2.5 h-2.5 bg-cyan rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.3em] text-cyan">15:00 — 16:30</p>
+          <h4 class="font-display font-bold text-xl md:text-2xl mt-2">ROBOTICS MAKER LAB</h4>
+          <p class="text-fog text-sm mt-2 leading-relaxed">Prototype, wire and test a working robot from idea to motion.</p>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-fog mt-2">LEAD — CYTRON / CHUMBAKA · ROBOTICS</p>
         </div>
       </div>
     </div>
@@ -610,24 +618,17 @@ tailwind.config = {
       <div class="border-l border-line pl-6 md:pl-8 space-y-10 relative">
         <div class="relative">
           <span class="absolute -left-[27px] md:-left-[35px] top-1 w-2.5 h-2.5 bg-cyan rotate-45"></span>
-          <p class="font-mono text-[10px] tracking-[0.3em] text-cyan">SLOT 1 · AM</p>
+          <p class="font-mono text-[10px] tracking-[0.3em] text-cyan">09:00 — 10:00</p>
           <h4 class="font-display font-bold text-xl md:text-2xl mt-2">ROBOTIC PYTHON</h4>
           <p class="text-fog text-sm mt-2 leading-relaxed">Motor control, sensors and logic programming in Python.</p>
           <p class="font-mono text-[10px] tracking-[0.2em] text-fog mt-2">LEAD — CYTRON / CHUMBAKA · EMBEDDED</p>
         </div>
         <div class="relative">
           <span class="absolute -left-[27px] md:-left-[35px] top-1 w-2.5 h-2.5 bg-blue rotate-45"></span>
-          <p class="font-mono text-[10px] tracking-[0.3em] text-cyan">SLOT 2 · EARLY PM</p>
+          <p class="font-mono text-[10px] tracking-[0.3em] text-cyan">10:30 — 12:00</p>
           <h4 class="font-display font-bold text-xl md:text-2xl mt-2">AI FOR ROBOTICS</h4>
           <p class="text-fog text-sm mt-2 leading-relaxed">Vision sensors, object recognition and ML integration basics.</p>
           <p class="font-mono text-[10px] tracking-[0.2em] text-fog mt-2">LEAD — UNIVERSITY / SSCIEX · MACHINE VISION</p>
-        </div>
-        <div class="relative">
-          <span class="absolute -left-[27px] md:-left-[35px] top-1 w-2.5 h-2.5 bg-red rotate-45"></span>
-          <p class="font-mono text-[10px] tracking-[0.3em] text-cyan">SLOT 3 · LATE PM</p>
-          <h4 class="font-display font-bold text-xl md:text-2xl mt-2">DRONE MEDIA</h4>
-          <p class="text-fog text-sm mt-2 leading-relaxed">Camera settings, cinematic maneuvers and legal compliance.</p>
-          <p class="font-mono text-[10px] tracking-[0.2em] text-fog mt-2">LEAD — DRONESKAKI / MEDIA · AERIAL FILMING</p>
         </div>
       </div>
     </div>
@@ -841,6 +842,10 @@ tailwind.config = {
       <div class="hud-i"></div>
       <img src="partners/lighthouse of hope.png" alt="Lighthouse of Hope (Sarawak)" class="max-w-full max-h-full object-contain">
     </div>
+    <div class="hud flex items-center justify-center bg-mist p-6 md:p-8 aspect-square" data-hover>
+      <div class="hud-i"></div>
+      <img src="partners/myrobotz.png" alt="MyRobotz" class="max-w-full max-h-full object-contain">
+    </div>
   </div>
 </section>
 
@@ -902,6 +907,22 @@ tailwind.config = {
       <p class="pt-4"><a href="#register" class="link-u text-mist" data-hover>REGISTER YOUR TEAM ↗</a></p>
     </div>
   </div>
+  <a href="https://www.google.com/maps/search/?api=1&query=Ang+Cheng+Ho+Multipurpose+Hall+Kuching" target="_blank" rel="noopener noreferrer"
+     class="hud mt-14 block border border-cyan/50 bg-panel/70 p-5 md:p-7 group" data-hover>
+    <span class="hud-i"></span>
+    <div class="flex flex-wrap items-center gap-5 md:gap-8">
+      <svg aria-hidden="true" viewBox="0 0 24 24" class="w-8 h-8 text-cyan shrink-0" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M12 21s7-6.1 7-12A7 7 0 1 0 5 9c0 5.9 7 12 7 12Z"/>
+        <circle cx="12" cy="9" r="2.25"/>
+      </svg>
+      <div class="flex-1 min-w-[min(100%,16rem)]">
+        <p class="font-mono text-[10px] tracking-[0.3em] text-cyan">// NAVIGATION.LINK · LIVE</p>
+        <p class="font-display font-bold text-xl md:text-2xl text-mist mt-2">ANG CHENG HO MULTIPURPOSE HALL</p>
+        <p class="font-mono text-[10px] tracking-[0.2em] text-fog mt-2">BATU KAWA, KUCHING · OPEN MAPS COORDINATES ↗</p>
+      </div>
+      <span class="font-mono text-xs tracking-[0.25em] text-cyan group-hover:text-mist transition-colors">LOCATE →</span>
+    </div>
+  </a>
   <div class="mt-14 pt-6 border-t border-line flex flex-wrap justify-between gap-4 font-mono text-[9px] tracking-[0.3em] text-fog/60">
     <span>© 2026 DROBOTEX · TEGAS · SARAWAK GOVERNMENT INITIATIVE</span>
     <span>DESIGNED FOR THE MACHINES THAT WILL JUDGE US</span>
