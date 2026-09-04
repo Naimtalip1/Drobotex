@@ -176,6 +176,10 @@ tailwind.config = {
     .marq-track, .floaty, .blink, .grain::after { animation:none !important; }
   }
 
+  @media (max-width:767px) {
+    #mascot { right:2%; bottom:1%; width:22vw; max-width:110px; }
+  }
+
   /* ---------- laptop-height fix (13"/14" displays, ~768–1000px tall) ----------
      Prevents the hero kicker / title from overlapping the HUD corner labels
      when viewport height is short but width is still desktop-sized. */
