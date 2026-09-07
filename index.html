@@ -259,6 +259,7 @@ tailwind.config = {
       <a href="#about"        class="link-u hover:text-mist" data-hover>BRIEF</a>
       <a href="#competitions" class="link-u hover:text-mist" data-hover>ARENAS</a>
       <a href="#workshops"    class="link-u hover:text-mist" data-hover>WORKSHOPS</a>
+      <a href="#itinerary"    class="link-u hover:text-mist" data-hover>ITINERARY</a>
       <a href="#exhibition"   class="link-u hover:text-mist" data-hover>EXPO</a>
       <a href="#gallery"      class="link-u hover:text-mist" data-hover>GALLERY</a>
       <a href="#partners"     class="link-u hover:text-mist" data-hover>PARTNERS</a>
@@ -274,6 +275,7 @@ tailwind.config = {
     <a href="#about"        class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">BRIEF</a>
     <a href="#competitions" class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">ARENAS</a>
     <a href="#workshops"    class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">WORKSHOPS</a>
+    <a href="#itinerary"    class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">ITINERARY</a>
     <a href="#exhibition"   class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">EXPO</a>
     <a href="#gallery"      class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">GALLERY</a>
     <a href="#partners"     class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">PARTNERS</a>
@@ -460,8 +462,9 @@ tailwind.config = {
       <span class="hidden md:block font-mono text-[10px] tracking-[0.3em] text-fog">SCROLL →</span>
     </div>
     <div class="px-6 md:px-16 lg:px-24 mb-8 flex flex-wrap gap-3 md:gap-5 font-mono text-[10px] tracking-[0.2em]">
-      <span class="border border-cyan/50 bg-panel/60 px-4 py-2 text-cyan">// DAY 1 · ALL COMPETITIONS · 09:00 AM — 04:00 PM</span>
+      <span class="border border-cyan/50 bg-panel/60 px-4 py-2 text-cyan">// DAY 1 · ALL COMPETITIONS · 09:00 AM — 05:00 PM</span>
       <span class="border border-red/50 bg-panel/60 px-4 py-2 text-red">// DAY 2 · FINALS · 09:00 AM — 12:00 PM</span>
+      <span class="border border-yellow/50 bg-panel/60 px-4 py-2 text-yellow">// DAY 2 · CLOSING CEREMONY · 02:00 PM — 05:00 PM</span>
     </div>
 
     <div id="comp-viewport" class="overflow-hidden">
@@ -675,11 +678,154 @@ tailwind.config = {
   </div>
 </section>
 
+<!-- ==================== TENTATIVE ITINERARY ==================== -->
+<section id="itinerary" class="relative px-6 md:px-16 lg:px-24 py-24 md:py-40 border-t border-line">
+  <div class="flex items-baseline gap-6 mb-12 md:mb-20 reveal">
+    <span class="font-mono text-xs text-red tracking-[0.3em]">04</span>
+    <h2 class="font-mono text-xs tracking-[0.5em] text-fog">TENTATIVE ITINERARY</h2>
+    <span class="flex-1 h-px bg-line"></span>
+    <span class="font-mono text-[10px] tracking-[0.3em] text-fog">SUBJECT TO CHANGE</span>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-10 md:gap-12">
+    <!-- DAY 1 -->
+    <div class="reveal">
+      <div class="flex items-baseline gap-4 mb-8">
+        <h3 class="font-display font-black text-3xl md:text-4xl">DAY<span class="text-cyan">_01</span></h3>
+        <span class="font-mono text-[10px] tracking-[0.3em] text-fog">09:00 — 17:00</span>
+      </div>
+      <div class="border-l border-line pl-6 space-y-6 relative">
+        <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-cyan rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">08:00</p>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">ARRIVAL &amp; REGISTRATION CHECK-IN</h4>
+        </div>
+        <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-red rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">09:00</p>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">COMPETITION STARTS — 9 ARENAS</h4>
+        </div>
+        <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-blue rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">09:00 — 10:00</p>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">DRONE ASSEMBLY WORKSHOP</h4>
+        </div>
+        <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-cyan rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">10:30 — 12:00</p>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">INTRO TO RACING WORKSHOP</h4>
+        </div>
+        <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-red rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">12:00 — 13:00</p>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">LUNCH BREAK &amp; PIT RECHARGING</h4>
+        </div>
+        <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-blue rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">13:00 — 14:30</p>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">3D PRINT DESIGN WORKSHOP</h4>
+        </div>
+        <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-cyan rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">15:00 — 16:30</p>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">ROBOTIC PYTHON WORKSHOP</h4>
+        </div>
+        <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-red rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">16:30 — 17:00</p>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">ARENA WRAP-UP &amp; SCORE VERIFICATION</h4>
+        </div>
+        <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-yellow rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">17:00</p>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">DAY 1 RESULTS &amp; FINALISTS ANNOUNCEMENT</h4>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="reveal">
+      <div class="flex items-baseline gap-4 mb-8">
+        <h3 class="font-display font-black text-3xl md:text-4xl">DAY<span class="text-red">_02</span></h3>
+        <span class="font-mono text-[10px] tracking-[0.3em] text-fog">09:00 — 12:00 · FINALS</span>
+      </div>
+      <div class="border-l border-line pl-6 space-y-6 relative">
+        <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-cyan rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">08:00 — 08:30</p>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">VENUE OPENS &amp; TEAM ROLL CALL</h4>
+        </div>
+        <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-red rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">09:00</p>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">GRAND FINALS — ALL CATEGORIES</h4>
+        </div>
+        <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-blue rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">09:00</p>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">INNOVATION CHALLENGE &amp; SCRATCHATHON FINAL</h4>
+        </div>
+        <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-cyan rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">09:00 — 10:00</p>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">WORKSHOP — BASICS OF ROBOTIC CODING (PYTHON)</h4>
+        </div>
+        <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-red rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">10:30 — 12:00</p>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">WORKSHOP — AI FOR ROBOTICS</h4>
+        </div>
+        <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-blue rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">12:00 — 13:00</p>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">LUNCH BREAK &amp; FINAL SCORE AUDITING</h4>
+        </div>
+        <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-yellow rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">14:00</p>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">TRANSITION TO OFFICIAL CLOSING PROTOCOL</h4>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLOSING CEREMONY -->
+    <div class="reveal relative">
+      <img src="robot-pose-dynamic.png" alt="DROBOTEX robot mascot" class="pointer-events-none absolute hidden lg:block right-0 -top-4 w-28 opacity-85" aria-hidden="true">
+      <div class="flex items-baseline gap-4 mb-8">
+        <h3 class="font-display font-black text-3xl md:text-4xl">CLOSING</h3>
+        <span class="font-mono text-[10px] tracking-[0.3em] text-fog">14:00 — 17:00</span>
+      </div>
+      <div class="border-l border-line pl-6 space-y-6 relative">
+        <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-cyan rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">14:30</p>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">ARRIVAL OF GUESTS</h4>
+        </div>
+        <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-red rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">14:45</p>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">ARRIVAL OF DISTINGUISHED GUEST</h4>
+        </div>
+        <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-blue rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">15:00</p>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">ARRIVAL OF VIP</h4>
+        </div>
+        <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-cyan rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">15:05</p>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">NATIONAL ANTHEM &amp; IBU PERTIWIKU</h4>
+        </div>
+        <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-red rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">15:15</p>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">WELCOMING PERFORMANCE</h4>
+        </div>
+        <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-blue rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">—</p>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">VIDEO HIGHLIGHTS, WELCOMING &amp; CLOSING REMARKS</h4>
+        </div>
+        <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-cyan rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">—</p>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">TOKENS OF APPRECIATION</h4>
+        </div>
+        <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-red rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">—</p>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">PRIZE-GIVING CEREMONY</h4>
+        </div>
+        <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-yellow rotate-45"></span>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">17:00</p>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">GRAND PHOTO SESSION &amp; ADJOURNMENT</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ==================== EXHIBITION ==================== -->
 <section id="exhibition" class="relative py-24 md:py-40 border-t border-line">
   <img src="robot-pose-lean.png" alt="DROBOTEX robot mascot" class="pointer-events-none absolute z-10 top-32 right-4 md:top-36 md:right-16 w-24 md:w-40 lg:w-48 opacity-85" aria-hidden="true">
   <div class="px-6 md:px-16 lg:px-24 flex items-baseline gap-6 mb-4 reveal">
-    <span class="font-mono text-xs text-red tracking-[0.3em]">04</span>
+    <span class="font-mono text-xs text-red tracking-[0.3em]">05</span>
     <h2 class="font-mono text-xs tracking-[0.5em] text-fog">EXPO FLOOR</h2>
     <span class="flex-1 h-px bg-line"></span>
     <span class="font-mono text-[10px] tracking-[0.3em] text-fog">8 ZONES</span>
@@ -777,7 +923,7 @@ tailwind.config = {
 <section id="gallery" class="relative px-6 md:px-16 lg:px-24 py-24 md:py-40 border-t border-line overflow-hidden">
   <img src="robot-pose-front.png" alt="DROBOTEX robot mascot" class="pointer-events-none absolute z-10 top-6 right-4 md:top-8 md:right-16 w-16 md:w-24 lg:w-28 opacity-85" aria-hidden="true">
   <div class="flex items-baseline gap-6 mb-12 md:mb-16 reveal">
-    <span class="font-mono text-xs text-red tracking-[0.3em]">05</span>
+    <span class="font-mono text-xs text-red tracking-[0.3em]">06</span>
     <h2 class="font-mono text-xs tracking-[0.5em] text-fog">FIELD ARCHIVE</h2>
     <span class="flex-1 h-px bg-line"></span>
     <span class="font-mono text-[10px] tracking-[0.3em] text-fog">PAST EVENTS</span>
@@ -849,7 +995,7 @@ tailwind.config = {
 <!-- ==================== PARTNERS ==================== -->
 <section id="partners" class="relative px-6 md:px-16 lg:px-24 py-24 md:py-40 border-t border-line">
   <div class="flex items-baseline gap-6 mb-12 md:mb-16 reveal">
-    <span class="font-mono text-xs text-red tracking-[0.3em]">06</span>
+    <span class="font-mono text-xs text-red tracking-[0.3em]">07</span>
     <h2 class="font-mono text-xs tracking-[0.5em] text-fog">ALLIANCE GRID</h2>
     <span class="flex-1 h-px bg-line"></span>
     <span class="font-mono text-[10px] tracking-[0.3em] text-fog">INDUSTRY & TECHNICAL PARTNERS</span>
@@ -894,7 +1040,7 @@ tailwind.config = {
 <!-- ==================== REGISTER ==================== -->
 <section id="register" class="relative px-6 md:px-16 lg:px-24 py-24 md:py-40 overflow-hidden">
   <div class="flex items-baseline gap-6 mb-12 md:mb-16 reveal">
-    <span class="font-mono text-xs text-red tracking-[0.3em]">07</span>
+    <span class="font-mono text-xs text-red tracking-[0.3em]">08</span>
     <h2 class="font-mono text-xs tracking-[0.5em] text-fog">DEPLOYMENT</h2>
     <span class="flex-1 h-px bg-line"></span>
   </div>
