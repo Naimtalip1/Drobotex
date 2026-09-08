@@ -128,8 +128,18 @@ tailwind.config = {
   .comp-card:hover .cc-num   { -webkit-text-stroke-color:rgba(4,7,13,.4); }
   .comp-card:hover .cc-tag   { border-color:#d91f63; color:#d91f63; }
   .comp-card:hover .cc-arrow { transform:translate(6px,-6px); color:#d91f63; }
+  .comp-card:hover .cc-prize-grid { background-color:rgba(255,255,255,.85) !important; border-color:rgba(0,44,81,.25) !important; }
+  .comp-card:hover .cc-prize-consolation { background-color:rgba(255,255,255,.7) !important; border-color:rgba(0,44,81,.25) !important; }
+  .comp-card:hover .cc-prize-grid.battlebots { border-color:rgba(219,38,107,.45) !important; }
+  .comp-card:hover .cc-prize-val { color:#04070d; }
+  .comp-card:hover .cc-prize-val.text-red { color:#db266b !important; }
+  .comp-card:hover .cc-prize-lbl { color:#33415e; }
   .cc-arrow { transition:transform .35s, color .35s; }
   .cc-num { color:transparent; -webkit-text-stroke:1px rgba(232,238,252,.25); transition:.4s; }
+  .cc-prize-grid { background-color:rgba(255,238,230,.55); border-color:rgba(0,44,81,.18); transition:background-color .35s, border-color .35s; }
+  .cc-prize-consolation { background-color:rgba(255,238,230,.35); border-color:rgba(0,44,81,.2); transition:background-color .35s, border-color .35s; }
+  .cc-prize-val { color:#002c51; transition:color .35s; }
+  .cc-prize-lbl { color:#526779; transition:color .35s; }
 
   /* ---------- exhibition rows ---------- */
   .zone-row .zone-desc { max-height:0; opacity:0; overflow:hidden; transition:max-height .5s cubic-bezier(.22,1,.36,1), opacity .4s; }
@@ -477,9 +487,31 @@ tailwind.config = {
               <span class="cc-num font-display font-black text-6xl md:text-7xl">01</span>
               <span class="cc-tag border border-cyan/50 text-cyan font-mono text-[9px] tracking-[0.25em] px-3 py-1">AERIAL RACE</span>
             </div>
-            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-8 md:mt-12 leading-tight">TINYWHOOP<br>DRONE RACE</h3>
+            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-6 md:mt-8 leading-tight">TINYWHOOP<br>DRONE RACE</h3>
           </div>
-          <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog mt-10">
+
+          <div class="cc-prizes my-6 pt-4 border-t border-line/40">
+            <div class="flex items-center justify-between font-mono text-[9px] tracking-[0.22em] text-fog mb-2.5">
+              <span>// PRIZES · GENERAL</span>
+              <span class="text-red font-semibold">RM 2,850</span>
+            </div>
+            <div class="cc-prize-grid flex border border-line/30 divide-x divide-line/30 font-mono text-center">
+              <div class="flex-1 py-2 px-1">
+                <div class="cc-prize-lbl text-[9px] tracking-wider">1ST</div>
+                <div class="cc-prize-val font-bold text-xs sm:text-sm mt-0.5">RM 1,450</div>
+              </div>
+              <div class="flex-1 py-2 px-1">
+                <div class="cc-prize-lbl text-[9px] tracking-wider">2ND</div>
+                <div class="cc-prize-val font-bold text-xs sm:text-sm mt-0.5">RM 850</div>
+              </div>
+              <div class="flex-1 py-2 px-1">
+                <div class="cc-prize-lbl text-[9px] tracking-wider">3RD</div>
+                <div class="cc-prize-val font-bold text-xs sm:text-sm mt-0.5">RM 550</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog">
             <span>ORG — CATCITY DRONE RACING</span><span class="cc-arrow text-cyan text-lg">↗</span>
           </div>
         </article>
@@ -490,9 +522,31 @@ tailwind.config = {
               <span class="cc-num font-display font-black text-6xl md:text-7xl">02</span>
               <span class="cc-tag border border-cyan/50 text-cyan font-mono text-[9px] tracking-[0.25em] px-3 py-1">AERIAL · EDU</span>
             </div>
-            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-8 md:mt-12 leading-tight">EDUCATIONAL<br>DRONE CHALLENGE</h3>
+            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-6 md:mt-8 leading-tight">EDUCATIONAL<br>DRONE CHALLENGE</h3>
           </div>
-          <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog mt-10">
+
+          <div class="cc-prizes my-6 pt-4 border-t border-line/40">
+            <div class="flex items-center justify-between font-mono text-[9px] tracking-[0.22em] text-fog mb-2.5">
+              <span>// PRIZES · GENERAL</span>
+              <span class="text-red font-semibold">RM 2,850</span>
+            </div>
+            <div class="cc-prize-grid flex border border-line/30 divide-x divide-line/30 font-mono text-center">
+              <div class="flex-1 py-2 px-1">
+                <div class="cc-prize-lbl text-[9px] tracking-wider">1ST</div>
+                <div class="cc-prize-val font-bold text-xs sm:text-sm mt-0.5">RM 1,450</div>
+              </div>
+              <div class="flex-1 py-2 px-1">
+                <div class="cc-prize-lbl text-[9px] tracking-wider">2ND</div>
+                <div class="cc-prize-val font-bold text-xs sm:text-sm mt-0.5">RM 850</div>
+              </div>
+              <div class="flex-1 py-2 px-1">
+                <div class="cc-prize-lbl text-[9px] tracking-wider">3RD</div>
+                <div class="cc-prize-val font-bold text-xs sm:text-sm mt-0.5">RM 550</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog">
             <span>ORG — DRONESKAKI SARAWAK</span><span class="cc-arrow text-cyan text-lg">↗</span>
           </div>
         </article>
@@ -503,9 +557,31 @@ tailwind.config = {
               <span class="cc-num font-display font-black text-6xl md:text-7xl">03</span>
               <span class="cc-tag border border-cyan/50 text-cyan font-mono text-[9px] tracking-[0.25em] px-3 py-1">AERIAL SPORT</span>
             </div>
-            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-8 md:mt-12 leading-tight">DRONE SOCCER<br>CHALLENGE</h3>
+            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-6 md:mt-8 leading-tight">DRONE SOCCER<br>CHALLENGE</h3>
           </div>
-          <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog mt-10">
+
+          <div class="cc-prizes my-6 pt-4 border-t border-line/40">
+            <div class="flex items-center justify-between font-mono text-[9px] tracking-[0.22em] text-fog mb-2.5">
+              <span>// PRIZES · GENERAL</span>
+              <span class="text-red font-semibold">RM 2,850</span>
+            </div>
+            <div class="cc-prize-grid flex border border-line/30 divide-x divide-line/30 font-mono text-center">
+              <div class="flex-1 py-2 px-1">
+                <div class="cc-prize-lbl text-[9px] tracking-wider">1ST</div>
+                <div class="cc-prize-val font-bold text-xs sm:text-sm mt-0.5">RM 1,450</div>
+              </div>
+              <div class="flex-1 py-2 px-1">
+                <div class="cc-prize-lbl text-[9px] tracking-wider">2ND</div>
+                <div class="cc-prize-val font-bold text-xs sm:text-sm mt-0.5">RM 850</div>
+              </div>
+              <div class="flex-1 py-2 px-1">
+                <div class="cc-prize-lbl text-[9px] tracking-wider">3RD</div>
+                <div class="cc-prize-val font-bold text-xs sm:text-sm mt-0.5">RM 550</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog">
             <span>ORG — VAV × AIRASIA DRONE</span><span class="cc-arrow text-cyan text-lg">↗</span>
           </div>
         </article>
@@ -516,9 +592,31 @@ tailwind.config = {
               <span class="cc-num font-display font-black text-6xl md:text-7xl">04</span>
               <span class="cc-tag border border-cyan/50 text-cyan font-mono text-[9px] tracking-[0.25em] px-3 py-1">GROUND SPORT</span>
             </div>
-            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-8 md:mt-12 leading-tight">ROBOSOCCER<br>COMPETITION</h3>
+            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-6 md:mt-8 leading-tight">ROBOSOCCER<br>COMPETITION</h3>
           </div>
-          <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog mt-10">
+
+          <div class="cc-prizes my-6 pt-4 border-t border-line/40">
+            <div class="flex items-center justify-between font-mono text-[9px] tracking-[0.22em] text-fog mb-2.5">
+              <span>// PRIZES · GENERAL</span>
+              <span class="text-red font-semibold">RM 2,850</span>
+            </div>
+            <div class="cc-prize-grid flex border border-line/30 divide-x divide-line/30 font-mono text-center">
+              <div class="flex-1 py-2 px-1">
+                <div class="cc-prize-lbl text-[9px] tracking-wider">1ST</div>
+                <div class="cc-prize-val font-bold text-xs sm:text-sm mt-0.5">RM 1,450</div>
+              </div>
+              <div class="flex-1 py-2 px-1">
+                <div class="cc-prize-lbl text-[9px] tracking-wider">2ND</div>
+                <div class="cc-prize-val font-bold text-xs sm:text-sm mt-0.5">RM 850</div>
+              </div>
+              <div class="flex-1 py-2 px-1">
+                <div class="cc-prize-lbl text-[9px] tracking-wider">3RD</div>
+                <div class="cc-prize-val font-bold text-xs sm:text-sm mt-0.5">RM 550</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog">
             <span>ORG — WORLD ROBOTICS CENTRE</span><span class="cc-arrow text-cyan text-lg">↗</span>
           </div>
         </article>
@@ -529,9 +627,31 @@ tailwind.config = {
               <span class="cc-num font-display font-black text-6xl md:text-7xl">05</span>
               <span class="cc-tag border border-red text-red font-mono text-[9px] tracking-[0.25em] px-3 py-1">COMBAT</span>
             </div>
-            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-8 md:mt-12 leading-tight text-red">BORNEO<br>BATTLEBOTS</h3>
+            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-6 md:mt-8 leading-tight text-red">BORNEO<br>BATTLEBOTS</h3>
           </div>
-          <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog mt-10">
+
+          <div class="cc-prizes my-6 pt-4 border-t border-red/30">
+            <div class="flex items-center justify-between font-mono text-[9px] tracking-[0.22em] text-fog mb-2.5">
+              <span>// PRIZES · GENERAL</span>
+              <span class="text-red font-semibold">RM 2,850</span>
+            </div>
+            <div class="cc-prize-grid battlebots flex border border-red/30 divide-x divide-red/30 font-mono text-center">
+              <div class="flex-1 py-2 px-1">
+                <div class="cc-prize-lbl text-[9px] tracking-wider">1ST</div>
+                <div class="cc-prize-val text-red font-bold text-xs sm:text-sm mt-0.5">RM 1,450</div>
+              </div>
+              <div class="flex-1 py-2 px-1">
+                <div class="cc-prize-lbl text-[9px] tracking-wider">2ND</div>
+                <div class="cc-prize-val font-bold text-xs sm:text-sm mt-0.5">RM 850</div>
+              </div>
+              <div class="flex-1 py-2 px-1">
+                <div class="cc-prize-lbl text-[9px] tracking-wider">3RD</div>
+                <div class="cc-prize-val font-bold text-xs sm:text-sm mt-0.5">RM 550</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog">
             <span>ORG — MYROBOTZ ENTERPRISE</span><span class="cc-arrow text-red text-lg">↗</span>
           </div>
         </article>
@@ -542,9 +662,31 @@ tailwind.config = {
               <span class="cc-num font-display font-black text-6xl md:text-7xl">06</span>
               <span class="cc-tag border border-cyan/50 text-cyan font-mono text-[9px] tracking-[0.25em] px-3 py-1">AUTONOMOUS</span>
             </div>
-            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-8 md:mt-12 leading-tight">RERO:MICRO<br>ROBOT COMP</h3>
+            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-6 md:mt-8 leading-tight">RERO:MICRO<br>ROBOT COMP</h3>
           </div>
-          <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog mt-10">
+
+          <div class="cc-prizes my-6 pt-4 border-t border-line/40">
+            <div class="flex items-center justify-between font-mono text-[9px] tracking-[0.22em] text-fog mb-2.5">
+              <span>// PRIZES · GENERAL</span>
+              <span class="text-red font-semibold">RM 2,850</span>
+            </div>
+            <div class="cc-prize-grid flex border border-line/30 divide-x divide-line/30 font-mono text-center">
+              <div class="flex-1 py-2 px-1">
+                <div class="cc-prize-lbl text-[9px] tracking-wider">1ST</div>
+                <div class="cc-prize-val font-bold text-xs sm:text-sm mt-0.5">RM 1,450</div>
+              </div>
+              <div class="flex-1 py-2 px-1">
+                <div class="cc-prize-lbl text-[9px] tracking-wider">2ND</div>
+                <div class="cc-prize-val font-bold text-xs sm:text-sm mt-0.5">RM 850</div>
+              </div>
+              <div class="flex-1 py-2 px-1">
+                <div class="cc-prize-lbl text-[9px] tracking-wider">3RD</div>
+                <div class="cc-prize-val font-bold text-xs sm:text-sm mt-0.5">RM 550</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog">
             <span>ORG — CYTRON TECHNOLOGIES</span><span class="cc-arrow text-cyan text-lg">↗</span>
           </div>
         </article>
@@ -555,9 +697,31 @@ tailwind.config = {
               <span class="cc-num font-display font-black text-6xl md:text-7xl">07</span>
               <span class="cc-tag border border-cyan/50 text-cyan font-mono text-[9px] tracking-[0.25em] px-3 py-1">INNOVATION</span>
             </div>
-            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-8 md:mt-12 leading-tight"><img src="drobotex logo and name-Photoroom.png" alt="Drobotex" class="h-7 md:h-9 w-auto"><br>INNOVATION CHALLENGE</h3>
+            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-6 md:mt-8 leading-tight"><img src="drobotex logo and name-Photoroom.png" alt="Drobotex" class="h-7 md:h-9 w-auto"><br>INNOVATION CHALLENGE</h3>
           </div>
-          <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog mt-10">
+
+          <div class="cc-prizes my-6 pt-4 border-t border-line/40">
+            <div class="flex items-center justify-between font-mono text-[9px] tracking-[0.22em] text-fog mb-2.5">
+              <span>// PRIZES · GENERAL</span>
+              <span class="text-red font-semibold">RM 1,300</span>
+            </div>
+            <div class="cc-prize-grid flex border border-line/30 divide-x divide-line/30 font-mono text-center">
+              <div class="flex-1 py-2 px-1">
+                <div class="cc-prize-lbl text-[9px] tracking-wider">1ST</div>
+                <div class="cc-prize-val font-bold text-xs sm:text-sm mt-0.5">RM 700</div>
+              </div>
+              <div class="flex-1 py-2 px-1">
+                <div class="cc-prize-lbl text-[9px] tracking-wider">2ND</div>
+                <div class="cc-prize-val font-bold text-xs sm:text-sm mt-0.5">RM 400</div>
+              </div>
+              <div class="flex-1 py-2 px-1">
+                <div class="cc-prize-lbl text-[9px] tracking-wider">3RD</div>
+                <div class="cc-prize-val font-bold text-xs sm:text-sm mt-0.5">RM 200</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog">
             <span>ORG — TCIL</span><span class="cc-arrow text-cyan text-lg">↗</span>
           </div>
         </article>
@@ -579,11 +743,37 @@ tailwind.config = {
           <div>
             <div class="flex justify-between items-start">
               <span class="cc-num font-display font-black text-6xl md:text-7xl">09</span>
-              <span class="cc-tag border border-cyan/50 text-cyan font-mono text-[9px] tracking-[0.25em] px-3 py-1"></span>
+              <span class="cc-tag border border-cyan/50 text-cyan font-mono text-[9px] tracking-[0.25em] px-3 py-1">ROBOTICS</span>
             </div>
-            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-8 md:mt-12 leading-tight">XYRO ROBOT<br>COMPETITION</h3>
+            <h3 class="cc-title font-display font-bold text-2xl md:text-3xl mt-6 md:mt-8 leading-tight">XYRO ROBOT<br>COMPETITION</h3>
           </div>
-          <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog mt-10">
+
+          <div class="cc-prizes my-6 pt-4 border-t border-line/40">
+            <div class="flex items-center justify-between font-mono text-[9px] tracking-[0.22em] text-fog mb-2.5">
+              <span>// PRIZES · GENERAL</span>
+              <span class="text-red font-semibold">RM 2,000</span>
+            </div>
+            <div class="cc-prize-grid flex border border-line/30 divide-x divide-line/30 font-mono text-center">
+              <div class="flex-1 py-2 px-1">
+                <div class="cc-prize-lbl text-[9px] tracking-wider">1ST</div>
+                <div class="cc-prize-val font-bold text-xs sm:text-sm mt-0.5">RM 800</div>
+              </div>
+              <div class="flex-1 py-2 px-1">
+                <div class="cc-prize-lbl text-[9px] tracking-wider">2ND</div>
+                <div class="cc-prize-val font-bold text-xs sm:text-sm mt-0.5">RM 500</div>
+              </div>
+              <div class="flex-1 py-2 px-1">
+                <div class="cc-prize-lbl text-[9px] tracking-wider">3RD</div>
+                <div class="cc-prize-val font-bold text-xs sm:text-sm mt-0.5">RM 300</div>
+              </div>
+            </div>
+            <div class="cc-prize-consolation mt-2 flex items-center justify-between px-3 py-1.5 border border-dashed border-line/40 font-mono text-[9px] tracking-wider">
+              <span class="cc-prize-lbl">CONSOLATION (×2)</span>
+              <span class="cc-prize-val font-bold">RM 200</span>
+            </div>
+          </div>
+
+          <div class="cc-meta flex items-end justify-between font-mono text-[10px] tracking-[0.2em] text-fog">
             <span>ORG — STEMGROUND</span><span class="cc-arrow text-cyan text-lg">↗</span>
           </div>
         </article>
