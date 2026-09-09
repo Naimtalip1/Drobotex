@@ -317,7 +317,7 @@ tailwind.config = {
       </div>
     </div>
     <div class="hidden md:block absolute bottom-5 left-5 font-mono text-[10px] tracking-[0.3em] text-fog">
-      CAT.A — SCHOOLS<br>CAT.B — OPEN / TERTIARY
+      OPEN TO SCHOOLS &amp; PUBLIC TEAMS
     </div>
     <div class="hidden md:flex absolute bottom-5 right-5 font-mono text-[10px] tracking-[0.3em] text-fog items-center gap-3">
       SCROLL TO ENGAGE <span class="inline-block w-10 h-px bg-cyan"></span> ↓
@@ -377,7 +377,7 @@ tailwind.config = {
   <div class="grid grid-cols-2 md:grid-cols-5 divide-x divide-y md:divide-y-0 divide-line">
     <div class="stat p-6 md:p-10">
       <p class="font-display font-800 text-3xl md:text-5xl font-bold text-cyan"><span class="text-lg md:text-2xl align-top">RM</span><span data-count="25000">0</span></p>
-      <p class="font-mono text-[9px] md:text-[10px] tracking-[0.3em] text-fog mt-3">PRIZE POOL · CAT A & B</p>
+      <p class="font-mono text-[9px] md:text-[10px] tracking-[0.3em] text-fog mt-3">TOTAL PRIZE POOL</p>
     </div>
     <div class="stat p-6 md:p-10">
       <p class="font-display font-800 text-3xl md:text-5xl font-bold"><span data-count="9">0</span></p>
@@ -416,9 +416,8 @@ tailwind.config = {
       </p>
       <p class="reveal mt-8 md:mt-10 max-w-xl text-fog leading-relaxed">
         DROBOTEX 2026 is TEGAS's flagship robotics and drone exposition — a convergence of competition,
-        exhibition and education. Nine competition arenas run across two categories: <span class="text-mist">Category A</span> for
-        schools and <span class="text-mist">Category B</span> for open and tertiary teams, backed by universities, TVET
-        institutions and industry builders from across Borneo.
+        exhibition and education. Nine competition arenas welcome schools, tertiary, and open teams,
+        backed by universities, TVET institutions and industry builders from across Borneo.
       </p>
     </div>
 
@@ -431,8 +430,8 @@ tailwind.config = {
         <p class="pl-14">BATU KAWA</p>
         <p><span class="text-mist">HOST</span> — TEGAS · SARAWAK</p>
         <p><span class="text-mist">PRIZE</span> — RM 25,000</p>
-        <p><span class="text-mist">ENTRY</span> — CAT.A SCHOOLS</p>
-        <p class="pl-14">CAT.B OPEN/TERTIARY</p>
+        <p><span class="text-mist">ENTRY</span> — SCHOOLS &amp; OPEN</p>
+        <p class="pl-14">TERTIARY TEAMS</p>
       </div>
     </div>
   </div>
@@ -937,7 +936,7 @@ tailwind.config = {
         </div>
         <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-red rotate-45"></span>
           <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">09:00</p>
-          <h4 class="font-display font-bold text-base md:text-lg mt-1">GRAND FINALS — ALL CATEGORIES</h4>
+          <h4 class="font-display font-bold text-base md:text-lg mt-1">GRAND FINALS — ALL ARENAS</h4>
         </div>
         <div class="relative"><span class="absolute -left-[27px] top-1 w-2 h-2 bg-blue rotate-45"></span>
           <p class="font-mono text-[10px] tracking-[0.2em] text-cyan">09:00</p>
@@ -1213,30 +1212,93 @@ tailwind.config = {
     <span class="font-mono text-xs text-red tracking-[0.3em]">08</span>
     <h2 class="font-mono text-xs tracking-[0.5em] text-fog">DEPLOYMENT</h2>
     <span class="flex-1 h-px bg-line"></span>
+    <span class="font-mono text-[10px] tracking-[0.3em] text-cyan">// 3 SESSIONS AVAILABLE</span>
   </div>
 
   <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-    <div class="lg:col-span-7 reveal relative">
+    <div class="lg:col-span-5 reveal relative">
       <img src="robot-pose-flight.png" alt="DROBOTEX robot mascot" class="pointer-events-none absolute hidden lg:block -top-6 right-4 w-40 xl:w-48 opacity-90 floaty" aria-hidden="true">
       <h3 class="font-display font-black text-[clamp(2.6rem,8vw,6.5rem)] leading-[0.9]">
         SECURE<br>YOUR <span class="text-red">SLOT</span><span class="text-cyan blink">_</span>
       </h3>
       <p class="mt-8 max-w-md text-fog leading-relaxed">
-        Registration opens soon. Drop your details and the secretariat will ping you the moment
-        team slots for Category A and Category B go live.
+        Registration is now open. Choose your dedicated track below to register through our official registration partner.
       </p>
       <div class="mt-10 flex flex-wrap gap-4 font-mono text-[10px] tracking-[0.25em]">
         <span class="border border-line px-4 py-2 text-fog">FREE ENTRY FOR VISITORS</span>
         <span class="border border-line px-4 py-2 text-fog">TEAM SLOTS LIMITED</span>
+        <span class="border border-line px-4 py-2 text-fog">3 REGISTRATION TRACKS</span>
       </div>
     </div>
 
-    <div class="lg:col-span-5 hud border border-line bg-panel/60 p-7 md:p-10 reveal">
+    <div class="lg:col-span-7 hud border border-line bg-panel/60 p-6 sm:p-8 md:p-10 reveal">
       <span class="hud-i"></span>
-      <p class="font-mono text-[10px] tracking-[0.3em] text-cyan mb-8">// REGISTRATION.STATUS</p>
-      <div class="border border-cyan/60 p-6 md:p-8">
-        <p class="font-display font-black text-3xl md:text-4xl leading-none text-mist">REGISTRATION<br><span class="text-red">OPENING SOON</span></p>
-        <p class="mt-5 font-mono text-[10px] tracking-[0.2em] text-fog leading-6">TEAM SIGN-UPS WILL GO LIVE HERE. STAND BY FOR DEPLOYMENT ORDERS.</p>
+      <div class="flex items-center justify-between font-mono text-[10px] tracking-[0.3em] text-cyan mb-6">
+        <span>// SELECT YOUR REGISTRATION TRACK</span>
+        <span class="text-red font-bold animate-pulse">● LIVE</span>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Track 1: Competition Participant -->
+        <div class="border border-line/40 hover:border-cyan/70 bg-ink/40 p-5 md:p-6 transition-colors duration-300">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <div class="flex items-center gap-2">
+              <span class="font-mono text-[9px] tracking-[0.25em] text-red font-semibold">TRACK 01 · ARENAS</span>
+              <span class="border border-red/50 bg-red/10 text-red px-2 py-0.5 font-mono text-[8px] tracking-[0.2em] font-bold">LIMITED SLOTS</span>
+            </div>
+            <span class="font-mono text-[9px] tracking-[0.2em] text-fog">ALL 9 ARENAS</span>
+          </div>
+          <h4 class="font-display font-bold text-xl md:text-2xl text-mist">COMPETITION PARTICIPANTS</h4>
+          <p class="text-fog text-xs md:text-sm mt-1.5 leading-relaxed">
+            For school, tertiary, and open teams entering any of the 9 competitive robotics &amp; drone arenas.
+          </p>
+          <div class="mt-3.5 p-3 border border-red/40 bg-red/5 font-mono text-[9px] md:text-[10px] tracking-[0.12em] space-y-2">
+            <div class="flex items-center gap-2 text-red font-semibold">
+              <span class="w-1.5 h-1.5 bg-red rotate-45 shrink-0 animate-pulse"></span>
+              <span>// WARNING: TEAM SLOTS ARE STRICTLY LIMITED · REGISTRATION CLOSES ONCE FULL</span>
+            </div>
+            <div class="flex items-baseline gap-2 text-fog pl-3.5 border-t border-red/20 pt-1.5">
+              <span class="text-cyan font-bold shrink-0">DISCLAIMER //</span>
+              <span>For each competition, only <span class="text-mist font-bold underline decoration-cyan underline-offset-2">ONE person</span> is to register on behalf of the team.</span>
+            </div>
+          </div>
+          <a href="https://form.evenesis.com/drobotex26/Competition%20Participant" target="_blank" rel="noopener"
+             class="btn-glitch mt-4 inline-flex items-center border border-cyan px-5 py-2.5 text-cyan font-mono text-[11px] tracking-[0.25em]" data-hover>
+            <span>REGISTER COMPETITION ↗</span>
+          </a>
+        </div>
+
+        <!-- Track 2: Workshop -->
+        <div class="border border-line/40 hover:border-cyan/70 bg-ink/40 p-5 md:p-6 transition-colors duration-300">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span class="font-mono text-[9px] tracking-[0.25em] text-cyan font-semibold">TRACK 02 · LABS</span>
+            <span class="font-mono text-[9px] tracking-[0.2em] text-fog">6 SESSIONS · 2 DAYS</span>
+          </div>
+          <h4 class="font-display font-bold text-xl md:text-2xl text-mist">WORKSHOP SESSIONS</h4>
+          <p class="text-fog text-xs md:text-sm mt-1.5 leading-relaxed">
+            For attendees joining hands-on drone assembly, FPV racing intro, 3D printing &amp; Python coding workshops.
+          </p>
+          <a href="https://form.evenesis.com/drobotex26/Workshop" target="_blank" rel="noopener"
+             class="btn-glitch mt-4 inline-flex items-center border border-cyan px-5 py-2.5 text-cyan font-mono text-[11px] tracking-[0.25em]" data-hover>
+            <span>REGISTER WORKSHOP ↗</span>
+          </a>
+        </div>
+
+        <!-- Track 3: Public Event -->
+        <div class="border border-line/40 hover:border-cyan/70 bg-ink/40 p-5 md:p-6 transition-colors duration-300">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span class="font-mono text-[9px] tracking-[0.25em] text-fog font-semibold">TRACK 03 · EXPO FLOOR</span>
+            <span class="font-mono text-[9px] tracking-[0.2em] text-cyan font-bold">100% FREE ADMISSION</span>
+          </div>
+          <h4 class="font-display font-bold text-xl md:text-2xl text-mist">PUBLIC EVENT REGISTRATION</h4>
+          <p class="text-fog text-xs md:text-sm mt-1.5 leading-relaxed">
+            General admission pass for visitors, students, families, educators, and STEM hobbyists.
+          </p>
+          <a href="https://form.evenesis.com/drobotex26/Event" target="_blank" rel="noopener"
+             class="btn-glitch mt-4 inline-flex items-center border border-cyan px-5 py-2.5 text-cyan font-mono text-[11px] tracking-[0.25em]" data-hover>
+            <span>REGISTER VISITOR PASS ↗</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
