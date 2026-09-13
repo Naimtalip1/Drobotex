@@ -1275,11 +1275,11 @@ tailwind.config = {
 
       <div class="space-y-4">
         <!-- Track 1: Competition Participant -->
-        <div class="border border-line/40 hover:border-cyan/70 bg-ink/40 p-5 md:p-6 transition-colors duration-300">
+        <div class="border border-line/40 hover:border-red/60 bg-ink/40 p-5 md:p-6 transition-colors duration-300">
           <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
             <div class="flex items-center gap-2">
               <span class="font-mono text-[9px] tracking-[0.25em] text-red font-semibold">TRACK 01 · ARENAS</span>
-              <span class="border border-red/50 bg-red/10 text-red px-2 py-0.5 font-mono text-[8px] tracking-[0.2em] font-bold">LIMITED SLOTS</span>
+              <span class="border border-red/60 bg-red/15 text-red px-2 py-0.5 font-mono text-[8px] tracking-[0.2em] font-bold">REGISTRATION CLOSED</span>
             </div>
             <span class="font-mono text-[9px] tracking-[0.2em] text-fog">ALL 9 ARENAS</span>
           </div>
@@ -1289,18 +1289,22 @@ tailwind.config = {
           </p>
           <div class="mt-3.5 p-3 border border-red/40 bg-red/5 font-mono text-[9px] md:text-[10px] tracking-[0.12em] space-y-2">
             <div class="flex items-center gap-2 text-red font-semibold">
-              <span class="w-1.5 h-1.5 bg-red rotate-45 shrink-0 animate-pulse"></span>
-              <span>// WARNING: TEAM SLOTS ARE STRICTLY LIMITED · REGISTRATION CLOSES ONCE FULL</span>
+              <span class="w-1.5 h-1.5 bg-red rotate-45 shrink-0"></span>
+              <span>// NOTICE: COMPETITION REGISTRATION IS CURRENTLY CLOSED</span>
             </div>
             <div class="flex items-baseline gap-2 text-fog pl-3.5 border-t border-red/20 pt-1.5">
               <span class="text-cyan font-bold shrink-0">DISCLAIMER //</span>
-              <span>For each competition, only <span class="text-mist font-bold underline decoration-cyan underline-offset-2">ONE person</span> is to register on behalf of the team.</span>
+              <span>For each competition, only <span class="text-mist font-bold underline decoration-cyan underline-offset-2">ONE person</span> is to register on behalf of the team once open.</span>
             </div>
           </div>
-          <a href="https://form.evenesis.com/drobotex26/Competition%20Participant" target="_blank" rel="noopener"
-             class="btn-glitch mt-4 inline-flex items-center border border-cyan px-5 py-2.5 text-cyan font-mono text-[11px] tracking-[0.25em]" data-hover>
-            <span>REGISTER COMPETITION ↗</span>
-          </a>
+          <div class="mt-4 flex flex-wrap items-center gap-3">
+            <button type="button" disabled
+                    class="inline-flex items-center border border-red/40 bg-red/10 px-5 py-2.5 text-red/80 font-mono text-[11px] tracking-[0.25em] cursor-not-allowed select-none opacity-90"
+                    aria-disabled="true">
+              <span>REGISTRATION CLOSED</span>
+            </button>
+            <span class="font-mono text-[9px] tracking-[0.15em] text-fog/70">// PORTAL TEMPORARILY OFFLINE</span>
+          </div>
         </div>
 
         <!-- Track 2: Workshop -->
@@ -1474,7 +1478,7 @@ tailwind.config = {
     <!-- Action Buttons -->
     <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-line/40">
       <button id="modal-action-btn" type="button" class="btn-glitch inline-flex items-center border border-cyan px-6 py-3 text-cyan font-mono text-xs tracking-[0.25em] cursor-pointer" data-hover>
-        <span id="modal-action-text">REGISTER FOR ARENA ↗</span>
+        <span id="modal-action-text">VIEW REGISTRATION TRACKS ↗</span>
       </button>
       <button id="comp-modal-cancel" type="button" class="px-5 py-3 border border-line text-fog hover:text-mist hover:border-fog transition-colors font-mono text-xs tracking-[0.2em] cursor-pointer">
         CLOSE [ESC]

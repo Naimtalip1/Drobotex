@@ -472,7 +472,7 @@ setTimeout(() => {
       document.getElementById('modal-action-text').textContent = 'VIEW REGISTRATION TRACKS ↗';
     } else {
       preregNotice.classList.add('hidden');
-      document.getElementById('modal-action-text').textContent = 'REGISTER FOR ARENA ↗';
+      document.getElementById('modal-action-text').textContent = 'VIEW REGISTRATION TRACKS ↗';
     }
 
     // Open native dialog
