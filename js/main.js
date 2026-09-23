@@ -357,10 +357,10 @@ setTimeout(() => {
       title: "DROBOTEX INNOVATION CHALLENGE",
       org: "TCIL",
       theme: "cyan",
-      highlight: "Build and engineer original LEGO robotic inventions — the most creative solution wins!",
-      description: "Open robotics and creative engineering showcase. Teams design, assemble, and program innovative robotic machines using LEGO robotics platforms to solve real-world community or industry challenges. Judged on creativity, engineering mechanics, software functionality, and live stage presentation.",
-      format: "Live booth exhibition, prototype demonstration, and panel judging session.",
-      hardware: "LEGO Mindstorms (EV3 / Robot Inventor) / LEGO SPIKE Prime / compatible kits.",
+      highlight: "Showcase original STEM & technology innovations in an open exhibition format — judged by an expert panel!",
+      description: "Open-theme technology and robotics innovation showcase. Teams display and demonstrate interactive prototypes, IoT solutions, smart automation, or mechanical engineering inventions at dedicated exhibition booths. Evaluated by an expert judging panel on creativity, live functionality, and pitch presentation.",
+      format: "Interactive booth exhibition display with an official judging panel pitch (5 min presentation + 3 min Q&A).",
+      hardware: "Open platform (Arduino, Raspberry Pi, ESP32, micro:bit, robotics kits, or custom builds).",
       prizes: { total: "RM 1,300", p1: "RM 700", p2: "RM 400", p3: "RM 200" },
       isPrereg: false
     },
@@ -472,7 +472,7 @@ setTimeout(() => {
       document.getElementById('modal-action-text').textContent = 'VIEW REGISTRATION TRACKS ↗';
     } else {
       preregNotice.classList.add('hidden');
-      document.getElementById('modal-action-text').textContent = 'REGISTER FOR ARENA ↗';
+      document.getElementById('modal-action-text').textContent = 'VIEW REGISTRATION TRACKS ↗';
     }
 
     // Open native dialog
