@@ -469,10 +469,10 @@ setTimeout(() => {
 
     if (data.isPrereg) {
       preregNotice.classList.remove('hidden');
-      document.getElementById('modal-action-text').textContent = 'VIEW REGISTRATION TRACKS ↗';
+      document.getElementById('modal-action-text').textContent = 'VIEW APPRECIATION & 2027 ↗';
     } else {
       preregNotice.classList.add('hidden');
-      document.getElementById('modal-action-text').textContent = 'VIEW REGISTRATION TRACKS ↗';
+      document.getElementById('modal-action-text').textContent = 'VIEW APPRECIATION & 2027 ↗';
     }
 
     // Open native dialog

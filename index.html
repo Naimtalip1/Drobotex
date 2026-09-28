@@ -295,15 +295,14 @@ tailwind.config = {
     <a href="#top" class="font-display font-800 tracking-[0.2em] text-sm md:text-base font-bold flex items-center gap-2 shrink-0 mr-6 md:mr-10" data-hover>
       <img src="Main Logo-01.png" alt="Drobotex" class="h-7 md:h-9 w-[112px] md:w-[150px] object-cover object-center"><span class="text-red">//</span><span class="text-cyan">26</span>
     </a>
-    <nav class="hidden md:flex items-center gap-8 font-mono text-[11px] tracking-[0.25em] text-fog">
-      <a href="#about"        class="link-u hover:text-mist" data-hover>BRIEF</a>
+    <nav class="hidden md:flex items-center gap-7 font-mono text-[11px] tracking-[0.25em] text-fog">
+      <a href="#about"        class="link-u hover:text-mist" data-hover>RECAP</a>
+      <a href="#tegas-post"   class="link-u text-cyan hover:text-mist font-bold" data-hover>TEGAS MEDIA</a>
       <a href="#competitions" class="link-u hover:text-mist" data-hover>ARENAS</a>
       <a href="#workshops"    class="link-u hover:text-mist" data-hover>WORKSHOPS</a>
-      <a href="#itinerary"    class="link-u hover:text-mist" data-hover>ITINERARY</a>
-      <a href="#exhibition"   class="link-u hover:text-mist" data-hover>EXPO</a>
       <a href="#gallery"      class="link-u hover:text-mist" data-hover>GALLERY</a>
       <a href="#partners"     class="link-u hover:text-mist" data-hover>PARTNERS</a>
-      <a href="#register" class="btn-glitch border border-cyan px-5 py-2 text-cyan" data-hover><span>REGISTER ↗</span></a>
+      <a href="#register"     class="btn-glitch border border-red px-5 py-2 text-red font-bold" data-hover><span>DROBOTEX 2027 ↗</span></a>
     </nav>
     <button id="nav-toggle" class="md:hidden font-mono text-[11px] tracking-[0.3em] text-cyan" data-hover>MENU</button>
   </div>
@@ -311,17 +310,16 @@ tailwind.config = {
 
 <!-- mobile menu -->
 <div id="mobile-menu" class="fixed inset-0 z-[59] bg-ink hidden flex-col justify-center px-8">
-  <nav class="flex flex-col gap-6 font-display text-4xl font-bold">
-    <a href="#about"        class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">BRIEF</a>
-    <a href="#competitions" class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">ARENAS</a>
+  <nav class="flex flex-col gap-6 font-display text-3xl font-bold">
+    <a href="#about"        class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">EVENT RECAP</a>
+    <a href="#tegas-post"   class="mob-link text-cyan">TEGAS MEDIA COVERAGE ✦</a>
+    <a href="#competitions" class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">THE 9 ARENAS</a>
     <a href="#workshops"    class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">WORKSHOPS</a>
-    <a href="#itinerary"    class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">ITINERARY</a>
-    <a href="#exhibition"   class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">EXPO</a>
     <a href="#gallery"      class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">GALLERY</a>
     <a href="#partners"     class="mob-link opacity-70 hover:opacity-100 hover:text-cyan">PARTNERS</a>
-    <a href="#register"     class="mob-link text-red">REGISTER ↗</a>
+    <a href="#register"     class="mob-link text-red">DROBOTEX 2027 ↗</a>
   </nav>
-  <p class="mob-link mt-12 font-mono text-[10px] tracking-[0.3em] text-fog">26—27.09.2026 · ANG CHENG HO HALL · BATU KAWA</p>
+  <p class="mob-link mt-12 font-mono text-[10px] tracking-[0.3em] text-fog">26—27.09.2026 · ANG CHENG HO HALL · BATU KAWA · HOSTED BY TEGAS</p>
 </div>
 
 <main id="top">
@@ -347,26 +345,60 @@ tailwind.config = {
       </div>
     </div>
     <div class="hidden md:block absolute bottom-5 left-5 font-mono text-[10px] tracking-[0.3em] text-fog">
-      OPEN TO SCHOOLS &amp; PUBLIC TEAMS
+      DROBOTEX 2026 CONCLUDED · SEE YOU IN 2027
     </div>
     <div class="hidden md:flex absolute bottom-5 right-5 font-mono text-[10px] tracking-[0.3em] text-fog items-center gap-3">
-      SCROLL TO ENGAGE <span class="inline-block w-10 h-px bg-cyan"></span> ↓
+      SCROLL TO EXPLORE RECAP <span class="inline-block w-10 h-px bg-cyan"></span> ↓
     </div>
   </div>
 
   <!-- hero content -->
   <div id="hero-content" class="relative z-20 h-full flex flex-col justify-center px-6 md:px-16 lg:px-24">
     <div id="hero-fade">
-      <p id="hero-kicker" class="font-mono text-[10px] md:text-xs tracking-[0.5em] text-cyan mb-4 md:mb-6 opacity-0">
-        26 — 27 SEPTEMBER 2026 · ANG CHENG HO MULTIPURPOSE HALL, BATU KAWA
-      </p>
+      <div id="hero-kicker" class="flex flex-wrap items-center gap-3 font-mono text-[10px] md:text-xs tracking-[0.35em] text-cyan mb-4 md:mb-5 opacity-0">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 border border-cyan/60 bg-cyan/10 font-bold text-cyan">
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse"></span> MISSION ACCOMPLISHED
+        </span>
+        <span class="text-fog">26—27 SEPTEMBER 2026 · ANG CHENG HO MULTIPURPOSE HALL · SARAWAK</span>
+      </div>
       <h1 class="font-display font-black leading-[0.88] select-none">
-        <img id="hero-l1" src="Main Logo-01.png" alt="Drobotex" class="block w-full max-w-[min(90vw,900px)] opacity-0">
-        <span id="hero-l2" class="block text-[clamp(3rem,12.5vw,11rem)] txt-outline opacity-0">2026<span class="text-red" style="-webkit-text-stroke:0">.</span></span>
+        <div id="hero-l1" class="opacity-0">
+          <div class="inline-block border-l-2 border-red pl-3 md:pl-4 mb-3">
+            <span class="font-mono text-[10px] md:text-xs tracking-[0.4em] text-red uppercase font-bold">EVENT CONCLUSION &amp; APPRECIATION</span>
+          </div>
+          <div class="flex items-center gap-4 md:gap-6 flex-wrap">
+            <img src="Main Logo-01.png" alt="Drobotex" class="h-10 sm:h-14 md:h-20 w-auto object-contain">
+            <span class="font-display font-black text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-mist tracking-tight leading-none">
+              THANK YOU FOR ATTENDING
+            </span>
+          </div>
+        </div>
+        <div id="hero-l2" class="opacity-0 mt-3 sm:mt-5">
+          <span class="block text-[clamp(2.5rem,9.5vw,8.5rem)] font-display font-black txt-outline leading-[0.9]">
+            DROBOTEX 2026<span class="text-red" style="-webkit-text-stroke:0">.</span>
+          </span>
+          <p class="font-display font-bold text-lg sm:text-2xl md:text-3xl text-cyan mt-2 tracking-wide">
+            HOPE TO SEE YOU NEXT YEAR IN 2027!
+          </p>
+        </div>
       </h1>
-      <div id="hero-sub" class="mt-6 md:mt-10 flex flex-wrap items-center gap-4 md:gap-6 opacity-0">
-        <span class="border border-red/70 text-red font-mono text-[10px] md:text-xs tracking-[0.25em] px-4 py-2">RM 25,000 PRIZE POOL</span>
-        <span class="border border-line text-fog font-mono text-[10px] md:text-xs tracking-[0.25em] px-4 py-2">9 ARENAS · 6 WORKSHOPS · 8 EXPO ZONES</span>
+      <div id="hero-sub" class="mt-6 md:mt-8 space-y-4 max-w-2xl opacity-0">
+        <p class="text-fog text-sm sm:text-base leading-relaxed">
+          Heartfelt gratitude to all participating students, pilots, roboticists, educators, industry mentors, and visitors who made Sarawak’s premier robotics and drone gathering an unforgettable triumph.
+        </p>
+        <div class="flex flex-wrap items-center gap-3 font-mono text-[10px] md:text-xs tracking-[0.2em]">
+          <span class="border border-cyan/60 bg-cyan/10 text-cyan px-3.5 py-1.5 font-bold">● EVENT CONCLUDED</span>
+          <span class="border border-red/60 bg-red/10 text-red px-3.5 py-1.5 font-bold">RM 25,000+ PRIZES AWARDED</span>
+          <span class="border border-line bg-panel/70 text-fog px-3.5 py-1.5">9 ARENAS CONQUERED</span>
+        </div>
+        <div class="pt-2 flex flex-wrap items-center gap-4">
+          <a href="#tegas-post" class="btn-glitch border border-cyan bg-cyan/15 px-6 py-2.5 text-cyan hover:text-white font-mono text-xs tracking-[0.25em] font-bold" data-hover>
+            <span>VIEW TEGAS COVERAGE ↓</span>
+          </a>
+          <a href="#competitions" class="border border-line hover:border-mist px-6 py-2.5 text-fog hover:text-mist font-mono text-xs tracking-[0.25em] transition-colors" data-hover>
+            EXPLORE ARENAS
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -380,24 +412,22 @@ tailwind.config = {
 <div class="relative border-y border-line bg-panel/60 py-3 overflow-hidden -rotate-1 origin-center scale-[1.02]">
   <div class="marq-track font-mono text-[11px] md:text-xs tracking-[0.35em] text-fog">
     <div class="flex shrink-0">
-      <span class="px-6">TINYWHOOP DRONE RACE</span><span class="text-red px-2">✦</span>
-      <span class="px-6">BORNEO BATTLEBOTS</span><span class="text-cyan px-2">✦</span>
-      <span class="px-6">DRONE SOCCER</span><span class="text-red px-2">✦</span>
-      <span class="px-6">ROBOSOCCER</span><span class="text-cyan px-2">✦</span>
-      <span class="px-6">RERO:MICRO</span><span class="text-red px-2">✦</span>
-      <span class="px-6">SCRATCHATHON</span><span class="text-cyan px-2">✦</span>
-      <span class="px-6">INNOVATION CHALLENGE</span><span class="text-red px-2">✦</span>
-      <span class="px-6">XYRO ROBOT</span><span class="text-cyan px-2">✦</span>
+      <span class="px-6 text-cyan font-bold">THANK YOU FOR ATTENDING DROBOTEX 2026</span><span class="text-red px-2">✦</span>
+      <span class="px-6">MISSION ACCOMPLISHED</span><span class="text-cyan px-2">✦</span>
+      <span class="px-6">9 ARENAS CONQUERED</span><span class="text-red px-2">✦</span>
+      <span class="px-6">POWERED BY TEGAS</span><span class="text-cyan px-2">✦</span>
+      <span class="px-6 text-yellow font-bold">HOPE TO SEE YOU IN 2027</span><span class="text-red px-2">✦</span>
+      <span class="px-6">SARAWAK STEM EXCELLENCE</span><span class="text-cyan px-2">✦</span>
+      <span class="px-6">RM 25,000 PRIZE POOL AWARDED</span><span class="text-red px-2">✦</span>
     </div>
     <div class="flex shrink-0" aria-hidden="true">
-      <span class="px-6">TINYWHOOP DRONE RACE</span><span class="text-red px-2">✦</span>
-      <span class="px-6">BORNEO BATTLEBOTS</span><span class="text-cyan px-2">✦</span>
-      <span class="px-6">DRONE SOCCER</span><span class="text-red px-2">✦</span>
-      <span class="px-6">ROBOSOCCER</span><span class="text-cyan px-2">✦</span>
-      <span class="px-6">RERO:MICRO</span><span class="text-red px-2">✦</span>
-      <span class="px-6">SCRATCHATHON</span><span class="text-cyan px-2">✦</span>
-      <span class="px-6">INNOVATION CHALLENGE</span><span class="text-red px-2">✦</span>
-      <span class="px-6">XYRO ROBOT</span><span class="text-cyan px-2">✦</span>
+      <span class="px-6 text-cyan font-bold">THANK YOU FOR ATTENDING DROBOTEX 2026</span><span class="text-red px-2">✦</span>
+      <span class="px-6">MISSION ACCOMPLISHED</span><span class="text-cyan px-2">✦</span>
+      <span class="px-6">9 ARENAS CONQUERED</span><span class="text-red px-2">✦</span>
+      <span class="px-6">POWERED BY TEGAS</span><span class="text-cyan px-2">✦</span>
+      <span class="px-6 text-yellow font-bold">HOPE TO SEE YOU IN 2027</span><span class="text-red px-2">✦</span>
+      <span class="px-6">SARAWAK STEM EXCELLENCE</span><span class="text-cyan px-2">✦</span>
+      <span class="px-6">RM 25,000 PRIZE POOL AWARDED</span><span class="text-red px-2">✦</span>
     </div>
   </div>
 </div>
@@ -407,7 +437,7 @@ tailwind.config = {
   <div class="grid grid-cols-2 md:grid-cols-5 divide-x divide-y md:divide-y-0 divide-line">
     <div class="stat p-6 md:p-10">
       <p class="font-display font-800 text-3xl md:text-5xl font-bold text-cyan"><span class="text-lg md:text-2xl align-top">RM</span><span data-count="25000">0</span></p>
-      <p class="font-mono text-[9px] md:text-[10px] tracking-[0.3em] text-fog mt-3">TOTAL PRIZE POOL</p>
+      <p class="font-mono text-[9px] md:text-[10px] tracking-[0.3em] text-fog mt-3">TOTAL PRIZES AWARDED</p>
     </div>
     <div class="stat p-6 md:p-10">
       <p class="font-display font-800 text-3xl md:text-5xl font-bold"><span data-count="9">0</span></p>
@@ -435,18 +465,18 @@ tailwind.config = {
        class="pointer-events-none absolute z-10 top-12 right-4 md:top-20 md:right-16 w-32 md:w-56 lg:w-64 opacity-80">
   <div class="flex items-baseline gap-6 mb-12 md:mb-20 reveal">
     <span class="font-mono text-xs text-red tracking-[0.3em]">01</span>
-    <h2 class="font-mono text-xs tracking-[0.5em] text-fog">MISSION BRIEF</h2>
+    <h2 class="font-mono text-xs tracking-[0.5em] text-fog">EVENT RECAP &amp; MISSION BRIEF</h2>
     <span class="flex-1 h-px bg-line"></span>
   </div>
 
   <div class="grid lg:grid-cols-12 gap-10 lg:gap-16">
     <div class="lg:col-span-8">
       <p id="about-statement" class="font-display font-700 font-bold text-[clamp(1.5rem,4vw,3.2rem)] leading-[1.15]">
-        Two days where Sarawak's brightest minds pit drones, robots and code against each other — on the floor, in the air, and in the arena.
+        Two days where Sarawak's brightest minds pitted drones, robots and code against each other — on the floor, in the air, and in the arena.
       </p>
       <p class="reveal mt-8 md:mt-10 max-w-xl text-fog leading-relaxed">
-        DROBOTEX 2026 is TEGAS's flagship robotics and drone exposition — a convergence of competition,
-        exhibition and education. Nine competition arenas welcome schools, tertiary, and open teams,
+        DROBOTEX 2026 has concluded with remarkable success as TEGAS's flagship robotics and drone exposition — a massive convergence of competition,
+        exhibition, and hands-on education. Nine competition arenas welcomed schools, tertiary students, and open teams
         backed by universities, TVET institutions and industry builders from across Borneo.
       </p>
     </div>
@@ -459,9 +489,9 @@ tailwind.config = {
         <p><span class="text-mist">VENUE</span> — ANG CHENG HO HALL</p>
         <p class="pl-14">BATU KAWA</p>
         <p><span class="text-mist">HOST</span> — TEGAS · SARAWAK</p>
-        <p><span class="text-mist">PRIZE</span> — RM 25,000</p>
-        <p><span class="text-mist">ENTRY</span> — SCHOOLS &amp; OPEN</p>
-        <p class="pl-14">TERTIARY TEAMS</p>
+        <p><span class="text-mist">STATUS</span> — MISSION CONCLUDED</p>
+        <p><span class="text-mist">AWARDED</span> — RM 25,000 PRIZES</p>
+        <p><span class="text-mist">NEXT</span> — DROBOTEX 2027</p>
       </div>
     </div>
   </div>
@@ -470,23 +500,177 @@ tailwind.config = {
   <div class="mt-24 md:mt-32 grid md:grid-cols-2 gap-px bg-line border border-line">
     <div class="reveal bg-ink p-8 md:p-12">
       <p class="font-display text-5xl md:text-6xl font-black txt-outline-cyan">A</p>
-      <h3 class="font-display font-bold text-lg md:text-xl mt-4">IGNITE STEM CULTURE</h3>
-      <p class="text-fog mt-3 leading-relaxed text-sm">Put robotics, drones and AI in the hands of students — not behind glass. Every zone is built to be touched, flown and programmed.</p>
+      <h3 class="font-display font-bold text-lg md:text-xl mt-4">IGNITED STEM CULTURE</h3>
+      <p class="text-fog mt-3 leading-relaxed text-sm">Robotics, drones and AI were put straight into the hands of youth — not behind glass. Every zone was touched, flown and programmed live.</p>
     </div>
     <div class="reveal bg-ink p-8 md:p-12">
       <p class="font-display text-5xl md:text-6xl font-black txt-outline-cyan">B</p>
-      <h3 class="font-display font-bold text-lg md:text-xl mt-4">BUILD THE PIPELINE</h3>
-      <p class="text-fog mt-3 leading-relaxed text-sm">Connect schools, universities and TVET institutions into one competitive ladder — from Scratchathon rookies to Battlebot veterans.</p>
+      <h3 class="font-display font-bold text-lg md:text-xl mt-4">BUILT THE TALENT PIPELINE</h3>
+      <p class="text-fog mt-3 leading-relaxed text-sm">Connected schools, universities and TVET institutions into one competitive ladder — from Scratchathon rookies to Battlebot champions.</p>
     </div>
     <div class="reveal bg-ink p-8 md:p-12">
       <p class="font-display text-5xl md:text-6xl font-black txt-outline-cyan">C</p>
-      <h3 class="font-display font-bold text-lg md:text-xl mt-4">BRIDGE INDUSTRY</h3>
-      <p class="text-fog mt-3 leading-relaxed text-sm">Droneskaki, Lighthouse of Hope, TCIL and more run arenas and workshops — turning two days of competition into careers and collaborations.</p>
+      <h3 class="font-display font-bold text-lg md:text-xl mt-4">BRIDGED INDUSTRY LEADERS</h3>
+      <p class="text-fog mt-3 leading-relaxed text-sm">Droneskaki, Lighthouse of Hope, TCIL and more orchestrated arenas and workshops — turning competition into real career pathways.</p>
     </div>
     <div class="reveal bg-ink p-8 md:p-12">
       <p class="font-display text-5xl md:text-6xl font-black txt-outline-cyan">D</p>
       <h3 class="font-display font-bold text-lg md:text-xl mt-4">PUT SARAWAK ON THE MAP</h3>
-      <p class="text-fog mt-3 leading-relaxed text-sm">Position Kuching as Borneo's robotics capital — a regional stage where local talent competes at national standard.</p>
+      <p class="text-fog mt-3 leading-relaxed text-sm">Affirmed Kuching as Borneo's robotics capital — a regional stage where home-grown talent showcased national and global standards.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TEGAS MEDIA HIGHLIGHT ==================== -->
+<section id="tegas-post" class="relative px-6 md:px-16 lg:px-24 py-24 md:py-36 border-t border-line bg-gradient-to-b from-panel/30 via-transparent to-panel/20 overflow-hidden">
+  <!-- Decorative grid / background elements -->
+  <div class="pointer-events-none absolute -top-40 right-0 w-96 h-96 bg-cyan/5 rounded-full blur-3xl"></div>
+  <div class="pointer-events-none absolute -bottom-40 left-0 w-96 h-96 bg-red/5 rounded-full blur-3xl"></div>
+
+  <div class="flex items-baseline gap-6 mb-12 md:mb-16 reveal">
+    <span class="font-mono text-xs text-cyan tracking-[0.3em]">MEDIA</span>
+    <h2 class="font-mono text-xs tracking-[0.5em] text-fog">OFFICIAL TEGAS COVERAGE</h2>
+    <span class="flex-1 h-px bg-line"></span>
+    <span class="font-mono text-[10px] tracking-[0.3em] text-red font-bold animate-pulse">● FACEBOOK SPOTLIGHT</span>
+  </div>
+
+  <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+    <!-- Left Column: Context & Highlights -->
+    <div class="lg:col-span-5 reveal">
+      <div class="inline-flex items-center gap-2 px-3 py-1 border border-cyan/40 bg-cyan/10 font-mono text-[10px] tracking-[0.25em] text-cyan mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-cyan"></span> OFFICIAL DISPATCH
+      </div>
+      <h3 class="font-display font-black text-3xl sm:text-4xl md:text-5xl text-mist leading-[1.08] tracking-tight">
+        CELEBRATING SARAWAK'S<br><span class="text-cyan">NEXT-GEN</span> TECH ACHIEVERS<span class="text-red">.</span>
+      </h3>
+      <p class="mt-6 text-fog leading-relaxed text-sm md:text-base">
+        Tabung Ekonomi Gagasan Anak Sarawak (TEGAS) captured the adrenaline, camaraderie, and cutting-edge innovations that filled the Ang Cheng Ho Multipurpose Hall during the two-day expo.
+      </p>
+
+      <div class="mt-8 space-y-4">
+        <div class="hud border border-line bg-panel/60 p-4 font-mono text-xs text-fog">
+          <span class="hud-i"></span>
+          <p class="text-mist font-bold mb-1">// FIELD SUMMARY</p>
+          <p class="text-fog text-[11px] leading-relaxed">
+            From pulse-pounding drone dogfights to fierce Battlebots collisions and AI-driven innovations, young Sarawakians proved their technical prowess at national standard.
+          </p>
+        </div>
+
+        <div class="hud border border-line bg-panel/60 p-4 font-mono text-xs text-fog">
+          <span class="hud-i"></span>
+          <p class="text-mist font-bold mb-1">// IMPACT METRICS</p>
+          <div class="grid grid-cols-2 gap-2 pt-1 text-[11px]">
+            <div><span class="text-cyan font-bold">9</span> ARENA BATTLES</div>
+            <div><span class="text-cyan font-bold">100s</span> OF PILOTS &amp; CODERS</div>
+            <div><span class="text-cyan font-bold">6</span> INTENSIVE WORKSHOPS</div>
+            <div><span class="text-cyan font-bold">20+</span> PARTNER INSTITUTIONS</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 flex flex-wrap items-center gap-4">
+        <a href="https://www.facebook.com/share/p/1D2KuJwfCT/" target="_blank" rel="noopener noreferrer"
+           class="btn-glitch border border-cyan bg-cyan/20 px-6 py-3 text-cyan hover:text-white font-mono text-xs tracking-[0.25em] font-bold flex items-center gap-2 group" data-hover>
+          <span>VIEW FULL POST ON FACEBOOK</span>
+          <span class="group-hover:translate-x-1 transition-transform">↗</span>
+        </a>
+        <a href="https://www.facebook.com/tegastf/" target="_blank" rel="noopener noreferrer"
+           class="border border-line hover:border-cyan px-5 py-3 text-fog hover:text-cyan font-mono text-xs tracking-[0.2em] transition-colors" data-hover>
+          FOLLOW @TEGASTF ↗
+        </a>
+      </div>
+    </div>
+
+    <!-- Right Column: Interactive Facebook Post Preview Card -->
+    <div class="lg:col-span-7 reveal">
+      <div class="hud relative border border-line hover:border-cyan/50 bg-[#060a12]/90 p-6 sm:p-8 backdrop-blur-xl shadow-2xl transition-all duration-300 group">
+        <span class="hud-i"></span>
+
+        <!-- Card Header: Facebook Page Identity -->
+        <div class="flex items-center justify-between gap-4 pb-5 border-b border-line/50">
+          <div class="flex items-center gap-3.5">
+            <div class="relative w-12 h-12 md:w-14 md:h-14 rounded-full border border-cyan/40 bg-mist p-1 overflow-hidden shrink-0 flex items-center justify-center">
+              <img src="company%20logo/TEGAS%201.png" alt="TEGAS Logo" class="w-full h-full object-contain">
+            </div>
+            <div>
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="font-display font-bold text-sm sm:text-base text-mist">Tabung Ekonomi Gagasan Anak Sarawak</span>
+                <span class="inline-flex items-center justify-center w-4 h-4 rounded-full bg-cyan text-ink text-[10px] font-black" title="Verified">✓</span>
+              </div>
+              <div class="flex items-center gap-2 font-mono text-[10px] text-fog mt-0.5">
+                <span class="text-cyan">@tegastf</span>
+                <span>·</span>
+                <span>27 September 2026</span>
+                <span>·</span>
+                <span class="inline-flex items-center gap-1">
+                  <svg class="w-3 h-3 text-fog" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                    <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 1.2a6.8 6.8 0 1 1 0 13.6 6.8 6.8 0 0 1 0-13.6zm.6 2.4a.6.6 0 0 0-1.2 0v4.2c0 .2.1.3.2.4l2.8 1.8a.6.6 0 1 0 .6-1l-2.4-1.5V3.6z"/>
+                  </svg>
+                  Final Day Recap
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Facebook Brand Icon -->
+          <a href="https://www.facebook.com/share/p/1D2KuJwfCT/" target="_blank" rel="noopener noreferrer"
+             class="w-9 h-9 rounded-full border border-line bg-panel flex items-center justify-center text-cyan hover:bg-cyan hover:text-ink transition-colors shrink-0"
+             aria-label="View on Facebook">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Post Content Excerpt -->
+        <div class="py-5 space-y-3 font-sans">
+          <p class="font-display font-bold text-lg sm:text-xl text-mist leading-snug">
+            DROBOTEX 2026 Turns Young Talent Into Tech Achievers
+          </p>
+          <p class="text-fog text-sm sm:text-base leading-relaxed">
+            The momentum continued into the final day of DROBOTEX 2026 as young talents put their skills, creativity and problem-solving capabilities into action across intense arena showdowns, hands-on labs, and future-forward innovation displays.
+          </p>
+          <p class="text-fog/80 text-xs sm:text-sm leading-relaxed">
+            Organised by Tabung Ekonomi Gagasan Anak Sarawak (TEGAS), this two-day event drew schools, tertiary institutions, and tech enthusiasts from across Sarawak, proving that the future of STEM and robotics is well and truly alive in the state.
+          </p>
+          <div class="flex flex-wrap gap-2 pt-2 font-mono text-[10px] text-cyan">
+            <span class="hover:underline">#TEGAS</span>
+            <span class="hover:underline">#DROBOTEX2026</span>
+            <span class="hover:underline">#SarawakSTEM</span>
+            <span class="hover:underline">#RoboticsExcellence</span>
+            <span class="hover:underline">#InnovateSarawak</span>
+          </div>
+        </div>
+
+        <!-- Post Media: TEGAS Event Photo -->
+        <div class="relative overflow-hidden border border-line/60 rounded bg-ink aspect-[16/10] sm:aspect-[16/9]">
+          <img src="partners/tegas_post_image.jpg"
+               alt="DROBOTEX 2026 official coverage by TEGAS"
+               class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-transparent pointer-events-none"></div>
+          <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between font-mono text-[9px] tracking-[0.2em] text-mist/90">
+            <span class="bg-ink/80 px-2.5 py-1 border border-line/40">ANG CHENG HO MULTIPURPOSE HALL</span>
+            <span class="bg-cyan/20 text-cyan border border-cyan/40 px-2.5 py-1 font-bold">26—27 SEPT 2026</span>
+          </div>
+        </div>
+
+        <!-- Card Action Footer -->
+        <div class="pt-5 mt-4 border-t border-line/40 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-4 font-mono text-[10px] text-fog">
+            <span class="flex items-center gap-1.5 text-cyan">
+              <span class="w-2 h-2 rounded-full bg-cyan"></span> Official Post
+            </span>
+            <span>·</span>
+            <span>Public Facebook Feed</span>
+          </div>
+
+          <a href="https://www.facebook.com/share/p/1D2KuJwfCT/" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.2em] text-mist hover:text-cyan font-bold transition-colors" data-hover>
+            <span>OPEN ON FACEBOOK</span>
+            <span>↗</span>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -820,7 +1004,7 @@ tailwind.config = {
           <img src="robot-pose-dynamic.png" alt="DROBOTEX robot mascot" class="pointer-events-none absolute -top-4 right-0 w-32 md:w-44 opacity-90 floaty" aria-hidden="true">
           <a href="#register" class="group" data-hover>
             <p class="font-display font-black text-4xl md:text-6xl leading-[1.02] txt-outline group-hover:text-mist transition-colors duration-500" style="-webkit-text-stroke-color:rgba(255,184,0,.6)">
-              ENTER<br>THE<br>ARENA <span class="text-red" style="-webkit-text-stroke:0">↗</span>
+              SEE YOU<br>IN 2027<br><span class="text-cyan">DROBOTEX</span> <span class="text-red" style="-webkit-text-stroke:0">↗</span>
             </p>
           </a>
         </div>
@@ -1240,127 +1424,100 @@ tailwind.config = {
   </div>
 </section>
 
-<!-- ==================== REGISTER ==================== -->
+<!-- ==================== FAREWELL & APPRECIATION ==================== -->
 <section id="register" class="relative px-6 md:px-16 lg:px-24 py-24 md:py-40 overflow-hidden">
   <div class="flex items-baseline gap-6 mb-12 md:mb-16 reveal">
     <span class="font-mono text-xs text-red tracking-[0.3em]">08</span>
-    <h2 class="font-mono text-xs tracking-[0.5em] text-fog">DEPLOYMENT</h2>
+    <h2 class="font-mono text-xs tracking-[0.5em] text-fog">FAREWELL &amp; APPRECIATION</h2>
     <span class="flex-1 h-px bg-line"></span>
-    <span class="font-mono text-[10px] tracking-[0.3em] text-cyan">// 3 SESSIONS AVAILABLE</span>
+    <span class="font-mono text-[10px] tracking-[0.3em] text-cyan">// DROBOTEX 2027 AHEAD</span>
   </div>
 
   <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
     <div class="lg:col-span-5 reveal relative">
       <img src="robot-pose-flight.png" alt="DROBOTEX robot mascot" class="pointer-events-none absolute hidden lg:block -top-6 right-4 w-40 xl:w-48 opacity-90 floaty" aria-hidden="true">
-      <h3 class="font-display font-black text-[clamp(2.6rem,8vw,6.5rem)] leading-[0.9]">
-        SECURE<br>YOUR <span class="text-red">SLOT</span><span class="text-cyan blink">_</span>
+      <h3 class="font-display font-black text-[clamp(2.6rem,7vw,5.5rem)] leading-[0.92]">
+        THANK YOU<br>FOR <span class="text-cyan">JOINING</span><br><span class="text-red">DROBOTEX</span><span class="text-cyan blink">_</span>
       </h3>
       <p class="mt-8 max-w-md text-fog leading-relaxed">
-        All registration tracks are now closed. We look forward to seeing everyone at DROBOTEX 2026.
+        To every team, pilot, coach, teacher, partner, and spectator who walked through the doors of Ang Cheng Ho Hall: thank you for making DROBOTEX 2026 an extraordinary milestone for STEM in Sarawak.
       </p>
       <div class="mt-10 flex flex-wrap gap-4 font-mono text-[10px] tracking-[0.25em]">
-        <span class="border border-red/40 bg-red/10 px-4 py-2 text-red font-bold">ALL REGISTRATIONS CLOSED</span>
-        <span class="border border-line px-4 py-2 text-fog">TEAM SLOTS FULL</span>
-        <span class="border border-line px-4 py-2 text-fog">PORTAL OFFLINE</span>
+        <span class="border border-cyan/40 bg-cyan/10 px-4 py-2 text-cyan font-bold">● MISSION ACCOMPLISHED</span>
+        <span class="border border-line px-4 py-2 text-fog">SEE YOU AT DROBOTEX 2027</span>
+        <span class="border border-line px-4 py-2 text-fog">POWERED BY TEGAS</span>
       </div>
     </div>
 
     <div class="lg:col-span-7 hud border border-line bg-panel/60 p-6 sm:p-8 md:p-10 reveal">
       <span class="hud-i"></span>
       <div class="flex items-center justify-between font-mono text-[10px] tracking-[0.3em] text-fog mb-6">
-        <span>// REGISTRATION PORTAL STATUS</span>
-        <span class="text-red font-bold">● CLOSED</span>
+        <span>// EVENT STATUS &amp; OUTLOOK</span>
+        <span class="text-cyan font-bold">● CONCLUDED</span>
       </div>
 
       <div class="space-y-4">
-        <!-- Track 1: Competition Participant -->
-        <div class="border border-line/40 hover:border-red/60 bg-ink/40 p-5 md:p-6 transition-colors duration-300">
+        <!-- Card 1: To Competitors & Schools -->
+        <div class="border border-line/40 hover:border-cyan/60 bg-ink/40 p-5 md:p-6 transition-colors duration-300">
           <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
             <div class="flex items-center gap-2">
-              <span class="font-mono text-[9px] tracking-[0.25em] text-red font-semibold">TRACK 01 · ARENAS</span>
-              <span class="border border-red/60 bg-red/15 text-red px-2 py-0.5 font-mono text-[8px] tracking-[0.2em] font-bold">REGISTRATION CLOSED</span>
+              <span class="font-mono text-[9px] tracking-[0.25em] text-cyan font-semibold">TRIBUTE 01</span>
+              <span class="border border-cyan/60 bg-cyan/15 text-cyan px-2 py-0.5 font-mono text-[8px] tracking-[0.2em] font-bold">ARENA CHAMPIONS</span>
             </div>
             <span class="font-mono text-[9px] tracking-[0.2em] text-fog">ALL 9 ARENAS</span>
           </div>
-          <h4 class="font-display font-bold text-xl md:text-2xl text-mist">COMPETITION PARTICIPANTS</h4>
+          <h4 class="font-display font-bold text-xl md:text-2xl text-mist">TO OUR COMPETITORS &amp; SCHOOLS</h4>
           <p class="text-fog text-xs md:text-sm mt-1.5 leading-relaxed">
-            For school, tertiary, and open teams entering any of the 9 competitive robotics &amp; drone arenas.
+            Across 9 arenas, teams pushed custom bots, drones, and algorithms to the limit. From first-time coders in Scratchathon to high-speed TinyWhoop pilots and Battlebots clashes, your determination and sportsmanship made this event truly memorable.
           </p>
-          <div class="mt-3.5 p-3 border border-red/40 bg-red/5 font-mono text-[9px] md:text-[10px] tracking-[0.12em] space-y-2">
-            <div class="flex items-center gap-2 text-red font-semibold">
-              <span class="w-1.5 h-1.5 bg-red rotate-45 shrink-0"></span>
-              <span>// NOTICE: COMPETITION REGISTRATION IS CURRENTLY CLOSED</span>
+          <div class="mt-3.5 p-3 border border-cyan/30 bg-cyan/5 font-mono text-[9px] md:text-[10px] tracking-[0.12em] space-y-1.5">
+            <div class="flex items-center gap-2 text-cyan font-semibold">
+              <span class="w-1.5 h-1.5 bg-cyan rotate-45 shrink-0"></span>
+              <span>// CONGRATULATIONS TO ALL TEAMS &amp; WINNERS</span>
             </div>
-            <div class="flex items-baseline gap-2 text-fog pl-3.5 border-t border-red/20 pt-1.5">
-              <span class="text-cyan font-bold shrink-0">STATUS //</span>
-              <span>All team slots across all 9 competitive arenas have reached maximum capacity.</span>
+            <div class="text-fog pl-3.5 text-[9px] leading-relaxed">
+              Certificates of participation, prizes, and trophies have been awarded. We salute your relentless curiosity!
             </div>
-          </div>
-          <div class="mt-4 flex flex-wrap items-center gap-3">
-            <button type="button" disabled
-                    class="inline-flex items-center border border-red/40 bg-red/10 px-5 py-2.5 text-red/80 font-mono text-[11px] tracking-[0.25em] cursor-not-allowed select-none opacity-90"
-                    aria-disabled="true">
-              <span>REGISTRATION CLOSED</span>
-            </button>
-            <span class="font-mono text-[9px] tracking-[0.15em] text-fog/70">// PORTAL OFFLINE</span>
           </div>
         </div>
 
-        <!-- Track 2: Workshop -->
+        <!-- Card 2: To Partners & Organizers -->
         <div class="border border-line/40 hover:border-red/60 bg-ink/40 p-5 md:p-6 transition-colors duration-300">
           <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
             <div class="flex items-center gap-2">
-              <span class="font-mono text-[9px] tracking-[0.25em] text-cyan font-semibold">TRACK 02 · LABS</span>
-              <span class="border border-red/60 bg-red/15 text-red px-2 py-0.5 font-mono text-[8px] tracking-[0.2em] font-bold">REGISTRATION CLOSED</span>
+              <span class="font-mono text-[9px] tracking-[0.25em] text-red font-semibold">TRIBUTE 02</span>
+              <span class="border border-red/60 bg-red/15 text-red px-2 py-0.5 font-mono text-[8px] tracking-[0.2em] font-bold">ECOSYSTEM PARTNERS</span>
             </div>
-            <span class="font-mono text-[9px] tracking-[0.2em] text-fog">6 SESSIONS · 2 DAYS</span>
+            <span class="font-mono text-[9px] tracking-[0.2em] text-fog">20+ INSTITUTIONS</span>
           </div>
-          <h4 class="font-display font-bold text-xl md:text-2xl text-mist">WORKSHOP SESSIONS</h4>
+          <h4 class="font-display font-bold text-xl md:text-2xl text-mist">TO OUR PARTNERS &amp; MENTORS</h4>
           <p class="text-fog text-xs md:text-sm mt-1.5 leading-relaxed">
-            For attendees joining hands-on drone assembly, FPV racing intro, 3D printing &amp; Python coding workshops.
+            Special thanks to Tabung Ekonomi Gagasan Anak Sarawak (TEGAS), our technical leads Catcity Drone Racing, Aksadron, Droneskaki, TCIL, STEM Ground, Lighthouse of Hope, Sarawak Science Centre, and all marshals, judges, and volunteers.
           </p>
-          <div class="mt-3.5 p-3 border border-red/40 bg-red/5 font-mono text-[9px] md:text-[10px] tracking-[0.12em] space-y-2">
-            <div class="flex items-center gap-2 text-red font-semibold">
-              <span class="w-1.5 h-1.5 bg-red rotate-45 shrink-0"></span>
-              <span>// NOTICE: WORKSHOP REGISTRATION IS CURRENTLY CLOSED</span>
-            </div>
-          </div>
-          <div class="mt-4 flex flex-wrap items-center gap-3">
-            <button type="button" disabled
-                    class="inline-flex items-center border border-red/40 bg-red/10 px-5 py-2.5 text-red/80 font-mono text-[11px] tracking-[0.25em] cursor-not-allowed select-none opacity-90"
-                    aria-disabled="true">
-              <span>REGISTRATION CLOSED</span>
-            </button>
-            <span class="font-mono text-[9px] tracking-[0.15em] text-fog/70">// ALL SESSIONS FULL</span>
-          </div>
         </div>
 
-        <!-- Track 3: Public Event -->
-        <div class="border border-line/40 hover:border-red/60 bg-ink/40 p-5 md:p-6 transition-colors duration-300">
+        <!-- Card 3: Looking Forward to DROBOTEX 2027 -->
+        <div class="border border-cyan/40 hover:border-cyan bg-cyan/5 p-5 md:p-6 transition-colors duration-300">
           <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
             <div class="flex items-center gap-2">
-              <span class="font-mono text-[9px] tracking-[0.25em] text-fog font-semibold">TRACK 03 · EXPO FLOOR</span>
-              <span class="border border-red/60 bg-red/15 text-red px-2 py-0.5 font-mono text-[8px] tracking-[0.2em] font-bold">REGISTRATION CLOSED</span>
+              <span class="font-mono text-[9px] tracking-[0.25em] text-yellow font-bold">NEXT HORIZON</span>
+              <span class="border border-yellow/60 bg-yellow/15 text-yellow px-2 py-0.5 font-mono text-[8px] tracking-[0.2em] font-bold">COMING 2027</span>
             </div>
-            <span class="font-mono text-[9px] tracking-[0.2em] text-cyan font-bold">EXPO FLOOR</span>
+            <span class="font-mono text-[9px] tracking-[0.2em] text-cyan font-bold">SARAWAK</span>
           </div>
-          <h4 class="font-display font-bold text-xl md:text-2xl text-mist">PUBLIC EVENT REGISTRATION</h4>
+          <h4 class="font-display font-bold text-xl md:text-2xl text-mist">SEE YOU AT DROBOTEX 2027!</h4>
           <p class="text-fog text-xs md:text-sm mt-1.5 leading-relaxed">
-            General admission pass for visitors, students, families, educators, and STEM hobbyists.
+            The mission doesn't stop here. DROBOTEX 2027 will return with larger arena tracks, next-generation AI robotics categories, and expanded regional invitations. Follow TEGAS official updates to be first in line when registration opens next year.
           </p>
-          <div class="mt-3.5 p-3 border border-red/40 bg-red/5 font-mono text-[9px] md:text-[10px] tracking-[0.12em] space-y-2">
-            <div class="flex items-center gap-2 text-red font-semibold">
-              <span class="w-1.5 h-1.5 bg-red rotate-45 shrink-0"></span>
-              <span>// NOTICE: VISITOR PASS REGISTRATION IS CURRENTLY CLOSED</span>
-            </div>
-          </div>
           <div class="mt-4 flex flex-wrap items-center gap-3">
-            <button type="button" disabled
-                    class="inline-flex items-center border border-red/40 bg-red/10 px-5 py-2.5 text-red/80 font-mono text-[11px] tracking-[0.25em] cursor-not-allowed select-none opacity-90"
-                    aria-disabled="true">
-              <span>REGISTRATION CLOSED</span>
-            </button>
-            <span class="font-mono text-[9px] tracking-[0.15em] text-fog/70">// CAPACITY REACHED</span>
+            <a href="https://www.facebook.com/tegastf/" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center border border-cyan bg-cyan/20 hover:bg-cyan hover:text-ink px-5 py-2.5 text-cyan font-mono text-[11px] tracking-[0.25em] font-bold transition-all" data-hover>
+              <span>FOLLOW TEGAS ON FACEBOOK ↗</span>
+            </a>
+            <a href="https://tegas.org.my" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center border border-line hover:border-mist px-5 py-2.5 text-fog hover:text-mist font-mono text-[11px] tracking-[0.2em] transition-colors" data-hover>
+              <span>TEGAS OFFICIAL PORTAL ↗</span>
+            </a>
           </div>
         </div>
       </div>
@@ -1379,15 +1536,16 @@ tailwind.config = {
     </div>
     <div class="md:col-span-3 font-mono text-[10px] tracking-[0.25em] text-fog space-y-3">
       <p class="text-cyan">// NAV</p>
-      <p><a href="#about" class="link-u" data-hover>MISSION BRIEF</a></p>
+      <p><a href="#about" class="link-u" data-hover>EVENT RECAP</a></p>
+      <p><a href="#tegas-post" class="link-u" data-hover>TEGAS MEDIA</a></p>
       <p><a href="#competitions" class="link-u" data-hover>THE NINE ARENAS</a></p>
       <p><a href="#workshops" class="link-u" data-hover>WORKSHOPS</a></p>
-      <p><a href="#exhibition" class="link-u" data-hover>EXPO FLOOR</a></p>
       <p><a href="#gallery" class="link-u" data-hover>GALLERY</a></p>
+      <p><a href="#partners" class="link-u" data-hover>PARTNERS</a></p>
     </div>
     <div class="md:col-span-4 font-mono text-[10px] tracking-[0.25em] text-fog space-y-3">
-      <p class="text-cyan">// DEPLOYMENT</p>
-      <p class="pt-1"><a href="#register" class="link-u text-mist" data-hover>REGISTER YOUR TEAM ↗</a></p>
+      <p class="text-cyan">// CONCLUSION</p>
+      <p class="pt-1"><a href="#register" class="link-u text-mist" data-hover>DROBOTEX 2027 PREVIEW ↗</a></p>
     </div>
   </div>
   <a href="https://www.google.com/maps/search/?api=1&query=Ang+Cheng+Ho+Multipurpose+Hall+Kuching" target="_blank" rel="noopener noreferrer"
@@ -1495,15 +1653,15 @@ tailwind.config = {
         <span class="text-fog">CONSOLATION (×2)</span>
         <span id="modal-consolation-val" class="font-bold text-mist">RM 200</span>
       </div>
-      <div id="modal-prereg-notice" class="hidden p-3 border border-red/40 bg-red/10 font-mono text-[10px] tracking-[0.15em] text-red font-semibold">
-        ⚠ NOTICE: THIS ARENA IS EXCLUSIVELY RESERVED FOR PRE-REGISTERED PARTICIPANTS.
+      <div id="modal-prereg-notice" class="hidden p-3 border border-cyan/40 bg-cyan/10 font-mono text-[10px] tracking-[0.15em] text-cyan font-semibold">
+        ✦ NOTICE: EVENT CONCLUDED · RESULTS AND PRIZES ANNOUNCED.
       </div>
     </div>
 
     <!-- Action Buttons -->
     <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-line/40">
       <button id="modal-action-btn" type="button" class="btn-glitch inline-flex items-center border border-cyan px-6 py-3 text-cyan font-mono text-xs tracking-[0.25em] cursor-pointer" data-hover>
-        <span id="modal-action-text">VIEW REGISTRATION TRACKS ↗</span>
+        <span id="modal-action-text">VIEW APPRECIATION &amp; 2027 ↗</span>
       </button>
       <button id="comp-modal-cancel" type="button" class="px-5 py-3 border border-line text-fog hover:text-mist hover:border-fog transition-colors font-mono text-xs tracking-[0.2em] cursor-pointer">
         CLOSE [ESC]
